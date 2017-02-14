@@ -45,8 +45,17 @@
 		"oA": 0,
 		"oAP": "\/build\/js\/min\/main-min.js",
 		"oF": 0,
-		"sC": 3,
+		"sC": 0,
 		"tS": 1
+		},
+	"\/js\/moment.js": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/build\/js\/min\/moment-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
 		},
 	"\/README.md": {
 		"cS": 0,
@@ -76,7 +85,7 @@
 	"displayValue": "schedule",
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-ron",
-	"lastBuiltDate": 508735579
+	"lastBuiltDate": 508789247
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
