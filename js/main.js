@@ -7,7 +7,7 @@ function CalEvent(props) {
     if (props.time.status) {
         eventInfo = <p>{props.time.statusString}</p>;
     } else {
-        eventInfo = " ";
+        eventInfo = <p>{props.time.statusString}</p>;
     }
     return (
         <div className={`sched-row cal-event ${props.time.statusString}`}>
