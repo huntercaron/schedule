@@ -125,9 +125,9 @@
 	"\/js\/moment.js": {
 		"ft": 64,
 		"mi": 0,
-		"oA": 0,
-		"oAP": "\/build\/js\/min\/moment-min.js",
-		"oF": 0,
+		"oA": 2,
+		"oAP": "\/build\/js\/moment.js",
+		"oF": 3,
 		"sC": 0,
 		"tS": 1
 		},
