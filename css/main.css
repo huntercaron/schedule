@@ -120,9 +120,7 @@ a:hover {
     display: flex;
 }
 
-.time {
-    text-align: right;
-}
+
 
 
 /* Sched
@@ -130,49 +128,57 @@ a:hover {
 
 .sched-body {
     display: flex;
-}
-
-.sched-row {
-    height: 40px;
+    width: 100%;
 }
 
 .sched-main {
     display: flex;
+    width: 100%;
 }
 
 #root {
     width: 100%;
+    max-width: 500px;
 }
 
 .sched-row {
-    height: 40px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    height: 30px;
 }
 
 .studio-col {
     flex: 1;
+    padding-right: 2px;
 }
 
-.time {
-    padding-right: 4px;
-}
 
-.time {
-    font-size: 1.2rem;
-    opacity: 0.7;
+
+.cal-event-box {
+    padding-bottom: 2px;
 }
 
 .cal-event {
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    border-radius: 2px;
 }
+
+.cal-event p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
 
 .cal-event.Available {
     background-color: lightGreen;
 }
 
 .cal-event.Closed {
-    opacity: 0.3;
+    opacity: 0;
 }
 
 .cal-event.Booked {
@@ -180,7 +186,18 @@ a:hover {
 }
 
 
-.cal-event p {
-    font-size: 1rem;
-    margin: 0;
+
+
+/* Times
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.time {
+    text-align: right;
+    padding-right: 8px;
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+
+.half-hour {
+    opacity: 0;
 }

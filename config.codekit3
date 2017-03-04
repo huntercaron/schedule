@@ -33,9 +33,9 @@
 		},
 	"\/data\/times.json": {
 		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/data\/times-min.json",
-		"oF": 0,
+		"oA": 0,
+		"oAP": "\/build\/data\/times.json",
+		"oF": 3,
 		"oO": 0,
 		"oS": 1
 		},
@@ -130,6 +130,12 @@
 		"oF": 3,
 		"sC": 0,
 		"tS": 1
+		},
+	"\/old.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/old.html",
+		"oF": 0
 		},
 	"\/python\/scrape.py": {
 		"ft": 8192,

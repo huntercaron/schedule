@@ -2,6 +2,7 @@
     {
         "facultyId": 11101,
         "facultyName": "Ceramic Studio",
+        "facultyInfo": "Our Ceramics studio offers a selection of glazes and tools, as well as a kick wheel, fifteen wheels, a slab roller, and electric kilns. Kilns are operated by the studio technician only, and cone 6 clay must be used for all work. For your convenience, clay can be purchased from the tecnician for $35 per bag or $5 per lump. Technicians are available during the drop-in times.\n All members using our Ceramics Studio are required to complete a two-hour safety workshop with the technician (an appointment can be booked at the Front Desk).\n Happy sculpting!",
         "days": [
             {
                 "day": 42795,
@@ -253,6 +254,7 @@
     {
         "facultyId": 11099,
         "facultyName": "Wood Working",
+        "facultyInfo": "Geared toward artists who are able to work without instruction. Individuals are expected to exhibit a good understanding of the materials, tools and processes required to safely practice independently in the studio. The successful completion of a woodshop safety test is required (additional fee) to access this drop-in.\n The woodshop technician will be on site. Heavy machinery is available including: tablesaw, bandsaw, drill press, lathe, mini lathe, hollow chisel mortiser, spindle sander, edge sander, mitre saw, scroll saw, router table and down draft table.\n Project proposals will be reviewed by the technician to assess appropriateness, materials, equipment needs, and storage needs. All deliveries of materials must be coordinated with the technician. Maximum 10 participants.",
         "days": [
             {
                 "day": 42795,
@@ -504,6 +506,7 @@
     {
         "facultyId": 11138,
         "facultyName": "Digital Art Studio",
+        "facultyInfo": "Geared toward artists who are able to work without instruction. Individuals are expected to exhibit a good understanding of the MacIntosh computer equipment and software to work independently in the studio. \n A total of 13 computer stations with Apple iMac 27\" Intel i5 3.1 GHZ, 16G RAM, AMD HD 6970m video card are available with access to digital scanner stations and HP colour LaserJet printer. Software includes: Adobe Creative Suite, Lightroom 5, Final Cut Pro X, Logic 9, Microsoft Office 2010.",
         "days": [
             {
                 "day": 42795,

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Boiled</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+
+<body>
+    <div class="container flex-grid flex-center">
+
+        <div>
+            <header>
+                <div class="title">
+                    <h1>Studio Schedule</h1>
+                </div>
+                <div class="days">
+                    <div id="tuesday" class="day">
+                        <p class="day-of-week">S</p>
+                        <h4 class="day-num"></h4>
+                    </div>
+                    <div id="monday" class="day">
+                        <p class="day-of-week">M</p>
+                        <h4 class="day-num"></h4>
+                    </div>
+                    <div class="day">
+                        <p class="day-of-week">T</p>
+                        <h4 class="day-num"></h4>
+                    </div>
+                    <div class="day">
+                        <p class="day-of-week">W</p>
+                        <h4 class="day-num"></h4>
+                    </div>
+                    <div class="day">
+                        <p class="day-of-week">T</p>
+                        <h4 class="day-num"></h4>
+                    </div>
+                    <div class="day">
+                        <p class="day-of-week">F</p>
+                        <h4 class="day-num"></h4>
+                    </div>
+                    <div class="day">
+                        <p class="day-of-week">S</p>
+                        <h4 class="day-num"></h4>
+                    </div>
+                </div>
+            </header>
+
+            <div class="schedule">
+                    <div class="sched-body">
+                        <div class="sched-col times">
+                            <div class="time-box">
+                                <!-- <div class="time sched-row" id="24-time">12am</div>
+                                <div class="time sched-row" id="24.5-time">12:30am</div>
+                                <div class="time sched-row" id="1-time">1am</div>
+                                <div class="time sched-row" id="1.5-time">1:30am</div>
+                                <div class="time sched-row" id="2-time">2am</div>
+                                <div class="time sched-row" id="2.5-time">2:30am</div>
+                                <div class="time sched-row" id="3-time">3am</div>
+                                <div class="time sched-row" id="3.5-time">3:30am</div>
+                                <div class="time sched-row" id="4-time">4am</div>
+                                <div class="time sched-row" id="4.5-time">4:30am</div>
+                                <div class="time sched-row" id="5-time">5am</div>
+                                <div class="time sched-row" id="5.5-time">5:30am</div>-->
+                                <div class="time sched-row" id="6-time">6am</div>
+                                <div class="time sched-row" id="6.5-time">6:30am</div>
+                                <div class="time sched-row" id="7-time">7am</div>
+                                <div class="time sched-row" id="7.5-time">7:30am</div>
+                                <div class="time sched-row" id="8-time">8am</div>
+                                <div class="time sched-row" id="8.5-time">8:30am</div>
+                                <div class="time sched-row" id="9-time">9am</div>
+                                <div class="time sched-row" id="9.5-time">9:30am</div>
+                                <div class="time sched-row" id="10-time">10am</div>
+                                <div class="time sched-row" id="10.5-time">10:30am</div>
+                                <div class="time sched-row" id="11-time">11am</div>
+                                <div class="time sched-row" id="11.5-time">11:30am</div>
+                                <div class="time sched-row" id="12-time">12pm</div>
+                                <div class="time sched-row" id="12.5-time">12:30pm</div>
+                                <div class="time sched-row" id="13-time">1pm</div>
+                                <div class="time sched-row" id="13.5-time">1:30pm</div>
+                                <div class="time sched-row" id="14-time">2pm</div>
+                                <div class="time sched-row" id="14.5-time">2:30pm</div>
+                                <div class="time sched-row" id="15-time">3pm</div>
+                                <div class="time sched-row" id="15.5-time">3:30pm</div>
+                                <div class="time sched-row" id="16-time">4pm</div>
+                                <div class="time sched-row" id="16.5-time">4:30pm</div>
+                                <div class="time sched-row" id="17-time">5pm</div>
+                                <div class="time sched-row" id="17.5-time">5:30pm</div>
+                                <div class="time sched-row" id="18-time">6pm</div>
+                                <div class="time sched-row" id="18.5-time">6:30pm</div>
+                                <div class="time sched-row" id="19-time">7pm</div>
+                                <div class="time sched-row" id="19.5-time">7:30pm</div>
+                                <div class="time sched-row" id="20-time">8pm</div>
+                                <div class="time sched-row" id="20.5-time">8:30pm</div>
+                                <div class="time sched-row" id="21-time">9pm</div>
+                                <div class="time sched-row" id="21.5-time">9:30pm</div>
+                                <div class="time sched-row" id="22-time">10pm</div>
+                                <div class="time sched-row" id="22.5-time">10:30pm</div>
+                                <div class="time sched-row" id="23-time">11pm</div>
+                                <div class="time sched-row" id="23.5-time">11:30pm</div>
+                            </div>
+                    </div>
+                    <div id="root" class="sched-col">
+
+                    </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/min/main-min.js"></script>
+</body>
+
+</html>
