@@ -143,7 +143,7 @@ a:hover {
 
 .sched-row {
     border-top: 1px solid rgba(0,0,0,0.05);
-    height: 30px;
+    height: 24px;
 }
 
 .studio-col {
@@ -200,4 +200,71 @@ a:hover {
 
 .half-hour {
     opacity: 0;
+}
+
+
+/* Date Selector
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.date-selector {
+    margin: 40px 0;
+}
+
+.selector-week {
+    display: flex;
+}
+
+.selector-day {
+    padding: 10px 0;
+    flex: 1;
+    text-align: center;
+}
+
+.day-of-week {
+    margin: 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.not-current-month {
+    opacity: 0.2;
+}
+
+.selector-day-today {
+    color: blue;
+}
+
+.selected-day .selector-day-inner {
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+.selector-day-inner {
+
+}
+
+.selector-day-inner .day-info {
+
+}
+
+/* Month Controls */
+
+.month-controls-box {
+    display: flex;
+}
+
+.month-controls {
+    flex: 1;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.month-controls:active {
+    flex: 1;
+    background: rgba(0,0,0,0.1);
+}
+
+.current-month {
+    margin: 0 5%;
 }

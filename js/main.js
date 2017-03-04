@@ -1,18 +1,5 @@
 var times = [];
-var eventHeight = 30;
-
-var startOfWeek = moment().startOf('week');
-var endOfWeek = moment().endOf('week');
-
-var days = [];
-var day = startOfWeek;
-
-while (day <= endOfWeek) {
-    days.push(day.toDate());
-    day = day.clone().add(1, 'd');
-}
-
-console.log(days);
+var eventHeight = 24;
 
 class CalEvent extends React.Component {
     render () {
@@ -108,9 +95,16 @@ class CalTimes extends React.Component {
 
 class SelectorDay extends React.Component {
     render () {
-        return (
-            <div className="day">
+        let selectedDay = (this.props.selectedDate.format("D") === this.props.day.format("D")) ? "selected-day" : "";
+        let notThisMonth = (this.props.selectedDate.format("M") !== this.props.day.format("M")) ? "not-current-month" : "";
+        let today = (moment().format("D") === this.props.day.format("D")) ? "selector-day-today" : "";
 
+        return (
+            <div id={this.props.day.format("ddd")} className={`selector-day ${selectedDay} ${notThisMonth} ${today}`}>
+                <div className="selector-day-inner">
+                    <p className="day-of-week day-info">{this.props.day.format("ddd")}</p>
+                    <h4 className="day-num day-info">{this.props.day.format("D")}</h4>
+                </div>
             </div>
         )
     }
@@ -118,24 +112,40 @@ class SelectorDay extends React.Component {
 
 class SelectorWeek extends React.Component {
     render () {
-        let startOfWeek = moment().startOf('week');
-        let endOfWeek = moment().endOf('week');
-
         let days = [];
         let day = this.props.startDate;
+        let scope = this;
 
-        while (day <= endOfWeek) {
-            days.push(day.toDate());
+        while (day <= this.props.endDate) {
+            days.push(day);
             day = day.clone().add(1, 'd');
         }
 
+        let selectedWeek = (this.props.selectedDate.clone().startOf("week").format("W") === this.props.startDate.format("W")) ? "selected-week" : "";
+
         return (
-            <div className="selector-week">
+            <div className={`selector-week ${selectedWeek}`}>
                 {days.map(function(day){
-                    return <p>{day}<br/></p>
+                    return <SelectorDay selectedDate={scope.props.selectedDate} day={day}/>
                 })}
             </div>
         )
+    }
+}
+
+class MonthControls extends React.Component {
+    render() {
+        return (
+            <div className="month-controls-box">
+                <button className="month-controls">
+                    <i className="fa fa-angle-left fa-2x" aria-hidden="true"> </i>
+                </button>
+                <h3 className="current-month">{moment().month(this.props.currentMonth).format("MMMM")}</h3>
+                <button className="month-controls">
+                    <i className="fa fa-angle-right fa-2x" aria-hidden="true"> </i>
+                </button>
+            </div>
+        );
     }
 }
 
@@ -143,21 +153,38 @@ class DateSelector extends React.Component {
     constructor(props) {
         super(props);
 
+        let currentMonth = parseInt(moment().format("M")-1);
+        console.log(currentMonth)
+
         this.state = {
-            viewMonth: false
+            viewMonth: true,
+            currentMonth: currentMonth,
+            selectedDate: moment().month(currentMonth)
         };
     }
 
     render () {
-        let month = moment();
-        console.log(month.startOf("week").toDate())
+        //UR DOING STUFF HERE TRYING TO FIGURE OUT HOW TO CACULATE THE WEEKS IN THE MONTH
+        let weekCount = 0;
+        let day = moment().month(this.state.currentMonth).date(0).startOf("week");
+        let weekdays = [];
+        let scope = this;
+
+        while (day.month() <= this.state.selectedDate.month()) {
+            weekdays.push(day);
+            day = day.clone().add(1, 'w');
+        }
+
         return (
             <div className="date-selector">
+                <MonthControls currentMonth={this.state.currentMonth}/>
                 <div className="selector-cal">
                     {this.state.viewMonth ? (
-                            <Studio startDate={moment().startOf('month')} endDate={moment().startOf('month').add(6, 'd')}/>
+                        weekdays.map(function(weekday){
+                            return <SelectorWeek selectedDate={scope.state.selectedDate} startDate={weekday.startOf('week')} endDate={weekday.clone().startOf('week').add(6, 'd')}/>
+                        })
                         ) : (
-                            <Studio startDate={moment().startOf('month')} endDate={moment().startOf('month').add(6, 'd')}/>
+                             <SelectorWeek selectedDate={scope.state.selectedDate} startDate={this.state.selectedDate.startOf('week')} endDate={this.state.selectedDate.startOf('week').clone().startOf('week').add(6, 'd')}/>
                         )}
                 </div>
             </div>
