@@ -99,6 +99,12 @@
 		"oAP": "\/build\/fonts\/MalloryMP-BookItalic.woff",
 		"oF": 0
 		},
+	"\/holder": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/holder",
+		"oF": 0
+		},
 	"\/images\/favicon.png": {
 		"ft": 32768,
 		"iS": 16683,

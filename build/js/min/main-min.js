@@ -94,13 +94,24 @@ class CalTimes extends React.Component {
 }
 
 class SelectorDay extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleSelectedDateChange = this.handleSelectedDateChange.bind(this);
+    }
+
+    handleSelectedDateChange(e) {
+        this.props.onSelectedDateChange(moment(e.target.closest(".selector-day").getAttribute("data-day")));
+    }
+
     render() {
-        let selectedDay = this.props.selectedDate.format("D") === this.props.day.format("D") ? "selected-day" : "";
-        let notThisMonth = this.props.selectedDate.format("M") !== this.props.day.format("M") ? "not-current-month" : "";
-        let today = moment().format("D") === this.props.day.format("D") ? "selector-day-today" : "";
+        let selectedDay = this.props.selectedDate.format("D") === this.props.day.format("D") && this.props.selectedDate.format("M") === this.props.day.format("M") ? "selected-day" : "";
+        let notThisMonth = (this.props.currentMonth + 1).toString() !== this.props.day.format("M") ? "not-current-month" : "";
+        let today = moment().format("D") === this.props.day.format("D") && moment().format("M") === this.props.day.format("M") ? "selector-day-today" : "";
 
         return _jsx("div", {
             id: this.props.day.format("ddd"),
+            "data-day": this.props.day.format(),
+            onClick: this.handleSelectedDateChange,
             className: `selector-day ${selectedDay} ${notThisMonth} ${today}`
         }, void 0, _jsx("div", {
             className: "selector-day-inner"
@@ -130,58 +141,87 @@ class SelectorWeek extends React.Component {
         }, void 0, days.map(function (day) {
             return _jsx(SelectorDay, {
                 selectedDate: scope.props.selectedDate,
-                day: day
+                currentMonth: scope.props.currentMonth,
+                day: day,
+                onSelectedDateChange: scope.props.onSelectedDateChange
             });
         }));
     }
 }
 
-var _ref = _jsx("button", {
-    className: "month-controls"
-}, void 0, _jsx("i", {
+var _ref = _jsx("i", {
     className: "fa fa-angle-left fa-2x",
     "aria-hidden": "true"
-}, void 0, " "));
+}, void 0, " ");
 
-var _ref2 = _jsx("button", {
-    className: "month-controls"
-}, void 0, _jsx("i", {
+var _ref2 = _jsx("i", {
     className: "fa fa-angle-right fa-2x",
     "aria-hidden": "true"
-}, void 0, " "));
+}, void 0, " ");
 
 class MonthControls extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleCurrentMonthChange = this.handleCurrentMonthChange.bind(this);
+    }
+
+    handleCurrentMonthChange(month) {
+        this.props.onCurrentMonthChange(month);
+    }
+
     render() {
+        let scope = this;
         return _jsx("div", {
             className: "month-controls-box"
-        }, void 0, _ref, _jsx("h3", {
+        }, void 0, _jsx("button", {
+            className: "month-controls",
+            onClick: () => this.handleCurrentMonthChange(this.props.currentMonth - 1)
+        }, void 0, _ref), _jsx("h3", {
             className: "current-month"
-        }, void 0, moment().month(this.props.currentMonth).format("MMMM")), _ref2);
+        }, void 0, moment().month(this.props.currentMonth).format("MMMM Y")), _jsx("button", {
+            className: "month-controls",
+            onClick: () => this.handleCurrentMonthChange(this.props.currentMonth + 1)
+        }, void 0, _ref2));
     }
 }
 
 class DateSelector extends React.Component {
     constructor(props) {
         super(props);
-
         let currentMonth = parseInt(moment().format("M") - 1);
-        console.log(currentMonth);
-
         this.state = {
             viewMonth: true,
             currentMonth: currentMonth,
             selectedDate: moment().month(currentMonth)
         };
+
+        this.handleSelectedDate = this.handleSelectedDate.bind(this);
+        this.handleCurrentMonth = this.handleCurrentMonth.bind(this);
+    }
+
+    handleSelectedDate(newDate) {
+        console.log(`selected ${newDate.toDate()}`);
+        this.setState({
+            currentMonth: parseInt(newDate.format("M") - 1),
+            selectedDate: newDate
+        });
+    }
+
+    handleCurrentMonth(newMonth) {
+        this.setState({
+            currentMonth: newMonth
+        });
     }
 
     render() {
         //UR DOING STUFF HERE TRYING TO FIGURE OUT HOW TO CACULATE THE WEEKS IN THE MONTH
         let weekCount = 0;
         let day = moment().month(this.state.currentMonth).date(0).startOf("week");
+        let currentMonth = moment().month(this.state.currentMonth);
         let weekdays = [];
         let scope = this;
 
-        while (day.month() <= this.state.selectedDate.month()) {
+        while (day.month() <= currentMonth.month()) {
             weekdays.push(day);
             day = day.clone().add(1, 'w');
         }
@@ -189,19 +229,23 @@ class DateSelector extends React.Component {
         return _jsx("div", {
             className: "date-selector"
         }, void 0, _jsx(MonthControls, {
-            currentMonth: this.state.currentMonth
+            currentMonth: this.state.currentMonth,
+            onCurrentMonthChange: this.handleCurrentMonth
         }), _jsx("div", {
             className: "selector-cal"
         }, void 0, this.state.viewMonth ? weekdays.map(function (weekday) {
             return _jsx(SelectorWeek, {
                 selectedDate: scope.state.selectedDate,
+                currentMonth: scope.state.currentMonth,
                 startDate: weekday.startOf('week'),
-                endDate: weekday.clone().startOf('week').add(6, 'd')
+                endDate: weekday.clone().startOf('week').add(6, 'd'),
+                onSelectedDateChange: scope.handleSelectedDate
             });
         }) : _jsx(SelectorWeek, {
             selectedDate: scope.state.selectedDate,
             startDate: this.state.selectedDate.startOf('week'),
-            endDate: this.state.selectedDate.startOf('week').clone().startOf('week').add(6, 'd')
+            endDate: this.state.selectedDate.startOf('week').clone().startOf('week').add(6, 'd'),
+            onSelectedDateChange: this.handleSelectedDate
         })));
     }
 }

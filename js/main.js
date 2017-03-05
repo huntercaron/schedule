@@ -94,13 +94,25 @@ class CalTimes extends React.Component {
 }
 
 class SelectorDay extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleSelectedDateChange = this.handleSelectedDateChange.bind(this);
+    }
+
+    handleSelectedDateChange(e) {
+        this.props.onSelectedDateChange(moment(e.target.closest(".selector-day").getAttribute("data-day")));
+    }
+
     render () {
-        let selectedDay = (this.props.selectedDate.format("D") === this.props.day.format("D")) ? "selected-day" : "";
-        let notThisMonth = (this.props.selectedDate.format("M") !== this.props.day.format("M")) ? "not-current-month" : "";
-        let today = (moment().format("D") === this.props.day.format("D")) ? "selector-day-today" : "";
+        let selectedDay = (this.props.selectedDate.format("D") === this.props.day.format("D") && (this.props.selectedDate.format("M") === this.props.day.format("M"))) ? "selected-day" : "";
+        let notThisMonth = ((this.props.currentMonth+1).toString() !== this.props.day.format("M")) ? "not-current-month" : "";
+        let today = (moment().format("D") === this.props.day.format("D") && (moment().format("M") === this.props.day.format("M"))) ? "selector-day-today" : "";
 
         return (
-            <div id={this.props.day.format("ddd")} className={`selector-day ${selectedDay} ${notThisMonth} ${today}`}>
+            <div id={this.props.day.format("ddd")}
+            data-day={this.props.day.format()}
+            onClick={this.handleSelectedDateChange}
+            className={`selector-day ${selectedDay} ${notThisMonth} ${today}`}>
                 <div className="selector-day-inner">
                     <p className="day-of-week day-info">{this.props.day.format("ddd")}</p>
                     <h4 className="day-num day-info">{this.props.day.format("D")}</h4>
@@ -126,7 +138,12 @@ class SelectorWeek extends React.Component {
         return (
             <div className={`selector-week ${selectedWeek}`}>
                 {days.map(function(day){
-                    return <SelectorDay selectedDate={scope.props.selectedDate} day={day}/>
+                    return <SelectorDay
+                            selectedDate={scope.props.selectedDate}
+                            currentMonth={scope.props.currentMonth}
+                            day={day}
+                            onSelectedDateChange={scope.props.onSelectedDateChange}
+                            />
                 })}
             </div>
         )
@@ -134,14 +151,24 @@ class SelectorWeek extends React.Component {
 }
 
 class MonthControls extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleCurrentMonthChange = this.handleCurrentMonthChange.bind(this);
+    }
+
+    handleCurrentMonthChange(month) {
+        this.props.onCurrentMonthChange(month)
+    }
+
     render() {
+        let scope = this;
         return (
             <div className="month-controls-box">
-                <button className="month-controls">
+                <button className="month-controls" onClick={() => this.handleCurrentMonthChange(this.props.currentMonth-1)} >
                     <i className="fa fa-angle-left fa-2x" aria-hidden="true"> </i>
                 </button>
-                <h3 className="current-month">{moment().month(this.props.currentMonth).format("MMMM")}</h3>
-                <button className="month-controls">
+                <h3 className="current-month">{moment().month(this.props.currentMonth).format("MMMM Y")}</h3>
+                <button className="month-controls" onClick={() => this.handleCurrentMonthChange(this.props.currentMonth+1)}>
                     <i className="fa fa-angle-right fa-2x" aria-hidden="true"> </i>
                 </button>
             </div>
@@ -152,39 +179,67 @@ class MonthControls extends React.Component {
 class DateSelector extends React.Component {
     constructor(props) {
         super(props);
-
         let currentMonth = parseInt(moment().format("M")-1);
-        console.log(currentMonth)
-
         this.state = {
             viewMonth: true,
             currentMonth: currentMonth,
             selectedDate: moment().month(currentMonth)
         };
+
+        this.handleSelectedDate = this.handleSelectedDate.bind(this);
+        this.handleCurrentMonth = this.handleCurrentMonth.bind(this);
+    }
+
+    handleSelectedDate(newDate) {
+        console.log(`selected ${newDate.toDate()}`)
+        this.setState({
+            currentMonth: parseInt(newDate.format("M")-1),
+            selectedDate: newDate
+        });
+    }
+
+    handleCurrentMonth(newMonth) {
+        this.setState({
+            currentMonth: newMonth
+        });
     }
 
     render () {
         //UR DOING STUFF HERE TRYING TO FIGURE OUT HOW TO CACULATE THE WEEKS IN THE MONTH
         let weekCount = 0;
         let day = moment().month(this.state.currentMonth).date(0).startOf("week");
+        let currentMonth = moment().month(this.state.currentMonth)
         let weekdays = [];
         let scope = this;
 
-        while (day.month() <= this.state.selectedDate.month()) {
+        while (day.month() <= currentMonth.month()) {
             weekdays.push(day);
             day = day.clone().add(1, 'w');
         }
 
         return (
             <div className="date-selector">
-                <MonthControls currentMonth={this.state.currentMonth}/>
+                <MonthControls
+                currentMonth={this.state.currentMonth}
+                onCurrentMonthChange={this.handleCurrentMonth}/>
                 <div className="selector-cal">
                     {this.state.viewMonth ? (
                         weekdays.map(function(weekday){
-                            return <SelectorWeek selectedDate={scope.state.selectedDate} startDate={weekday.startOf('week')} endDate={weekday.clone().startOf('week').add(6, 'd')}/>
+                            return <SelectorWeek
+                                    selectedDate={scope.state.selectedDate}
+                                    currentMonth={scope.state.currentMonth}
+                                    startDate={weekday.startOf('week')}
+                                    endDate={weekday.clone().startOf('week').add(6, 'd')}
+                                    onSelectedDateChange={scope.handleSelectedDate}
+                                    />
                         })
                         ) : (
-                             <SelectorWeek selectedDate={scope.state.selectedDate} startDate={this.state.selectedDate.startOf('week')} endDate={this.state.selectedDate.startOf('week').clone().startOf('week').add(6, 'd')}/>
+                             <SelectorWeek
+                             selectedDate={scope.state.selectedDate}
+                             startDate={this.state.selectedDate.startOf('week')}
+                             endDate={this.state.selectedDate.startOf('week').clone().startOf('week').add(6, 'd')}
+                             onSelectedDateChange={this.handleSelectedDate}
+                             />
                         )}
                 </div>
             </div>
@@ -236,7 +291,10 @@ class StudioCalendar extends React.Component {
             <div className="app-inner">
                 <div className="top-area">
                     {this.state.studios.length > 0 &&
-                        <StudioInfo data={this.state.studios} selected={this.state.selected} viewAll={this.state.viewAll}/>
+                        <StudioInfo
+                        data={this.state.studios}
+                        selected={this.state.selected}
+                        viewAll={this.state.viewAll}/>
                     }
                     <DateSelector />
                 </div>
@@ -244,7 +302,9 @@ class StudioCalendar extends React.Component {
                     <div className="sched-body">
                         <CalTimes />
                         {this.state.studios.length > 0 &&
-                            <CalendarBody data={this.state.studios} selected={this.state.selected} viewAll={this.state.viewAll}/>
+                            <CalendarBody data={this.state.studios}
+                            selected={this.state.selected}
+                            viewAll={this.state.viewAll}/>
                         }
                     </div>
                 </div>
