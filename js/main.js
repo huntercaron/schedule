@@ -105,7 +105,7 @@ class SelectorDay extends React.Component {
 
     render () {
         let selectedDay = (this.props.selectedDate.format("D") === this.props.day.format("D") && (this.props.selectedDate.format("M") === this.props.day.format("M"))) ? "selected-day" : "";
-        let notThisMonth = ((this.props.currentMonth+1).toString() !== this.props.day.format("M")) ? "not-current-month" : "";
+        let notThisMonth = (this.props.currentMonth.month() !== this.props.day.month()) ? "not-current-month" : "";
         let today = (moment().format("D") === this.props.day.format("D") && (moment().format("M") === this.props.day.format("M"))) ? "selector-day-today" : "";
 
         return (
@@ -164,11 +164,11 @@ class MonthControls extends React.Component {
         let scope = this;
         return (
             <div className="month-controls-box">
-                <button className="month-controls" onClick={() => this.handleCurrentMonthChange(this.props.currentMonth-1)} >
+                <button className="month-controls" onClick={() => this.handleCurrentMonthChange(this.props.currentMonth.clone().subtract(1, "months"))} >
                     <i className="fa fa-angle-left fa-2x" aria-hidden="true"> </i>
                 </button>
-                <h3 className="current-month">{moment().month(this.props.currentMonth).format("MMMM Y")}</h3>
-                <button className="month-controls" onClick={() => this.handleCurrentMonthChange(this.props.currentMonth+1)}>
+                <h3 className="current-month">{this.props.currentMonth.format("MMMM Y")}</h3>
+                <button className="month-controls" onClick={() => this.handleCurrentMonthChange(this.props.currentMonth.clone().add(1, "months"))}>
                     <i className="fa fa-angle-right fa-2x" aria-hidden="true"> </i>
                 </button>
             </div>
@@ -179,11 +179,11 @@ class MonthControls extends React.Component {
 class DateSelector extends React.Component {
     constructor(props) {
         super(props);
-        let currentMonth = parseInt(moment().format("M")-1);
+        let currentMonth = moment();
         this.state = {
             viewMonth: true,
             currentMonth: currentMonth,
-            selectedDate: moment().month(currentMonth)
+            selectedDate: moment().month(parseInt(currentMonth.format("M")-1))
         };
 
         this.handleSelectedDate = this.handleSelectedDate.bind(this);
@@ -193,7 +193,7 @@ class DateSelector extends React.Component {
     handleSelectedDate(newDate) {
         console.log(`selected ${newDate.toDate()}`)
         this.setState({
-            currentMonth: parseInt(newDate.format("M")-1),
+            currentMonth: newDate,
             selectedDate: newDate
         });
     }
@@ -207,14 +207,16 @@ class DateSelector extends React.Component {
     render () {
         //UR DOING STUFF HERE TRYING TO FIGURE OUT HOW TO CACULATE THE WEEKS IN THE MONTH
         let weekCount = 0;
-        let day = moment().month(this.state.currentMonth).date(0).startOf("week");
-        let currentMonth = moment().month(this.state.currentMonth)
+        let day = moment().month(parseInt(this.state.currentMonth.format("M")-1)).date(0).startOf("week");
+        let currentMonth = this.state.currentMonth.clone();
         let weekdays = [];
         let scope = this;
 
-        while (day.month() <= currentMonth.month()) {
+        while (day.month() <= currentMonth.month() || (day.format("M") == 12 && currentMonth.format("M") == 1)) {
             weekdays.push(day);
             day = day.clone().add(1, 'w');
+            if (weekdays.length > 32)
+                break;
         }
 
         return (
