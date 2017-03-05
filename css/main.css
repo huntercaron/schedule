@@ -185,6 +185,24 @@ a:hover {
     background-color: lightBlue;
 }
 
+/* Studio Info
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.studio-name-box {
+    display: flex;
+}
+
+.show-info-control {
+    max-width: 80px;
+    border: none;
+    background-color: white;
+    outline: none;
+}
+
+.show-info-control:active {
+    background-color: rgba(0,0,0, 0.1);
+}
+
 
 
 

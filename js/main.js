@@ -167,7 +167,7 @@ class MonthControls extends React.Component {
                 <button className="month-controls" onClick={() => this.handleCurrentMonthChange(this.props.currentMonth.clone().subtract(1, "months"))} >
                     <i className="fa fa-angle-left fa-2x" aria-hidden="true"> </i>
                 </button>
-                <h3 className="current-month">{this.props.currentMonth.format("MMMM Y")}</h3>
+                <h4 className="current-month">{this.props.currentMonth.format("MMMM Y")}</h4>
                 <button className="month-controls" onClick={() => this.handleCurrentMonthChange(this.props.currentMonth.clone().add(1, "months"))}>
                     <i className="fa fa-angle-right fa-2x" aria-hidden="true"> </i>
                 </button>
@@ -250,11 +250,45 @@ class DateSelector extends React.Component {
 }
 
 class StudioInfo extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            displayInfo: false
+        }
+
+        this.handleInfoDisplay = this.handleInfoDisplay.bind(this);
+    }
+
+    handleInfoDisplay(e) {
+        let display = !this.state.displayInfo;
+
+        this.setState({
+            displayInfo: display
+        });
+    }
+
     render () {
+        let scope = this;
+
+        let infoStyle = {
+            display: this.state.displayInfo ? "block" : "none"
+        };
+
+        let arrowStyle = {
+            transform: this.state.displayInfo ? "rotate(180deg)" : "rotate(0deg)"
+        };
+
         return (
             <div>
-                <h1>{this.props.data[this.props.selected].facultyName}</h1>
-                <div>
+                <div className="studio-name-box">
+                    <button className="show-info-control" onClick={this.handleInfoDisplay} >
+                        <i className="fa fa-angle-down fa-2x" style={arrowStyle} aria-hidden="true"> </i>
+                    </button>
+                    <h3>{this.props.data[this.props.selected].facultyName}</h3>
+                </div>
+
+                <div style={infoStyle}>
                     {this.props.data[this.props.selected].facultyInfo.split('\n').map(function(text){
                         return <p>{text}<br/></p>
                     })}

@@ -176,7 +176,7 @@ class MonthControls extends React.Component {
         }, void 0, _jsx("button", {
             className: "month-controls",
             onClick: () => this.handleCurrentMonthChange(this.props.currentMonth.clone().subtract(1, "months"))
-        }, void 0, _ref), _jsx("h3", {
+        }, void 0, _ref), _jsx("h4", {
             className: "current-month"
         }, void 0, this.props.currentMonth.format("MMMM Y")), _jsx("button", {
             className: "month-controls",
@@ -254,8 +254,47 @@ class DateSelector extends React.Component {
 var _ref3 = _jsx("br", {});
 
 class StudioInfo extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            displayInfo: false
+        };
+
+        this.handleInfoDisplay = this.handleInfoDisplay.bind(this);
+    }
+
+    handleInfoDisplay(e) {
+        let display = !this.state.displayInfo;
+
+        this.setState({
+            displayInfo: display
+        });
+    }
+
     render() {
-        return _jsx("div", {}, void 0, _jsx("h1", {}, void 0, this.props.data[this.props.selected].facultyName), _jsx("div", {}, void 0, this.props.data[this.props.selected].facultyInfo.split('\n').map(function (text) {
+        let scope = this;
+
+        let infoStyle = {
+            display: this.state.displayInfo ? "block" : "none"
+        };
+
+        let arrowStyle = {
+            transform: this.state.displayInfo ? "rotate(180deg)" : "rotate(0deg)"
+        };
+
+        return _jsx("div", {}, void 0, _jsx("div", {
+            className: "studio-name-box"
+        }, void 0, _jsx("button", {
+            className: "show-info-control",
+            onClick: this.handleInfoDisplay
+        }, void 0, _jsx("i", {
+            className: "fa fa-angle-down fa-2x",
+            style: arrowStyle,
+            "aria-hidden": "true"
+        }, void 0, " ")), _jsx("h3", {}, void 0, this.props.data[this.props.selected].facultyName)), _jsx("div", {
+            style: infoStyle
+        }, void 0, this.props.data[this.props.selected].facultyInfo.split('\n').map(function (text) {
             return _jsx("p", {}, void 0, text, _ref3);
         })));
     }
