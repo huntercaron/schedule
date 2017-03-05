@@ -200,14 +200,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility; }
 
-/* Grid
--------------------------------------------------- */
-.flex-grid {
+.container {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex; }
-
-.flex-center {
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -393,9 +389,17 @@ a:hover {
 .month-controls-box {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 60px; }
 
 .month-controls {
+  cursor: pointer;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -410,4 +414,5 @@ a:hover {
   background: rgba(0, 0, 0, 0.1); }
 
 .current-month {
+  cursor: pointer;
   margin: 0 5%; }

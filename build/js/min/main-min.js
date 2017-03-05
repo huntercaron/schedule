@@ -163,23 +163,44 @@ class MonthControls extends React.Component {
     constructor(props) {
         super(props);
         this.handleCurrentMonthChange = this.handleCurrentMonthChange.bind(this);
+        this.handleViewMonthChange = this.handleViewMonthChange.bind(this);
     }
 
     handleCurrentMonthChange(month) {
         this.props.onCurrentMonthChange(month);
     }
 
+    handleViewMonthChange(view) {
+        this.props.onViewMonthChange(view);
+    }
+
     render() {
         let scope = this;
+
+        let monthNavStyle = {
+            display: this.props.viewMonth ? "block" : "none"
+        };
+
+        let openMonthArrowStyle = {
+            transform: this.props.viewMonth ? "rotate(180deg)" : "rotate(0deg)"
+        };
+
         return _jsx("div", {
             className: "month-controls-box"
         }, void 0, _jsx("button", {
             className: "month-controls",
+            style: monthNavStyle,
             onClick: () => this.handleCurrentMonthChange(this.props.currentMonth.clone().subtract(1, "months"))
         }, void 0, _ref), _jsx("h4", {
-            className: "current-month"
-        }, void 0, this.props.currentMonth.format("MMMM Y")), _jsx("button", {
+            className: "current-month",
+            onClick: this.handleViewMonthChange
+        }, void 0, this.props.currentMonth.format("MMMM Y"), " ", _jsx("i", {
+            className: "fa fa-caret-down",
+            style: openMonthArrowStyle,
+            "aria-hidden": "true"
+        }), " "), _jsx("button", {
             className: "month-controls",
+            style: monthNavStyle,
             onClick: () => this.handleCurrentMonthChange(this.props.currentMonth.clone().add(1, "months"))
         }, void 0, _ref2));
     }
@@ -190,13 +211,14 @@ class DateSelector extends React.Component {
         super(props);
         let currentMonth = moment();
         this.state = {
-            viewMonth: true,
+            viewMonth: false,
             currentMonth: currentMonth,
             selectedDate: moment().month(parseInt(currentMonth.format("M") - 1))
         };
 
         this.handleSelectedDate = this.handleSelectedDate.bind(this);
         this.handleCurrentMonth = this.handleCurrentMonth.bind(this);
+        this.handleViewMonth = this.handleViewMonth.bind(this);
     }
 
     handleSelectedDate(newDate) {
@@ -210,6 +232,14 @@ class DateSelector extends React.Component {
     handleCurrentMonth(newMonth) {
         this.setState({
             currentMonth: newMonth
+        });
+    }
+
+    handleViewMonth(view) {
+        view = !this.state.viewMonth;
+
+        this.setState({
+            viewMonth: view
         });
     }
 
@@ -231,7 +261,9 @@ class DateSelector extends React.Component {
             className: "date-selector"
         }, void 0, _jsx(MonthControls, {
             currentMonth: this.state.currentMonth,
-            onCurrentMonthChange: this.handleCurrentMonth
+            onCurrentMonthChange: this.handleCurrentMonth,
+            viewMonth: this.state.viewMonth,
+            onViewMonthChange: this.handleViewMonth
         }), _jsx("div", {
             className: "selector-cal"
         }, void 0, this.state.viewMonth ? weekdays.map(function (weekday) {
@@ -244,8 +276,9 @@ class DateSelector extends React.Component {
             });
         }) : _jsx(SelectorWeek, {
             selectedDate: scope.state.selectedDate,
-            startDate: this.state.selectedDate.startOf('week'),
-            endDate: this.state.selectedDate.startOf('week').clone().startOf('week').add(6, 'd'),
+            currentMonth: scope.state.currentMonth,
+            startDate: this.state.selectedDate.clone().startOf('week'),
+            endDate: this.state.selectedDate.clone().startOf('week').startOf('week').add(6, 'd'),
             onSelectedDateChange: this.handleSelectedDate
         })));
     }
@@ -273,8 +306,6 @@ class StudioInfo extends React.Component {
     }
 
     render() {
-        let scope = this;
-
         let infoStyle = {
             display: this.state.displayInfo ? "block" : "none"
         };
@@ -297,6 +328,16 @@ class StudioInfo extends React.Component {
         }, void 0, this.props.data[this.props.selected].facultyInfo.split('\n').map(function (text) {
             return _jsx("p", {}, void 0, text, _ref3);
         })));
+    }
+}
+
+class StudioMenu extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            displayMenu: true
+
+        };
     }
 }
 
@@ -336,9 +377,9 @@ class StudioCalendar extends React.Component {
             data: this.state.studios,
             selected: this.state.selected,
             viewAll: this.state.viewAll
-        }), _ref4), _jsx("div", {
+        })), _jsx("div", {
             className: "schedule"
-        }, void 0, _jsx("div", {
+        }, void 0, _ref4, _jsx("div", {
             className: "sched-body"
         }, void 0, _ref5, this.state.studios.length > 0 && _jsx(CalendarBody, {
             data: this.state.studios,

@@ -74,15 +74,8 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-
-/* Grid
--------------------------------------------------- */
-
-.flex-grid {
+.container {
     display: flex;
-}
-
-.flex-center {
     align-items: center;
     justify-content: center;
 }
@@ -271,9 +264,13 @@ a:hover {
 
 .month-controls-box {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
 }
 
 .month-controls {
+    cursor: pointer;
     flex: 1;
     border: none;
     background: none;
@@ -286,5 +283,6 @@ a:hover {
 }
 
 .current-month {
+    cursor: pointer;
     margin: 0 5%;
 }
