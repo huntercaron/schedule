@@ -361,9 +361,9 @@ class StudioMenuItem extends React.Component {
 var _ref5 = _jsx("i", {
     className: "fa fa-angle-left fa-2x",
     "aria-hidden": "true"
-}, void 0, " ");
+}, void 0, " back");
 
-class BackToMenu extends React.Component {
+class BackToMenuButton extends React.Component {
     constructor(props) {
         super(props);
 
@@ -475,13 +475,16 @@ class StudioCalendar extends React.Component {
 
     handleViewAll(view) {
         this.setState({
-            viewAll: view
+            viewAll: view,
+            displayMenu: false
         });
     }
 
     render() {
         let menuStyle = {
-            display: this.state.displayMenu ? "block" : "none"
+            //display: this.state.displayMenu ? "block" : "none"
+            transform: this.state.displayMenu ? "translateX(0%)" : "translateX(-100%)",
+            opacity: this.state.displayMenu ? "1" : "1"
         };
 
         return _jsx("div", {
@@ -493,7 +496,7 @@ class StudioCalendar extends React.Component {
             style: menuStyle
         }), _jsx("div", {
             className: "top-area"
-        }, void 0, _jsx(BackToMenu, {
+        }, void 0, _jsx(BackToMenuButton, {
             onDisplayMenuChange: this.handleDisplayMenu
         }), this.state.studios.length > 0 && _jsx(StudioInfo, {
             data: this.state.studios,

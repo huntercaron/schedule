@@ -106,14 +106,21 @@ a:hover {
     color: #0FA0CE;
 }
 
+
+/* App
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.app-inner  {
+    display: relative;
+}
+
+
 /* Days
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .days {
     display: flex;
 }
-
-
 
 
 /* Sched
@@ -285,4 +292,20 @@ a:hover {
 .current-month {
     cursor: pointer;
     margin: 0 5%;
+}
+
+
+/* Studio Menu
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.studio-menu-box {
+    z-index: 2;
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.12);
+
+    transition: transform 225ms cubic-bezier(0.4, 0.0, 0.2, 1),
+    opacity 225ms cubic-bezier(0.4, 0.0, 0.2, 1);
 }
