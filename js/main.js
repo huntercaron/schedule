@@ -179,11 +179,11 @@ class MonthControls extends React.Component {
         return (
             <div className="month-controls-box">
                 <button className="month-controls" style={monthNavStyle} onClick={() => this.handleCurrentMonthChange(this.props.currentMonth.clone().subtract(1, "months"))} >
-                    <i className="fa fa-angle-left fa-2x" aria-hidden="true"> </i>
+                    <i className="material-icons">navigate_before</i>
                 </button>
-                <h4 className="current-month" onClick={this.handleViewMonthChange}>{this.props.currentMonth.format("MMMM Y")} <i className="fa fa-caret-down" style={openMonthArrowStyle} aria-hidden="true"></i> </h4>
+                <h4 className="current-month" onClick={this.handleViewMonthChange}>{this.props.currentMonth.format("MMMM Y")} <i className="material-icons" style={openMonthArrowStyle} aria-hidden="true">arrow_drop_down</i> </h4>
                 <button className="month-controls" style={monthNavStyle} onClick={() => this.handleCurrentMonthChange(this.props.currentMonth.clone().add(1, "months"))}>
-                    <i className="fa fa-angle-right fa-2x" aria-hidden="true"> </i>
+                    <i className="material-icons">navigate_next</i>
                 </button>
             </div>
         );
@@ -308,12 +308,11 @@ class StudioInfo extends React.Component {
         return (
             <div>
                 <div className="studio-name-box">
-                    <button className="show-info-control" onClick={this.handleInfoDisplay} >
-                        <i className="fa fa-angle-down fa-2x" style={arrowStyle} aria-hidden="true"> </i>
-                    </button>
                     <h3>{this.props.data[this.props.selected].facultyName}</h3>
                 </div>
-
+                <button className="show-info-control" onClick={this.handleInfoDisplay} >
+                    <i className="material-icons icon-left-align" style={arrowStyle} aria-hidden="true">arrow_drop_down</i> <p className="more-about-text">More about the studio</p>
+                </button>
                 <div style={infoStyle}>
                     {this.props.data[this.props.selected].facultyInfo.split('\n').map(function(text){
                         return <p>{text}<br/></p>
@@ -361,7 +360,7 @@ class BackToMenuButton extends React.Component {
     render() {
         return (
             <button className="back-button" onClick={() => this.handleDisplayMenuChange(true)} >
-                <i className="fa fa-angle-left fa-2x" aria-hidden="true"> back</i>
+                <i className="material-icons icon-left-align">arrow_back</i> <h6 className="back-button-text">back</h6>
             </button>
         )
     }
@@ -384,8 +383,9 @@ class StudioMenu extends React.Component {
     render() {
         return(
             <div className="studio-menu-box" style={this.props.style}>
-                <div className="studio-menu-intro">
-                    <h2>Good Morning</h2>
+                <div className="studio-menu-welcome">
+                    <h2 className="welcome-message">Good Afternoon</h2>
+                    <p className="welcome-help">Select a studio to see it&apos;s availibility.</p>
                 </div>
                 <div className="studio-buttons-box">
                     {this.props.data.map((studio, i) => {
@@ -396,7 +396,7 @@ class StudioMenu extends React.Component {
                                 onSelectedStudioChange={this.props.onSelectedStudioChange}/>
                     })}
 
-                    <div className="studio-menu-item" onClick={() => this.handleViewAllChange(true)}>
+                    <div className="studio-menu-item compare-all" onClick={() => this.handleViewAllChange(true)}>
                         <div className="studio-menu-item-img">
                         </div>
                         <h4 className="studio-menu-item-name" >Compare All Studios</h4>
@@ -459,8 +459,8 @@ class StudioCalendar extends React.Component {
     render() {
         let menuStyle = {
             //display: this.state.displayMenu ? "block" : "none"
-            transform: this.state.displayMenu ? "translateX(0%)" : "translateX(-100%)",
-            opacity: this.state.displayMenu ? "1" : "1"
+            transform: this.state.displayMenu ? "translateX(0%)" : "translateX(-110%)",
+            opacity: this.state.displayMenu ? "1" : "0"
         };
 
         return (
@@ -468,6 +468,7 @@ class StudioCalendar extends React.Component {
                 {this.state.studios.length > 0 &&
                     <StudioMenu
                     data={this.state.studios}
+                    selectedStudio={this.state.selectedStudio}
                     onSelectedStudioChange={this.handleSelectedStudio}
                     onViewAllChange={this.handleViewAll}
                     style={menuStyle}/>

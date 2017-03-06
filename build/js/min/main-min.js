@@ -149,16 +149,6 @@ class SelectorWeek extends React.Component {
     }
 }
 
-var _ref = _jsx("i", {
-    className: "fa fa-angle-left fa-2x",
-    "aria-hidden": "true"
-}, void 0, " ");
-
-var _ref2 = _jsx("i", {
-    className: "fa fa-angle-right fa-2x",
-    "aria-hidden": "true"
-}, void 0, " ");
-
 class MonthControls extends React.Component {
     constructor(props) {
         super(props);
@@ -191,18 +181,22 @@ class MonthControls extends React.Component {
             className: "month-controls",
             style: monthNavStyle,
             onClick: () => this.handleCurrentMonthChange(this.props.currentMonth.clone().subtract(1, "months"))
-        }, void 0, _ref), _jsx("h4", {
+        }, void 0, _jsx("i", {
+            className: "material-icons"
+        }, void 0, "navigate_before")), _jsx("h4", {
             className: "current-month",
             onClick: this.handleViewMonthChange
         }, void 0, this.props.currentMonth.format("MMMM Y"), " ", _jsx("i", {
-            className: "fa fa-caret-down",
+            className: "material-icons",
             style: openMonthArrowStyle,
             "aria-hidden": "true"
-        }), " "), _jsx("button", {
+        }, void 0, "arrow_drop_down"), " "), _jsx("button", {
             className: "month-controls",
             style: monthNavStyle,
             onClick: () => this.handleCurrentMonthChange(this.props.currentMonth.clone().add(1, "months"))
-        }, void 0, _ref2));
+        }, void 0, _jsx("i", {
+            className: "material-icons"
+        }, void 0, "navigate_next")));
     }
 }
 
@@ -284,8 +278,6 @@ class DateSelector extends React.Component {
     }
 }
 
-var _ref3 = _jsx("br", {});
-
 class StudioInfo extends React.Component {
     constructor(props) {
         super(props);
@@ -316,24 +308,22 @@ class StudioInfo extends React.Component {
 
         return _jsx("div", {}, void 0, _jsx("div", {
             className: "studio-name-box"
-        }, void 0, _jsx("button", {
+        }, void 0, _jsx("h3", {}, void 0, this.props.data[this.props.selected].facultyName)), _jsx("button", {
             className: "show-info-control",
             onClick: this.handleInfoDisplay
         }, void 0, _jsx("i", {
-            className: "fa fa-angle-down fa-2x",
+            className: "material-icons icon-left-align",
             style: arrowStyle,
             "aria-hidden": "true"
-        }, void 0, " ")), _jsx("h3", {}, void 0, this.props.data[this.props.selected].facultyName)), _jsx("div", {
+        }, void 0, "arrow_drop_down"), " ", _jsx("p", {
+            className: "more-about-text"
+        }, void 0, "More about the studio")), _jsx("div", {
             style: infoStyle
         }, void 0, this.props.data[this.props.selected].facultyInfo.split('\n').map(function (text) {
-            return _jsx("p", {}, void 0, text, _ref3);
+            return _jsx("p", {}, void 0, text, _jsx("br", {}));
         })));
     }
 }
-
-var _ref4 = _jsx("div", {
-    className: "studio-menu-item-img"
-}, void 0);
 
 class StudioMenuItem extends React.Component {
     constructor(props) {
@@ -350,18 +340,15 @@ class StudioMenuItem extends React.Component {
         return _jsx("div", {
             className: "studio-menu-item",
             onClick: () => this.handleSelectedStudioChange(this.props.studioNum)
-        }, void 0, _ref4, _jsx("h4", {
+        }, void 0, _jsx("div", {
+            className: "studio-menu-item-img"
+        }, void 0), _jsx("h4", {
             className: "studio-menu-item-name"
         }, void 0, this.props.studioName), _jsx("p", {
             className: "studio-menu-item-times"
         }, void 0, `Open Until 9pm`));
     }
 }
-
-var _ref5 = _jsx("i", {
-    className: "fa fa-angle-left fa-2x",
-    "aria-hidden": "true"
-}, void 0, " back");
 
 class BackToMenuButton extends React.Component {
     constructor(props) {
@@ -378,21 +365,13 @@ class BackToMenuButton extends React.Component {
         return _jsx("button", {
             className: "back-button",
             onClick: () => this.handleDisplayMenuChange(true)
-        }, void 0, _ref5);
+        }, void 0, _jsx("i", {
+            className: "material-icons icon-left-align"
+        }, void 0, "arrow_back"), " ", _jsx("h6", {
+            className: "back-button-text"
+        }, void 0, "back"));
     }
 }
-
-var _ref6 = _jsx("div", {
-    className: "studio-menu-intro"
-}, void 0, _jsx("h2", {}, void 0, "Good Morning"));
-
-var _ref7 = _jsx("div", {
-    className: "studio-menu-item-img"
-}, void 0);
-
-var _ref8 = _jsx("h4", {
-    className: "studio-menu-item-name"
-}, void 0, "Compare All Studios");
 
 class StudioMenu extends React.Component {
     constructor(props) {
@@ -412,7 +391,13 @@ class StudioMenu extends React.Component {
         return _jsx("div", {
             className: "studio-menu-box",
             style: this.props.style
-        }, void 0, _ref6, _jsx("div", {
+        }, void 0, _jsx("div", {
+            className: "studio-menu-welcome"
+        }, void 0, _jsx("h2", {
+            className: "welcome-message"
+        }, void 0, "Good Afternoon"), _jsx("p", {
+            className: "welcome-help"
+        }, void 0, "Select a studio to see it's availibility.")), _jsx("div", {
             className: "studio-buttons-box"
         }, void 0, this.props.data.map((studio, i) => {
             return _jsx(StudioMenuItem, {
@@ -422,15 +407,15 @@ class StudioMenu extends React.Component {
                 onSelectedStudioChange: this.props.onSelectedStudioChange
             });
         }), _jsx("div", {
-            className: "studio-menu-item",
+            className: "studio-menu-item compare-all",
             onClick: () => this.handleViewAllChange(true)
-        }, void 0, _ref7, _ref8)));
+        }, void 0, _jsx("div", {
+            className: "studio-menu-item-img"
+        }, void 0), _jsx("h4", {
+            className: "studio-menu-item-name"
+        }, void 0, "Compare All Studios"))));
     }
 }
-
-var _ref9 = _jsx(DateSelector, {});
-
-var _ref10 = _jsx(CalTimes, {});
 
 class StudioCalendar extends React.Component {
     constructor(props) {
@@ -483,14 +468,15 @@ class StudioCalendar extends React.Component {
     render() {
         let menuStyle = {
             //display: this.state.displayMenu ? "block" : "none"
-            transform: this.state.displayMenu ? "translateX(0%)" : "translateX(-100%)",
-            opacity: this.state.displayMenu ? "1" : "1"
+            transform: this.state.displayMenu ? "translateX(0%)" : "translateX(-110%)",
+            opacity: this.state.displayMenu ? "1" : "0"
         };
 
         return _jsx("div", {
             className: "app-inner"
         }, void 0, this.state.studios.length > 0 && _jsx(StudioMenu, {
             data: this.state.studios,
+            selectedStudio: this.state.selectedStudio,
             onSelectedStudioChange: this.handleSelectedStudio,
             onViewAllChange: this.handleViewAll,
             style: menuStyle
@@ -504,9 +490,9 @@ class StudioCalendar extends React.Component {
             viewAll: this.state.viewAll
         })), _jsx("div", {
             className: "schedule"
-        }, void 0, _ref9, _jsx("div", {
+        }, void 0, _jsx(DateSelector, {}), _jsx("div", {
             className: "sched-body"
-        }, void 0, _ref10, this.state.studios.length > 0 && _jsx(CalendarBody, {
+        }, void 0, _jsx(CalTimes, {}), this.state.studios.length > 0 && _jsx(CalendarBody, {
             data: this.state.studios,
             selected: this.state.selectedStudio,
             viewAll: this.state.viewAll

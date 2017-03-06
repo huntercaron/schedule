@@ -99,6 +99,54 @@
 		"oAP": "\/build\/fonts\/MalloryMP-BookItalic.woff",
 		"oF": 0
 		},
+	"\/fonts\/MalloryMP-Light.eot": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/fonts\/MalloryMP-Light.eot",
+		"oF": 0
+		},
+	"\/fonts\/MalloryMP-Light.woff": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/fonts\/MalloryMP-Light.woff",
+		"oF": 0
+		},
+	"\/fonts\/MalloryMP-LightItalic.eot": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/fonts\/MalloryMP-LightItalic.eot",
+		"oF": 0
+		},
+	"\/fonts\/MalloryMP-LightItalic.woff": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/fonts\/MalloryMP-LightItalic.woff",
+		"oF": 0
+		},
+	"\/fonts\/MalloryMP-Medium.eot": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/fonts\/MalloryMP-Medium.eot",
+		"oF": 0
+		},
+	"\/fonts\/MalloryMP-Medium.woff": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/fonts\/MalloryMP-Medium.woff",
+		"oF": 0
+		},
+	"\/fonts\/MalloryMP-MediumItalic.eot": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/fonts\/MalloryMP-MediumItalic.eot",
+		"oF": 0
+		},
+	"\/fonts\/MalloryMP-MediumItalic.woff": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/fonts\/MalloryMP-MediumItalic.woff",
+		"oF": 0
+		},
 	"\/holder": {
 		"ft": 8192,
 		"oA": 2,

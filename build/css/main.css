@@ -180,6 +180,62 @@ td, th {
   font-weight: 800;
   font-style: normal; }
 
+@font-face {
+  font-family: 'Mallory';
+  src: url("../fonts/MalloryMP-MediumItalic.eot");
+  src: url("../fonts/MalloryMP-MediumItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Mallory';
+  src: url("../fonts/MalloryMP-Medium.eot");
+  src: url("../fonts/MalloryMP-Medium.woff") format("woff");
+  font-weight: 600;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Mallory';
+  src: url("../fonts/MalloryMP-LightItalic.eot");
+  src: url("../fonts/MalloryMP-LightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Mallory';
+  src: url("../fonts/MalloryMP-Light.eot");
+  src: url("../fonts/MalloryMP-Light.woff") format("woff");
+  font-weight: 200;
+  font-style: normal; }
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  vertical-align: text-top;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  -webkit-font-feature-settings: 'liga';
+          font-feature-settings: 'liga'; }
+
+.icon-left-align {
+  text-align: left !important;
+  margin-left: -1rem; }
+
 /* Global Stuff
 -------------------------------------------------- */
 *, *:before, *:after {
@@ -259,7 +315,23 @@ a:hover {
 /* App
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .app-inner {
-  display: relative; }
+  display: relative;
+  padding: 4%; }
+
+.back-button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  vertical-align: middle;
+  line-height: 0;
+  margin: 20px  0; }
+
+.back-button:active {
+  background-color: rgba(0, 0, 0, 0.05); }
+
+.back-button-text {
+  vertical-align: top;
+  display: inline; }
 
 /* Days
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -328,16 +400,38 @@ a:hover {
 
 /* Studio Info
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.top-area {
+  background-color: #F9F9F9;
+  padding: calc(2rem + 2%); }
+
 .studio-name-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
 
 .show-info-control {
-  max-width: 80px;
+  height: 3rem;
+  max-width: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: none;
-  background-color: white;
+  background-color: transparent;
   outline: none; }
+
+.show-info-control .more-about-text {
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 0;
+  padding-left: 6px; }
 
 .show-info-control:active {
   background-color: rgba(0, 0, 0, 0.1); }
@@ -356,7 +450,7 @@ a:hover {
 /* Date Selector
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .date-selector {
-  margin: 40px 0; }
+  margin: 1rem 0 40px 0; }
 
 .selector-week {
   display: -webkit-box;
@@ -380,6 +474,14 @@ a:hover {
   opacity: 0.2; }
 
 .selector-day-today .selector-day-inner {
+  background-color: rgba(0, 0, 255, 0.08);
+  border-radius: 6px; }
+
+.selected-day .selector-day-inner {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 6px; }
+
+.selector-day-today.selected-day .selector-day-inner {
   background-color: rgba(0, 0, 255, 0.08);
   border-radius: 6px; }
 
@@ -426,12 +528,58 @@ a:hover {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .studio-menu-box {
   z-index: 2;
-  position: absolute;
+  position: fixed;
+  top: 0;
   background-color: white;
-  width: 100%;
+  width: 92%;
   height: 100%;
-  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.12);
-  -webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 225ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 225ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1), opacity 225ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1), opacity 225ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 225ms cubic-bezier(0.4, 0, 0.2, 1); }
+  margin: auto;
+  max-width: 500px;
+  -webkit-transition: opacity 180ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 225ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 180ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 225ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1), opacity 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1), opacity 180ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 225ms cubic-bezier(0.4, 0, 0.2, 1); }
+
+.studio-menu-item {
+  cursor: pointer;
+  margin-bottom: 2rem;
+  width: 100%;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: calc(1rem + 2%); }
+
+.studio-menu-item:active {
+  background-color: rgba(0, 0, 0, 0.01);
+  border: 1px solid rgba(0, 0, 0, 0.8); }
+
+.studio-menu-item-name {
+  font-weight: 600;
+  font-size: 2.4rem; }
+
+.studio-menu-item-times {
+  font-weight: 200;
+  margin: 0;
+  font-size: 1.4rem; }
+
+.studio-menu-welcome {
+  margin: 3rem 0; }
+
+.welcome-message {
+  font-weight: 600; }
+
+.welcome-help {
+  margin-top: 0px;
+  padding-left: 3px; }
+
+.compare-all .studio-menu-item-name {
+  font-size: 1.8rem; }
