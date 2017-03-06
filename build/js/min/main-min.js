@@ -24,7 +24,7 @@ class Studio extends React.Component {
     render() {
         let scope = this;
         let count = 1;
-        console.log(scope.props.data);
+
         return _jsx("div", {
             className: "studio-col"
         }, void 0, this.props.data.days[0].times.map(function (time, i) {
@@ -331,19 +331,106 @@ class StudioInfo extends React.Component {
     }
 }
 
+var _ref4 = _jsx("div", {
+    className: "studio-menu-item-img"
+}, void 0);
+
+class StudioMenuItem extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.handleSelectedStudioChange = this.handleSelectedStudioChange.bind(this);
+    }
+
+    handleSelectedStudioChange(studioNum) {
+        this.props.onSelectedStudioChange(studioNum);
+    }
+
+    render() {
+        return _jsx("div", {
+            className: "studio-menu-item",
+            onClick: () => this.handleSelectedStudioChange(this.props.studioNum)
+        }, void 0, _ref4, _jsx("h4", {
+            className: "studio-menu-item-name"
+        }, void 0, this.props.studioName), _jsx("p", {
+            className: "studio-menu-item-times"
+        }, void 0, `Open Until 9pm`));
+    }
+}
+
+var _ref5 = _jsx("i", {
+    className: "fa fa-angle-left fa-2x",
+    "aria-hidden": "true"
+}, void 0, " ");
+
+class BackToMenu extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.handleDisplayMenuChange = this.handleDisplayMenuChange.bind(this);
+    }
+
+    handleDisplayMenuChange(view) {
+        this.props.onDisplayMenuChange(view);
+    }
+
+    render() {
+        return _jsx("button", {
+            className: "back-button",
+            onClick: () => this.handleDisplayMenuChange(true)
+        }, void 0, _ref5);
+    }
+}
+
+var _ref6 = _jsx("div", {
+    className: "studio-menu-intro"
+}, void 0, _jsx("h2", {}, void 0, "Good Morning"));
+
+var _ref7 = _jsx("div", {
+    className: "studio-menu-item-img"
+}, void 0);
+
+var _ref8 = _jsx("h4", {
+    className: "studio-menu-item-name"
+}, void 0, "Compare All Studios");
+
 class StudioMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             displayMenu: true
-
         };
+
+        this.handleViewAllChange = this.handleViewAllChange.bind(this);
+    }
+
+    handleViewAllChange(view) {
+        this.props.onViewAllChange(view);
+    }
+
+    render() {
+        return _jsx("div", {
+            className: "studio-menu-box",
+            style: this.props.style
+        }, void 0, _ref6, _jsx("div", {
+            className: "studio-buttons-box"
+        }, void 0, this.props.data.map((studio, i) => {
+            return _jsx(StudioMenuItem, {
+                studioName: studio.facultyName,
+                studioTimes: studio.days[0],
+                studioNum: i,
+                onSelectedStudioChange: this.props.onSelectedStudioChange
+            });
+        }), _jsx("div", {
+            className: "studio-menu-item",
+            onClick: () => this.handleViewAllChange(true)
+        }, void 0, _ref7, _ref8)));
     }
 }
 
-var _ref4 = _jsx(DateSelector, {});
+var _ref9 = _jsx(DateSelector, {});
 
-var _ref5 = _jsx(CalTimes, {});
+var _ref10 = _jsx(CalTimes, {});
 
 class StudioCalendar extends React.Component {
     constructor(props) {
@@ -351,9 +438,15 @@ class StudioCalendar extends React.Component {
 
         this.state = {
             studios: [],
-            selected: 0,
-            viewAll: false
+            selectedDay: 0,
+            selectedStudio: 0,
+            viewAll: false,
+            displayMenu: true
         };
+
+        this.handleSelectedStudio = this.handleSelectedStudio.bind(this);
+        this.handleViewAll = this.handleViewAll.bind(this);
+        this.handleDisplayMenu = this.handleDisplayMenu.bind(this);
     }
 
     componentDidMount() {
@@ -361,29 +454,58 @@ class StudioCalendar extends React.Component {
             const studios = res.data;
             console.log(studios);
             this.setState({
-                studios: studios,
-                selected: 2,
-                viewAll: false
+                studios: studios
             });
         });
     }
 
+    handleSelectedStudio(studio) {
+        this.setState({
+            selectedStudio: studio,
+            viewAll: false,
+            displayMenu: false
+        });
+    }
+
+    handleDisplayMenu(view) {
+        this.setState({
+            displayMenu: view
+        });
+    }
+
+    handleViewAll(view) {
+        this.setState({
+            viewAll: view
+        });
+    }
+
     render() {
+        let menuStyle = {
+            display: this.state.displayMenu ? "block" : "none"
+        };
+
         return _jsx("div", {
             className: "app-inner"
-        }, void 0, _jsx("div", {
-            className: "top-area"
-        }, void 0, this.state.studios.length > 0 && _jsx(StudioInfo, {
+        }, void 0, this.state.studios.length > 0 && _jsx(StudioMenu, {
             data: this.state.studios,
-            selected: this.state.selected,
+            onSelectedStudioChange: this.handleSelectedStudio,
+            onViewAllChange: this.handleViewAll,
+            style: menuStyle
+        }), _jsx("div", {
+            className: "top-area"
+        }, void 0, _jsx(BackToMenu, {
+            onDisplayMenuChange: this.handleDisplayMenu
+        }), this.state.studios.length > 0 && _jsx(StudioInfo, {
+            data: this.state.studios,
+            selected: this.state.selectedStudio,
             viewAll: this.state.viewAll
         })), _jsx("div", {
             className: "schedule"
-        }, void 0, _ref4, _jsx("div", {
+        }, void 0, _ref9, _jsx("div", {
             className: "sched-body"
-        }, void 0, _ref5, this.state.studios.length > 0 && _jsx(CalendarBody, {
+        }, void 0, _ref10, this.state.studios.length > 0 && _jsx(CalendarBody, {
             data: this.state.studios,
-            selected: this.state.selected,
+            selected: this.state.selectedStudio,
             viewAll: this.state.viewAll
         }))));
     }

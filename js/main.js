@@ -23,7 +23,7 @@ class Studio extends React.Component {
     render() {
         let scope = this;
         let count = 1;
-        console.log(scope.props.data);
+
         return (
           <div className="studio-col">
               {
@@ -324,13 +324,86 @@ class StudioInfo extends React.Component {
     }
 }
 
+class StudioMenuItem extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.handleSelectedStudioChange = this.handleSelectedStudioChange.bind(this);
+    }
+
+    handleSelectedStudioChange(studioNum) {
+        this.props.onSelectedStudioChange(studioNum)
+    }
+
+    render() {
+        return(
+            <div className="studio-menu-item" onClick={() => this.handleSelectedStudioChange(this.props.studioNum)}>
+                <div className="studio-menu-item-img">
+                </div>
+                <h4 className="studio-menu-item-name" >{this.props.studioName}</h4>
+                <p className="studio-menu-item-times">{`Open Until 9pm`}</p>
+            </div>
+        );
+    }
+}
+
+class BackToMenu extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.handleDisplayMenuChange = this.handleDisplayMenuChange.bind(this);
+    }
+
+    handleDisplayMenuChange(view) {
+        this.props.onDisplayMenuChange(view);
+    }
+
+    render() {
+        return (
+            <button className="back-button" onClick={() => this.handleDisplayMenuChange(true)} >
+                <i className="fa fa-angle-left fa-2x" aria-hidden="true"> </i>
+            </button>
+        )
+    }
+}
+
 class StudioMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            displayMenu: true,
-
+            displayMenu: true
         }
+
+        this.handleViewAllChange = this.handleViewAllChange.bind(this);
+    }
+
+    handleViewAllChange(view) {
+        this.props.onViewAllChange(view);
+    }
+
+    render() {
+        return(
+            <div className="studio-menu-box" style={this.props.style}>
+                <div className="studio-menu-intro">
+                    <h2>Good Morning</h2>
+                </div>
+                <div className="studio-buttons-box">
+                    {this.props.data.map((studio, i) => {
+                        return <StudioMenuItem
+                                studioName={studio.facultyName}
+                                studioTimes={studio.days[0]}
+                                studioNum={i}
+                                onSelectedStudioChange={this.props.onSelectedStudioChange}/>
+                    })}
+
+                    <div className="studio-menu-item" onClick={() => this.handleViewAllChange(true)}>
+                        <div className="studio-menu-item-img">
+                        </div>
+                        <h4 className="studio-menu-item-name" >Compare All Studios</h4>
+                    </div>
+                </div>
+            </div>
+        );
     }
 }
 
@@ -340,9 +413,15 @@ class StudioCalendar extends React.Component {
 
         this.state = {
             studios: [],
-            selected: 0,
-            viewAll: false
+            selectedDay: 0,
+            selectedStudio: 0,
+            viewAll: false,
+            displayMenu: true
         };
+
+        this.handleSelectedStudio = this.handleSelectedStudio.bind(this);
+        this.handleViewAll = this.handleViewAll.bind(this);
+        this.handleDisplayMenu = this.handleDisplayMenu.bind(this);
     }
 
     componentDidMount() {
@@ -351,21 +430,54 @@ class StudioCalendar extends React.Component {
             const studios = res.data;
             console.log(studios);
             this.setState({
-                studios: studios,
-                selected: 2,
-                viewAll: false
+                studios: studios
             });
         });
     }
 
+    handleSelectedStudio(studio) {
+        this.setState({
+            selectedStudio: studio,
+            viewAll: false,
+            displayMenu: false
+        })
+    }
+
+    handleDisplayMenu(view) {
+        this.setState({
+            displayMenu: view
+        })
+    }
+
+    handleViewAll(view) {
+        this.setState({
+            viewAll: view
+        })
+    }
+
     render() {
+        let menuStyle = {
+            display: this.state.displayMenu ? "block" : "none"
+        };
+
         return (
             <div className="app-inner">
+                {this.state.studios.length > 0 &&
+                    <StudioMenu
+                    data={this.state.studios}
+                    onSelectedStudioChange={this.handleSelectedStudio}
+                    onViewAllChange={this.handleViewAll}
+                    style={menuStyle}/>
+                }
+
                 <div className="top-area">
+                    <BackToMenu
+                    onDisplayMenuChange={this.handleDisplayMenu}/>
+
                     {this.state.studios.length > 0 &&
                         <StudioInfo
                         data={this.state.studios}
-                        selected={this.state.selected}
+                        selected={this.state.selectedStudio}
                         viewAll={this.state.viewAll}/>
                     }
                 </div>
@@ -376,7 +488,7 @@ class StudioCalendar extends React.Component {
                         <CalTimes />
                         {this.state.studios.length > 0 &&
                             <CalendarBody data={this.state.studios}
-                            selected={this.state.selected}
+                            selected={this.state.selectedStudio}
                             viewAll={this.state.viewAll}/>
                         }
                     </div>
