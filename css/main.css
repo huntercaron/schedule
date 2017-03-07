@@ -586,14 +586,15 @@ a:hover {
         width: 50%;
     }
 
-    .schedule.view-all {
-        width: 85%;
-
-    }
-
     .schedule {
         width: 50% !important;
     }
+
+    .schedule.view-all {
+        width: 85% !important;
+    }
+
+
 
     .show-info-control {
         display: none !important;
@@ -603,6 +604,10 @@ a:hover {
 
 .schedule {
     width: 100%;
+}
+
+.date-selector {
+    width: 100% !important;
 }
 /* become a member */
 
