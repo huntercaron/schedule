@@ -177,6 +177,12 @@ a:hover {
     display: relative;
 }
 
+@media screen and (min-width: 750px) {
+    .studio-sched-box {
+        display: flex;
+    }
+}
+
 .back-button {
     border: none;
     outline: none;
@@ -212,6 +218,10 @@ a:hover {
     width: 100%;
 }
 
+.schedule {
+    position: relative;
+}
+
 .sched-main {
     display: flex;
     width: 100%;
@@ -220,6 +230,13 @@ a:hover {
 #root {
     width: 100%;
     max-width: 500px;
+}
+
+@media screen and (min-width: 700px) {
+    #root {
+        width: 100%;
+        max-width: none;
+    }
 }
 
 .sched-row {
@@ -255,15 +272,19 @@ a:hover {
 
 
 .cal-event.Available {
-    background-color: lightGreen;
+    background-color: rgba(100, 169, 208, 0.3);
 }
 
 .cal-event.Closed {
     opacity: 0;
 }
 
+.cal-event.Event {
+    background-color: rgb(247, 217, 11);
+}
+
 .cal-event.Booked {
-    background-color: lightBlue;
+    background-color: lightGreen;
 }
 
 /* Studio Info
@@ -291,6 +312,14 @@ a:hover {
     border: none;
     background-color: transparent;
     outline: none;
+}
+
+.studio-info-img {
+    margin: 1rem 2px 2rem 0;
+    height: 70px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
 .show-info-control .more-about-text {
@@ -329,7 +358,7 @@ a:hover {
 
 .date-selector {
     width: 100%;
-    margin: 1rem 0 40px 0;
+    margin: 0 0 40px 0;
 }
 
 .selector-week {
@@ -337,7 +366,7 @@ a:hover {
 }
 
 .selector-day {
-    padding: 4px 0;
+    padding: 2px 0;
     flex: 1;
     text-align: center;
     cursor: pointer;
@@ -349,14 +378,25 @@ a:hover {
     text-transform: uppercase;
 }
 
+.day-of-week-box {
+    display: flex;
+    width: 99%;
+    justify-content: space-around;
+}
+
 .not-current-month {
     opacity: 0.2;
 }
 
 .selector-day-today .selector-day-inner  {
-    background-color: rgba(0,0,255,0.08);
+    color: rgb(82, 160, 255);
     border-radius: 6px;
 }
+
+.selector-day-today .selector-day-inner h4 {
+    font-weight: bold !important;
+}
+
 
 .selected-day .selector-day-inner {
     background-color: rgba(0,0,0,0.05);
@@ -364,7 +404,7 @@ a:hover {
 }
 
 .selector-day-today.selected-day .selector-day-inner  {
-    background-color: rgba(0,0,255,0.2);
+    background-color: rgba(0,0,255,0.1);
     border-radius: 6px;
 }
 
@@ -374,7 +414,7 @@ a:hover {
 }
 
 .selector-day-inner {
-    padding: 6px 0;
+    padding: 4px 0;
 }
 
 .selector-day-inner .day-info {
@@ -387,7 +427,7 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60px;
+    height: 50px;
 }
 
 .month-controls {
@@ -406,6 +446,14 @@ a:hover {
 .current-month {
     cursor: pointer;
     margin: 0 5%;
+    vertical-align: bottom;
+    font-size: 2rem;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+.current-month .material-icons {
+    margin-top: -1px
 }
 
 
@@ -435,7 +483,7 @@ a:hover {
 
 .studio-menu-item {
     cursor: pointer;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     width: 49%;
     background-color: white;
     border: 1px solid rgba(0,0,0, 0.1);
@@ -478,6 +526,7 @@ a:hover {
 }
 
 .welcome-message {
+    font-size: 3.6rem;
     font-weight: 600;
     line-height: 1.1;
 }
@@ -489,4 +538,66 @@ a:hover {
 
 .compare-all .studio-menu-item-name {
     font-size: 1.8rem;
+}
+
+
+/* view all page */
+
+.view-all-studio-box {
+    flex: 1;
+    position: relative;
+}
+
+.view-all-img {
+    position: absolute;
+    margin: 1rem 2px 2rem 0;
+    width: 100%;
+    top: -10px;
+    background-color: white;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+
+/* become a member */
+
+.become-member {
+    margin-top: 4px;
+}
+
+.member-info {
+    padding: 4%;
+}
+
+
+
+@media screen and (min-width: 750px) {
+    .studio-menu-box {
+        max-width: 1000px;
+    }
+
+    #root {
+        max-width: 1000px;
+    }
+
+    .top-area {
+        width: 50%;
+    }
+
+    .schedule.view-all {
+        width: 85%;
+
+    }
+
+}
+
+/* become a member */
+
+.event-status {
+    line-height: 1.2;
+    text-align: center;
+    font-weight: 600;
+    opacity: 0.65;
 }

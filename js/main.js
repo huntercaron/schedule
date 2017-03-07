@@ -1,15 +1,41 @@
 var times = [];
 var eventHeight = 24;
 let imgUrl = "./images/";
+let membersInfo = "QEPCCC Guild members may purchase a monthly membership for $25 +HST. A non-resident fee of $10 +HST will be charged as applicable.\n Individual/Artist memberships are available for $35 +HST, for one month. A non-resident fee of $10 +HST will be charged as applicable. Please note there are no discounts available on this membership.\n All members must be over the age of 18.\n Please see the Front Desk for sign up options.\n \n Rules and Obligations\n Members are expected to exhibit a good understanding of the materials, tools and processes required to safely practice independently in our specialized studios.\n Members get access to the QEPCCC Wood Working Studio, Pottery Studio, Fine Arts Studio and Digital Arts Lab during studio drop-in times and can use the studios Monday-Thursday from 8 a.m.-10 p.m. on Fridays 8 a.m.-9 p.m. on weekends 8 a.m.-7 p.m. when there are no programmed classes or bookings. Some restrictions do apply. Studio schedules and facility availability can be checked online.\n Members must sign-in at customer service.\n Members must show demonstrated ability and complete prerequisite courses for access to specialized studio equipment (i.e. wood shop, pottery wheels). Details are provided in the studio descriptions below.\n Members are responsible for cleaning the studio space after use.\n Members receive half of a locker and an open storage shelf. Additional locker rental is available for members on a first-come, first-served basis. Full locker: $15 per month.\n Additional storage shelves (open) in the wood shop, ceramic studio and fine art studio can be purchased for $10 per month, per shelf.\n";
 
 class CalEvent extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            viewEventInfo: false
+        }
+    }
+
+    handleViewEventInfo(view) {
+        this.setState({
+            viewEventInfo: view
+        })
+    }
+
     render () {
         let eventInfo;
-        if (this.props.time.status) {
-            eventInfo = <p>{this.props.time.statusString}</p>;
-        } else {
-            eventInfo = <p>{this.props.time.statusString}</p>;
+
+        switch(this.props.time.statusString.toLowerCase()) {
+            case "available":
+                eventInfo = <p className="event-status">Members Only</p>;
+                break;
+
+            case "booked":
+                eventInfo = <p className="event-status">Drop-In Time</p>;
+                break;
+
+            case "event":
+                eventInfo = <p className="event-status">{this.props.time.eventInfo.eventName}</p>;
+                break;
+
         }
+
         return (
             <div style={this.props.style} className={`sched-row cal-event-box`}>
                 <div className={`cal-event ${this.props.time.statusString}`}>
@@ -24,15 +50,16 @@ class Studio extends React.Component {
     render() {
         let scope = this;
         let count = 1;
+        let selectedDate = parseInt(this.props.selectedDate.format("d"));
 
         return (
           <div className="studio-col">
               {
 
-                this.props.data.days[0].times.map(function(time, i){
-                    if (i > 11) {
-                        if (i != scope.props.data.days[0].times.length-1) {
-                            if (scope.props.data.days[0].times[i+1].statusString != time.statusString || time.statusString == "Closed") {
+                this.props.data.days[selectedDate].times.map(function(time, i){
+                    if (i > 13) {
+                        if (i != scope.props.data.days[selectedDate].times.length-1) {
+                            if (scope.props.data.days[selectedDate].times[i+1].statusString != time.statusString || time.statusString == "Closed") {
 
                                 let eventStyle = {
                                     height: (count*eventHeight + "px")
@@ -55,14 +82,25 @@ class Studio extends React.Component {
 
 class CalendarBody extends React.Component {
     render() {
+        let scope = this;
+
         return (
           <div className="sched-main sched-col">
             {this.props.viewAll ? (
                 this.props.data.map(function(studio, i){
-                    return <Studio className="sched-row" data={studio}/>
+                    let imageStyle = {
+                        backgroundImage: 'url(' + imgUrl + studio.facultyClass + '-small.svg' + ')',
+                    };
+
+                    return (
+                        <div className="view-all-studio-box">
+                            <div className="view-all-img" style={imageStyle}></div>
+                            <Studio className="sched-row" data={studio} selectedDate={scope.props.selectedDate}/>
+                        </div>
+                    );
                 })
             ) : (
-                <Studio className="sched-row" data={this.props.data[this.props.selected]}/>
+                <Studio className="sched-row" data={this.props.data[this.props.selected]} selectedDate={this.props.selectedDate}/>
             )}
 
           </div>
@@ -73,8 +111,8 @@ class CalendarBody extends React.Component {
 
 class CalTimes extends React.Component {
     render () {
-        let calTimeFormat = moment().hour(6).minute(0);
-        let calTimeNum = 6;
+        let calTimeFormat = moment().hour(7).minute(0);
+        let calTimeNum = 7;
         let calTimes = [];
 
         while (calTimeNum <= 24) {
@@ -115,7 +153,7 @@ class SelectorDay extends React.Component {
             onClick={this.handleSelectedDateChange}
             className={`selector-day ${selectedDay} ${notThisMonth} ${today}`}>
                 <div className="selector-day-inner">
-                    <p className="day-of-week day-info">{this.props.day.format("ddd")}</p>
+                    {/*<p className="day-of-week day-info">{this.props.day.format("ddd")}</p>*/}
                     <h4 className="day-num day-info">{this.props.day.format("D")}</h4>
                 </div>
             </div>
@@ -258,6 +296,17 @@ class DateSelector extends React.Component {
                 onViewMonthChange={this.handleViewMonth}/>
 
                 <div className="selector-cal">
+                    <div className="day-of-week-box">
+                        <p className="day-of-week day-info">{moment().day(0).format("ddd")}</p>
+                        <p className="day-of-week day-info">{moment().day(1).format("ddd")}</p>
+                        <p className="day-of-week day-info">{moment().day(2).format("ddd")}</p>
+                        <p className="day-of-week day-info wed">{moment().day(3).format("ddd")}</p>
+                        <p className="day-of-week day-info">{moment().day(4).format("ddd")}</p>
+                        <p className="day-of-week day-info">{moment().day(5).format("ddd")}</p>
+                        <p className="day-of-week day-info">{moment().day(6).format("ddd")}</p>
+                    </div>
+
+
                     {this.state.viewMonth ? (
                         weekdays.map(function(weekday){
                             return <SelectorWeek
@@ -287,8 +336,10 @@ class StudioInfo extends React.Component {
     constructor(props) {
         super(props);
 
+        let displayInfo = window.innerWidth > 750;
+
         this.state = {
-            displayInfo: false
+            displayInfo: displayInfo
         }
 
         this.handleInfoDisplay = this.handleInfoDisplay.bind(this);
@@ -304,6 +355,10 @@ class StudioInfo extends React.Component {
 
     render () {
 
+        let imageStyle = {
+            backgroundImage: 'url(' + imgUrl + this.props.data[this.props.selected].facultyClass + '-small.svg' + ')',
+        }
+
         let infoStyle = {
             display: (this.state.displayInfo) ? "block" : "none"
         };
@@ -314,7 +369,13 @@ class StudioInfo extends React.Component {
 
         return (
             <div>
+
+                {!this.props.viewAll ? (
+                    <div className="studio-info-img" style={imageStyle}></div>
+                ) : (" ")}
+
                 <div className="studio-name-box">
+
                     {this.props.viewAll ? (
                         <h3 className="studio-info-name">All Studios</h3>
                     ) : (
@@ -327,9 +388,11 @@ class StudioInfo extends React.Component {
                     </button>
                 ) : (" ")}
                 <div style={infoStyle}>
-                    {this.props.data[this.props.selected].facultyInfo.split('\n').map(function(text){
-                        return <p>{text}<br/></p>
-                    })}
+                    { (!(this.props.viewAll)) ? (
+                        this.props.data[this.props.selected].facultyInfo.split('\n').map(function(text){
+                            return <p>{text}<br/></p>
+                        })
+                    ) : (" ")}
                 </div>
             </div>
         );
@@ -391,10 +454,15 @@ class StudioMenu extends React.Component {
         }
 
         this.handleViewAllChange = this.handleViewAllChange.bind(this);
+        this.handleDisplayMemberInfoChange = this.handleDisplayMemberInfoChange.bind(this);
     }
 
     handleViewAllChange(view) {
         this.props.onViewAllChange(view);
+    }
+
+    handleDisplayMemberInfoChange(view) {
+        this.props.onDisplayMemberInfoChange(view);
     }
 
     render() {
@@ -419,6 +487,10 @@ class StudioMenu extends React.Component {
                         </div>
                         <h4 className="studio-menu-item-name" >Compare All Studios</h4>
                     </div>
+
+                    <div className="become-member" onClick={() => this.handleDisplayMemberInfoChange(true)}>
+                        <h4 className="studio-menu-item-name" >Become a member <i className="material-icons">info_outline</i></h4>
+                    </div>
                 </div>
             </div>
         );
@@ -434,13 +506,15 @@ class StudioCalendar extends React.Component {
             selectedDate: moment(),
             selectedStudio: 0,
             viewAll: false,
-            displayMenu: true
+            displayMenu: true,
+            displayMemberInfo: false
         };
 
         this.handleSelectedStudio = this.handleSelectedStudio.bind(this);
         this.handleViewAll = this.handleViewAll.bind(this);
         this.handleDisplayMenu = this.handleDisplayMenu.bind(this);
         this.handleSelectedDate = this.handleSelectedDate.bind(this);
+        this.handleDisplayMemberInfo = this.handleDisplayMemberInfo.bind(this);
     }
 
     componentDidMount() {
@@ -458,7 +532,8 @@ class StudioCalendar extends React.Component {
         this.setState({
             selectedStudio: studio,
             viewAll: false,
-            displayMenu: false
+            displayMenu: false,
+            displayMemberInfo: false
         })
     }
 
@@ -471,7 +546,8 @@ class StudioCalendar extends React.Component {
     handleViewAll(view) {
         this.setState({
             viewAll: view,
-            displayMenu: false
+            displayMenu: false,
+            displayMemberInfo: false
         })
     }
 
@@ -482,6 +558,13 @@ class StudioCalendar extends React.Component {
         });
     }
 
+    handleDisplayMemberInfo(view) {
+        this.setState({
+            displayMemberInfo: view,
+            displayMenu: false
+        });
+    }
+
     render() {
         let menuStyle = {
             //display: this.state.displayMenu ? "block" : "none"
@@ -489,48 +572,70 @@ class StudioCalendar extends React.Component {
             opacity: this.state.displayMenu ? "1" : "0"
         };
 
+        let schedClass = this.state.viewAll ? "view-all" : " ";
+
         return (
             <div className="app-inner">
+
                 {this.state.studios.length > 0 &&
                     <StudioMenu
                     data={this.state.studios}
                     selectedStudio={this.state.selectedStudio}
                     onSelectedStudioChange={this.handleSelectedStudio}
                     onViewAllChange={this.handleViewAll}
+                    onDisplayMemberInfoChange={this.handleDisplayMemberInfo}
                     style={menuStyle}/>
                 }
 
-                <div className="top-area">
-                    <BackToMenuButton
-                    onDisplayMenuChange={this.handleDisplayMenu}/>
+                {this.state.displayMemberInfo &&
+                    <div className="member-info-box">
+                        <div className="top-area">
+                            <BackToMenuButton
+                            onDisplayMenuChange={this.handleDisplayMenu}/>
+                            <h3 className="studio-info-name">Member Info</h3>
+                        </div>
 
-                    {this.state.studios.length > 0 &&
-                        <StudioInfo
-                        data={this.state.studios}
-                        isMenuOpen={this.state.displayMenu}
-                        selected={this.state.selectedStudio}
-                        viewAll={this.state.viewAll}/>
-                    }
-                </div>
-
-                <div className="schedule">
-                    {this.state.studios.length > 0 &&
-                        <DateSelector
-                        onSelectedDateChange={this.handleSelectedDate}
-                        onCurrentMonthChange={this.state.currentMonth}
-                        selectedDate={this.state.selectedDate}/>
-                    }
-
-                    <div className="sched-body">
-                        <CalTimes />
-                        {this.state.studios.length > 0 &&
-                            <CalendarBody data={this.state.studios}
-                            selected={this.state.selectedStudio}
-                            viewAll={this.state.viewAll}
-                            selectedDate={this.state.selectedDate}/>
-                        }
+                        <div className="member-info">
+                            {membersInfo.split('\n').map(function(text){
+                                return <p>{text}<br/></p>
+                            })}
+                        </div>
                     </div>
-                </div>
+                }
+
+                {this.state.studios.length > 0 && !this.state.displayMemberInfo &&
+                    <div className="studio-sched-box">
+                        <div className="top-area">
+                            <BackToMenuButton
+                            onDisplayMenuChange={this.handleDisplayMenu}/>
+
+                                <StudioInfo
+                                data={this.state.studios}
+                                isMenuOpen={this.state.displayMenu}
+                                selected={this.state.selectedStudio}
+                                viewAll={this.state.viewAll}/>
+                        </div>
+
+                        <div className={`schedule ${schedClass}`}>
+                                <DateSelector
+                                onSelectedDateChange={this.handleSelectedDate}
+                                onCurrentMonthChange={this.state.currentMonth}
+                                selectedDate={this.state.selectedDate}/>
+
+                            <div className="sched-body">
+                                <CalTimes />
+
+                                    <CalendarBody data={this.state.studios}
+                                    selected={this.state.selectedStudio}
+                                    selectedDate={this.state.selectedDate}
+                                    viewAll={this.state.viewAll}
+                                    selectedDate={this.state.selectedDate}/>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
             </div>
         );
     }

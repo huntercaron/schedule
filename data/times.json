@@ -1590,23 +1590,47 @@
                     },
                     {
                         "time": "11:00AM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Event",
+                        "status": true,
+                        "eventInfo": {
+                            "eventName": "CLASS: Introduction to Wheel Throwing",
+                            "eventAges": "Ages 14+",
+                            "eventCost": "Cost: $15",
+                            "eventDesc": "Come by and learn the basics of handling kick wheels to improve your pottery skills! Materials provided with one-on-one instruction."
+                        }
                     },
                     {
                         "time": "11:30AM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Event",
+                        "status": true,
+                        "eventInfo": {
+                            "eventName": "CLASS: Introduction to Wheel Throwing",
+                            "eventAges": "Ages 14+",
+                            "eventCost": "Cost: $15",
+                            "eventDesc": "Come by and learn the basics of handling kick wheels to improve your pottery skills! Materials provided with one-on-one instruction."
+                        }
                     },
                     {
                         "time": "12:00PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Event",
+                        "status": true,
+                        "eventInfo": {
+                            "eventName": "CLASS: Introduction to Wheel Throwing",
+                            "eventAges": "Ages 14+",
+                            "eventCost": "Cost: $15",
+                            "eventDesc": "Come by and learn the basics of handling kick wheels to improve your pottery skills! Materials provided with one-on-one instruction."
+                        }
                     },
                     {
                         "time": "12:30PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Event",
+                        "status": true,
+                        "eventInfo": {
+                            "eventName": "CLASS: Introduction to Wheel Throwing",
+                            "eventAges": "Ages 14+",
+                            "eventCost": "Cost: $15",
+                            "eventDesc": "Come by and learn the basics of handling kick wheels to improve your pottery skills! Materials provided with one-on-one instruction."
+                        }
                     },
                     {
                         "time": "1:00PM",

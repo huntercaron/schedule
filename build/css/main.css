@@ -317,6 +317,12 @@ a:hover {
 .app-inner {
   display: relative; }
 
+@media screen and (min-width: 750px) {
+  .studio-sched-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; } }
+
 .back-button {
   border: none;
   outline: none;
@@ -347,6 +353,9 @@ a:hover {
   display: flex;
   width: 100%; }
 
+.schedule {
+  position: relative; }
+
 .sched-main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -356,6 +365,11 @@ a:hover {
 #root {
   width: 100%;
   max-width: 500px; }
+
+@media screen and (min-width: 700px) {
+  #root {
+    width: 100%;
+    max-width: none; } }
 
 .sched-row {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -389,13 +403,16 @@ a:hover {
   margin: 0; }
 
 .cal-event.Available {
-  background-color: lightGreen; }
+  background-color: rgba(100, 169, 208, 0.3); }
 
 .cal-event.Closed {
   opacity: 0; }
 
+.cal-event.Event {
+  background-color: #f7d90b; }
+
 .cal-event.Booked {
-  background-color: lightBlue; }
+  background-color: lightGreen; }
 
 /* Studio Info
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -427,6 +444,13 @@ a:hover {
   background-color: transparent;
   outline: none; }
 
+.studio-info-img {
+  margin: 1rem 2px 2rem 0;
+  height: 70px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center; }
+
 .show-info-control .more-about-text {
   text-transform: uppercase;
   font-size: 1.3rem;
@@ -453,7 +477,7 @@ a:hover {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .date-selector {
   width: 100%;
-  margin: 1rem 0 40px 0; }
+  margin: 0 0 40px 0; }
 
 .selector-week {
   display: -webkit-box;
@@ -461,7 +485,7 @@ a:hover {
   display: flex; }
 
 .selector-day {
-  padding: 4px 0;
+  padding: 2px 0;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -473,19 +497,30 @@ a:hover {
   font-size: 1.2rem;
   text-transform: uppercase; }
 
+.day-of-week-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 99%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around; }
+
 .not-current-month {
   opacity: 0.2; }
 
 .selector-day-today .selector-day-inner {
-  background-color: rgba(0, 0, 255, 0.08);
+  color: #52a0ff;
   border-radius: 6px; }
+
+.selector-day-today .selector-day-inner h4 {
+  font-weight: bold !important; }
 
 .selected-day .selector-day-inner {
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 6px; }
 
 .selector-day-today.selected-day .selector-day-inner {
-  background-color: rgba(0, 0, 255, 0.2);
+  background-color: rgba(0, 0, 255, 0.1);
   border-radius: 6px; }
 
 .selected-day .selector-day-inner {
@@ -493,7 +528,7 @@ a:hover {
   border-radius: 6px; }
 
 .selector-day-inner {
-  padding: 6px 0; }
+  padding: 4px 0; }
 
 /* Month Controls */
 .month-controls-box {
@@ -506,7 +541,7 @@ a:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 60px; }
+  height: 50px; }
 
 .month-controls {
   cursor: pointer;
@@ -525,7 +560,14 @@ a:hover {
 
 .current-month {
   cursor: pointer;
-  margin: 0 5%; }
+  margin: 0 5%;
+  vertical-align: bottom;
+  font-size: 2rem;
+  margin-top: 5px;
+  font-weight: 600; }
+
+.current-month .material-icons {
+  margin-top: -1px; }
 
 /* Studio Menu
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -556,7 +598,7 @@ a:hover {
 
 .studio-menu-item {
   cursor: pointer;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   width: 49%;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -599,6 +641,7 @@ a:hover {
   margin: 0 0 3rem 0; }
 
 .welcome-message {
+  font-size: 3.6rem;
   font-weight: 600;
   line-height: 1.1; }
 
@@ -608,3 +651,45 @@ a:hover {
 
 .compare-all .studio-menu-item-name {
   font-size: 1.8rem; }
+
+/* view all page */
+.view-all-studio-box {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative; }
+
+.view-all-img {
+  position: absolute;
+  margin: 1rem 2px 2rem 0;
+  width: 100%;
+  top: -10px;
+  background-color: white;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center; }
+
+/* become a member */
+.become-member {
+  margin-top: 4px; }
+
+.member-info {
+  padding: 4%; }
+
+@media screen and (min-width: 750px) {
+  .studio-menu-box {
+    max-width: 1000px; }
+  #root {
+    max-width: 1000px; }
+  .top-area {
+    width: 50%; }
+  .schedule.view-all {
+    width: 85%; } }
+
+/* become a member */
+.event-status {
+  line-height: 1.2;
+  text-align: center;
+  font-weight: 600;
+  opacity: 0.65; }

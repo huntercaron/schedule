@@ -3,15 +3,47 @@ var _jsx = function () { var REACT_ELEMENT_TYPE = typeof Symbol === "function" &
 var times = [];
 var eventHeight = 24;
 let imgUrl = "./images/";
+let membersInfo = "QEPCCC Guild members may purchase a monthly membership for $25 +HST. A non-resident fee of $10 +HST will be charged as applicable.\n Individual/Artist memberships are available for $35 +HST, for one month. A non-resident fee of $10 +HST will be charged as applicable. Please note there are no discounts available on this membership.\n All members must be over the age of 18.\n Please see the Front Desk for sign up options.\n \n Rules and Obligations\n Members are expected to exhibit a good understanding of the materials, tools and processes required to safely practice independently in our specialized studios.\n Members get access to the QEPCCC Wood Working Studio, Pottery Studio, Fine Arts Studio and Digital Arts Lab during studio drop-in times and can use the studios Monday-Thursday from 8 a.m.-10 p.m. on Fridays 8 a.m.-9 p.m. on weekends 8 a.m.-7 p.m. when there are no programmed classes or bookings. Some restrictions do apply. Studio schedules and facility availability can be checked online.\n Members must sign-in at customer service.\n Members must show demonstrated ability and complete prerequisite courses for access to specialized studio equipment (i.e. wood shop, pottery wheels). Details are provided in the studio descriptions below.\n Members are responsible for cleaning the studio space after use.\n Members receive half of a locker and an open storage shelf. Additional locker rental is available for members on a first-come, first-served basis. Full locker: $15 per month.\n Additional storage shelves (open) in the wood shop, ceramic studio and fine art studio can be purchased for $10 per month, per shelf.\n";
 
 class CalEvent extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            viewEventInfo: false
+        };
+    }
+
+    handleViewEventInfo(view) {
+        this.setState({
+            viewEventInfo: view
+        });
+    }
+
     render() {
         let eventInfo;
-        if (this.props.time.status) {
-            eventInfo = _jsx("p", {}, void 0, this.props.time.statusString);
-        } else {
-            eventInfo = _jsx("p", {}, void 0, this.props.time.statusString);
+
+        switch (this.props.time.statusString.toLowerCase()) {
+            case "available":
+                eventInfo = _jsx("p", {
+                    className: "event-status"
+                }, void 0, "Members Only");
+                break;
+
+            case "booked":
+                eventInfo = _jsx("p", {
+                    className: "event-status"
+                }, void 0, "Drop-In Time");
+                break;
+
+            case "event":
+                eventInfo = _jsx("p", {
+                    className: "event-status"
+                }, void 0, this.props.time.eventInfo.eventName);
+                break;
+
         }
+
         return _jsx("div", {
             style: this.props.style,
             className: `sched-row cal-event-box`
@@ -25,13 +57,14 @@ class Studio extends React.Component {
     render() {
         let scope = this;
         let count = 1;
+        let selectedDate = parseInt(this.props.selectedDate.format("d"));
 
         return _jsx("div", {
             className: "studio-col"
-        }, void 0, this.props.data.days[0].times.map(function (time, i) {
-            if (i > 11) {
-                if (i != scope.props.data.days[0].times.length - 1) {
-                    if (scope.props.data.days[0].times[i + 1].statusString != time.statusString || time.statusString == "Closed") {
+        }, void 0, this.props.data.days[selectedDate].times.map(function (time, i) {
+            if (i > 13) {
+                if (i != scope.props.data.days[selectedDate].times.length - 1) {
+                    if (scope.props.data.days[selectedDate].times[i + 1].statusString != time.statusString || time.statusString == "Closed") {
 
                         let eventStyle = {
                             height: count * eventHeight + "px"
@@ -55,16 +88,29 @@ class Studio extends React.Component {
 
 class CalendarBody extends React.Component {
     render() {
+        let scope = this;
+
         return _jsx("div", {
             className: "sched-main sched-col"
         }, void 0, this.props.viewAll ? this.props.data.map(function (studio, i) {
-            return _jsx(Studio, {
+            let imageStyle = {
+                backgroundImage: 'url(' + imgUrl + studio.facultyClass + '-small.svg' + ')'
+            };
+
+            return _jsx("div", {
+                className: "view-all-studio-box"
+            }, void 0, _jsx("div", {
+                className: "view-all-img",
+                style: imageStyle
+            }), _jsx(Studio, {
                 className: "sched-row",
-                data: studio
-            });
+                data: studio,
+                selectedDate: scope.props.selectedDate
+            }));
         }) : _jsx(Studio, {
             className: "sched-row",
-            data: this.props.data[this.props.selected]
+            data: this.props.data[this.props.selected],
+            selectedDate: this.props.selectedDate
         }));
     }
 
@@ -72,8 +118,8 @@ class CalendarBody extends React.Component {
 
 class CalTimes extends React.Component {
     render() {
-        let calTimeFormat = moment().hour(6).minute(0);
-        let calTimeNum = 6;
+        let calTimeFormat = moment().hour(7).minute(0);
+        let calTimeNum = 7;
         let calTimes = [];
 
         while (calTimeNum <= 24) {
@@ -116,9 +162,7 @@ class SelectorDay extends React.Component {
             className: `selector-day ${selectedDay} ${notThisMonth} ${today}`
         }, void 0, _jsx("div", {
             className: "selector-day-inner"
-        }, void 0, _jsx("p", {
-            className: "day-of-week day-info"
-        }, void 0, this.props.day.format("ddd")), _jsx("h4", {
+        }, void 0, _jsx("h4", {
             className: "day-num day-info"
         }, void 0, this.props.day.format("D"))));
     }
@@ -149,14 +193,6 @@ class SelectorWeek extends React.Component {
         }));
     }
 }
-
-var _ref = _jsx("i", {
-    className: "material-icons"
-}, void 0, "navigate_before");
-
-var _ref2 = _jsx("i", {
-    className: "material-icons"
-}, void 0, "navigate_next");
 
 class MonthControls extends React.Component {
     constructor(props) {
@@ -190,7 +226,9 @@ class MonthControls extends React.Component {
             className: "month-controls",
             style: monthNavStyle,
             onClick: () => this.handleCurrentMonthChange(this.props.currentMonth.clone().subtract(1, "months"))
-        }, void 0, _ref), _jsx("h4", {
+        }, void 0, _jsx("i", {
+            className: "material-icons"
+        }, void 0, "navigate_before")), _jsx("h4", {
             className: "current-month",
             onClick: this.handleViewMonthChange
         }, void 0, this.props.currentMonth.format("MMMM Y"), " ", _jsx("i", {
@@ -201,7 +239,9 @@ class MonthControls extends React.Component {
             className: "month-controls",
             style: monthNavStyle,
             onClick: () => this.handleCurrentMonthChange(this.props.currentMonth.clone().add(1, "months"))
-        }, void 0, _ref2));
+        }, void 0, _jsx("i", {
+            className: "material-icons"
+        }, void 0, "navigate_next")));
     }
 }
 
@@ -270,7 +310,23 @@ class DateSelector extends React.Component {
             onViewMonthChange: this.handleViewMonth
         }), _jsx("div", {
             className: "selector-cal"
-        }, void 0, this.state.viewMonth ? weekdays.map(function (weekday) {
+        }, void 0, _jsx("div", {
+            className: "day-of-week-box"
+        }, void 0, _jsx("p", {
+            className: "day-of-week day-info"
+        }, void 0, moment().day(0).format("ddd")), _jsx("p", {
+            className: "day-of-week day-info"
+        }, void 0, moment().day(1).format("ddd")), _jsx("p", {
+            className: "day-of-week day-info"
+        }, void 0, moment().day(2).format("ddd")), _jsx("p", {
+            className: "day-of-week day-info wed"
+        }, void 0, moment().day(3).format("ddd")), _jsx("p", {
+            className: "day-of-week day-info"
+        }, void 0, moment().day(4).format("ddd")), _jsx("p", {
+            className: "day-of-week day-info"
+        }, void 0, moment().day(5).format("ddd")), _jsx("p", {
+            className: "day-of-week day-info"
+        }, void 0, moment().day(6).format("ddd"))), this.state.viewMonth ? weekdays.map(function (weekday) {
             return _jsx(SelectorWeek, {
                 selectedDate: scope.props.selectedDate,
                 currentMonth: scope.state.currentMonth,
@@ -288,22 +344,14 @@ class DateSelector extends React.Component {
     }
 }
 
-var _ref3 = _jsx("h3", {
-    className: "studio-info-name"
-}, void 0, "All Studios");
-
-var _ref4 = _jsx("p", {
-    className: "more-about-text"
-}, void 0, "More about the studio");
-
-var _ref5 = _jsx("br", {});
-
 class StudioInfo extends React.Component {
     constructor(props) {
         super(props);
 
+        let displayInfo = window.innerWidth > 750;
+
         this.state = {
-            displayInfo: false
+            displayInfo: displayInfo
         };
 
         this.handleInfoDisplay = this.handleInfoDisplay.bind(this);
@@ -319,6 +367,10 @@ class StudioInfo extends React.Component {
 
     render() {
 
+        let imageStyle = {
+            backgroundImage: 'url(' + imgUrl + this.props.data[this.props.selected].facultyClass + '-small.svg' + ')'
+        };
+
         let infoStyle = {
             display: this.state.displayInfo ? "block" : "none"
         };
@@ -327,9 +379,14 @@ class StudioInfo extends React.Component {
             transform: this.state.displayInfo ? "rotate(180deg)" : "rotate(0deg)"
         };
 
-        return _jsx("div", {}, void 0, _jsx("div", {
+        return _jsx("div", {}, void 0, !this.props.viewAll ? _jsx("div", {
+            className: "studio-info-img",
+            style: imageStyle
+        }) : " ", _jsx("div", {
             className: "studio-name-box"
-        }, void 0, this.props.viewAll ? _ref3 : _jsx("h3", {
+        }, void 0, this.props.viewAll ? _jsx("h3", {
+            className: "studio-info-name"
+        }, void 0, "All Studios") : _jsx("h3", {
             className: "studio-info-name"
         }, void 0, this.props.data[this.props.selected].facultyName)), !this.props.viewAll ? _jsx("button", {
             className: "show-info-control",
@@ -338,11 +395,13 @@ class StudioInfo extends React.Component {
             className: "material-icons icon-left-align",
             style: arrowStyle,
             "aria-hidden": "true"
-        }, void 0, "arrow_drop_down"), " ", _ref4) : " ", _jsx("div", {
+        }, void 0, "arrow_drop_down"), " ", _jsx("p", {
+            className: "more-about-text"
+        }, void 0, "More about the studio")) : " ", _jsx("div", {
             style: infoStyle
-        }, void 0, this.props.data[this.props.selected].facultyInfo.split('\n').map(function (text) {
-            return _jsx("p", {}, void 0, text, _ref5);
-        })));
+        }, void 0, !this.props.viewAll ? this.props.data[this.props.selected].facultyInfo.split('\n').map(function (text) {
+            return _jsx("p", {}, void 0, text, _jsx("br", {}));
+        }) : " "));
     }
 }
 
@@ -376,14 +435,6 @@ class StudioMenuItem extends React.Component {
     }
 }
 
-var _ref6 = _jsx("i", {
-    className: "material-icons icon-left-align"
-}, void 0, "arrow_back");
-
-var _ref7 = _jsx("h6", {
-    className: "back-button-text"
-}, void 0, "back");
-
 class BackToMenuButton extends React.Component {
     constructor(props) {
         super(props);
@@ -399,25 +450,13 @@ class BackToMenuButton extends React.Component {
         return _jsx("button", {
             className: "back-button",
             onClick: () => this.handleDisplayMenuChange(true)
-        }, void 0, _ref6, " ", _ref7);
+        }, void 0, _jsx("i", {
+            className: "material-icons icon-left-align"
+        }, void 0, "arrow_back"), " ", _jsx("h6", {
+            className: "back-button-text"
+        }, void 0, "back"));
     }
 }
-
-var _ref8 = _jsx("div", {
-    className: "studio-menu-welcome"
-}, void 0, _jsx("h2", {
-    className: "welcome-message"
-}, void 0, "Good Afternoon"), _jsx("p", {
-    className: "welcome-help"
-}, void 0, "Select a studio to see it's availibility."));
-
-var _ref9 = _jsx("div", {
-    className: "studio-menu-item-img"
-}, void 0);
-
-var _ref10 = _jsx("h4", {
-    className: "studio-menu-item-name"
-}, void 0, "Compare All Studios");
 
 class StudioMenu extends React.Component {
     constructor(props) {
@@ -427,17 +466,28 @@ class StudioMenu extends React.Component {
         };
 
         this.handleViewAllChange = this.handleViewAllChange.bind(this);
+        this.handleDisplayMemberInfoChange = this.handleDisplayMemberInfoChange.bind(this);
     }
 
     handleViewAllChange(view) {
         this.props.onViewAllChange(view);
     }
 
+    handleDisplayMemberInfoChange(view) {
+        this.props.onDisplayMemberInfoChange(view);
+    }
+
     render() {
         return _jsx("div", {
             className: "studio-menu-box",
             style: this.props.style
-        }, void 0, _ref8, _jsx("div", {
+        }, void 0, _jsx("div", {
+            className: "studio-menu-welcome"
+        }, void 0, _jsx("h2", {
+            className: "welcome-message"
+        }, void 0, "Good Afternoon"), _jsx("p", {
+            className: "welcome-help"
+        }, void 0, "Select a studio to see it's availibility.")), _jsx("div", {
             className: "studio-buttons-box"
         }, void 0, this.props.data.map((studio, i) => {
             return _jsx(StudioMenuItem, {
@@ -450,11 +500,20 @@ class StudioMenu extends React.Component {
         }), _jsx("div", {
             className: "studio-menu-item compare-all",
             onClick: () => this.handleViewAllChange(true)
-        }, void 0, _ref9, _ref10)));
+        }, void 0, _jsx("div", {
+            className: "studio-menu-item-img"
+        }, void 0), _jsx("h4", {
+            className: "studio-menu-item-name"
+        }, void 0, "Compare All Studios")), _jsx("div", {
+            className: "become-member",
+            onClick: () => this.handleDisplayMemberInfoChange(true)
+        }, void 0, _jsx("h4", {
+            className: "studio-menu-item-name"
+        }, void 0, "Become a member ", _jsx("i", {
+            className: "material-icons"
+        }, void 0, "info_outline")))));
     }
 }
-
-var _ref11 = _jsx(CalTimes, {});
 
 class StudioCalendar extends React.Component {
     constructor(props) {
@@ -465,13 +524,15 @@ class StudioCalendar extends React.Component {
             selectedDate: moment(),
             selectedStudio: 0,
             viewAll: false,
-            displayMenu: true
+            displayMenu: true,
+            displayMemberInfo: false
         };
 
         this.handleSelectedStudio = this.handleSelectedStudio.bind(this);
         this.handleViewAll = this.handleViewAll.bind(this);
         this.handleDisplayMenu = this.handleDisplayMenu.bind(this);
         this.handleSelectedDate = this.handleSelectedDate.bind(this);
+        this.handleDisplayMemberInfo = this.handleDisplayMemberInfo.bind(this);
     }
 
     componentDidMount() {
@@ -488,7 +549,8 @@ class StudioCalendar extends React.Component {
         this.setState({
             selectedStudio: studio,
             viewAll: false,
-            displayMenu: false
+            displayMenu: false,
+            displayMemberInfo: false
         });
     }
 
@@ -501,7 +563,8 @@ class StudioCalendar extends React.Component {
     handleViewAll(view) {
         this.setState({
             viewAll: view,
-            displayMenu: false
+            displayMenu: false,
+            displayMemberInfo: false
         });
     }
 
@@ -512,12 +575,21 @@ class StudioCalendar extends React.Component {
         });
     }
 
+    handleDisplayMemberInfo(view) {
+        this.setState({
+            displayMemberInfo: view,
+            displayMenu: false
+        });
+    }
+
     render() {
         let menuStyle = {
             //display: this.state.displayMenu ? "block" : "none"
             transform: this.state.displayMenu ? "translateX(0%)" : "translateX(-110%)",
             opacity: this.state.displayMenu ? "1" : "0"
         };
+
+        let schedClass = this.state.viewAll ? "view-all" : " ";
 
         return _jsx("div", {
             className: "app-inner"
@@ -526,30 +598,46 @@ class StudioCalendar extends React.Component {
             selectedStudio: this.state.selectedStudio,
             onSelectedStudioChange: this.handleSelectedStudio,
             onViewAllChange: this.handleViewAll,
+            onDisplayMemberInfoChange: this.handleDisplayMemberInfo,
             style: menuStyle
-        }), _jsx("div", {
+        }), this.state.displayMemberInfo && _jsx("div", {
+            className: "member-info-box"
+        }, void 0, _jsx("div", {
             className: "top-area"
         }, void 0, _jsx(BackToMenuButton, {
             onDisplayMenuChange: this.handleDisplayMenu
-        }), this.state.studios.length > 0 && _jsx(StudioInfo, {
+        }), _jsx("h3", {
+            className: "studio-info-name"
+        }, void 0, "Member Info")), _jsx("div", {
+            className: "member-info"
+        }, void 0, membersInfo.split('\n').map(function (text) {
+            return _jsx("p", {}, void 0, text, _jsx("br", {}));
+        }))), this.state.studios.length > 0 && !this.state.displayMemberInfo && _jsx("div", {
+            className: "studio-sched-box"
+        }, void 0, _jsx("div", {
+            className: "top-area"
+        }, void 0, _jsx(BackToMenuButton, {
+            onDisplayMenuChange: this.handleDisplayMenu
+        }), _jsx(StudioInfo, {
             data: this.state.studios,
             isMenuOpen: this.state.displayMenu,
             selected: this.state.selectedStudio,
             viewAll: this.state.viewAll
         })), _jsx("div", {
-            className: "schedule"
-        }, void 0, this.state.studios.length > 0 && _jsx(DateSelector, {
+            className: `schedule ${schedClass}`
+        }, void 0, _jsx(DateSelector, {
             onSelectedDateChange: this.handleSelectedDate,
             onCurrentMonthChange: this.state.currentMonth,
             selectedDate: this.state.selectedDate
         }), _jsx("div", {
             className: "sched-body"
-        }, void 0, _ref11, this.state.studios.length > 0 && _jsx(CalendarBody, {
+        }, void 0, _jsx(CalTimes, {}), _jsx(CalendarBody, {
             data: this.state.studios,
             selected: this.state.selectedStudio,
+            selectedDate: this.state.selectedDate,
             viewAll: this.state.viewAll,
             selectedDate: this.state.selectedDate
-        }))));
+        })))));
     }
 }
 
