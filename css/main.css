@@ -624,3 +624,16 @@ a:hover {
 .day-box {
     width: 100%;
 }
+
+
+.day-event-info-name {
+    font-weight: bold;
+}
+
+.day-event-info-small {
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin: 0;
+}

@@ -42,10 +42,10 @@ class CalEvent extends React.Component {
                     <div className="day-event-info-box">
                         <div className="day-event-info">
                             <p onClick={() => this.handleViewEventInfo(false)}><i className="material-icons">close</i></p>
-                            <p>{this.props.time.eventInfo.eventName}</p>
-                            <p>{this.props.time.eventInfo.eventAge}</p>
-                            <p>{this.props.time.eventInfo.eventCost}</p>
-                            <p>{this.props.time.eventInfo.eventDesc}</p>
+                            <p className="day-event-info-name">{this.props.time.eventInfo.eventName}</p>
+                            <p className="day-event-info-small">{this.props.time.eventInfo.eventAges}</p>
+                            <p className="day-event-info-small">{this.props.time.eventInfo.eventCost}</p>
+                            <p className="day-event-info-">{this.props.time.eventInfo.eventDesc}</p>
                         </div>
                     </div>
                 }

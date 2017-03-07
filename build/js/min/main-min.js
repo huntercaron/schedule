@@ -60,7 +60,15 @@ class CalEvent extends React.Component {
             className: "day-event-info"
         }, void 0, _jsx("p", {
             onClick: () => this.handleViewEventInfo(false)
-        }, void 0, _ref3), _jsx("p", {}, void 0, this.props.time.eventInfo.eventName), _jsx("p", {}, void 0, this.props.time.eventInfo.eventAge), _jsx("p", {}, void 0, this.props.time.eventInfo.eventCost), _jsx("p", {}, void 0, this.props.time.eventInfo.eventDesc))), _jsx("div", {
+        }, void 0, _ref3), _jsx("p", {
+            className: "day-event-info-name"
+        }, void 0, this.props.time.eventInfo.eventName), _jsx("p", {
+            className: "day-event-info-small"
+        }, void 0, this.props.time.eventInfo.eventAges), _jsx("p", {
+            className: "day-event-info-small"
+        }, void 0, this.props.time.eventInfo.eventCost), _jsx("p", {
+            className: "day-event-info-"
+        }, void 0, this.props.time.eventInfo.eventDesc))), _jsx("div", {
             style: this.props.style,
             className: `sched-row cal-event-box`,
             onClick: () => this.handleViewEventInfo(true)
