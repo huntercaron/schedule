@@ -235,6 +235,15 @@
 		"sC": 0,
 		"tS": 1
 		},
+	"\/js\/prefixfree.min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/build\/js\/min\/prefixfree.min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 1
+		},
 	"\/old.html": {
 		"ft": 8192,
 		"oA": 2,

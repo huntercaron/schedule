@@ -37,9 +37,23 @@ class CalEvent extends React.Component {
         }
 
         return (
-            <div style={this.props.style} className={`sched-row cal-event-box`}>
-                <div className={`cal-event ${this.props.time.statusString}`}>
-                    {eventInfo}
+            <div className="day-box">
+                {this.props.time.statusString == "Event" && this.state.viewEventInfo &&
+                    <div className="day-event-info-box">
+                        <div className="day-event-info">
+                            <p onClick={() => this.handleViewEventInfo(false)}><i className="material-icons">close</i></p>
+                            <p>{this.props.time.eventInfo.eventName}</p>
+                            <p>{this.props.time.eventInfo.eventAge}</p>
+                            <p>{this.props.time.eventInfo.eventCost}</p>
+                            <p>{this.props.time.eventInfo.eventDesc}</p>
+                        </div>
+                    </div>
+                }
+
+                <div style={this.props.style} className={`sched-row cal-event-box`} onClick={() => this.handleViewEventInfo(true)}>
+                    <div className={`cal-event ${this.props.time.statusString}`}>
+                        {eventInfo}
+                    </div>
                 </div>
             </div>
         );
