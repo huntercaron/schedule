@@ -687,7 +687,9 @@ a:hover {
   .schedule.view-all {
     width: 85%; }
   .schedule {
-    width: 50% !important; } }
+    width: 50% !important; }
+  .show-info-control {
+    display: none !important; } }
 
 .schedule {
   width: 100%; }

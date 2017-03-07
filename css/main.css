@@ -595,6 +595,10 @@ a:hover {
         width: 50% !important;
     }
 
+    .show-info-control {
+        display: none !important;
+    }
+
 }
 
 .schedule {
