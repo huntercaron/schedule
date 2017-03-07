@@ -195,23 +195,23 @@ class DateSelector extends React.Component {
     constructor(props) {
         super(props);
         let currentMonth = moment();
+
         this.state = {
             viewMonth: false,
-            currentMonth: currentMonth,
-            selectedDate: moment().month(parseInt(currentMonth.format("M")-1))
+            currentMonth: moment()
         };
 
-        this.handleSelectedDate = this.handleSelectedDate.bind(this);
+        this.handleSelectedDateChange = this.handleSelectedDateChange.bind(this);
         this.handleCurrentMonth = this.handleCurrentMonth.bind(this);
         this.handleViewMonth = this.handleViewMonth.bind(this);
     }
 
-    handleSelectedDate(newDate) {
+    handleSelectedDateChange(newDate) {
         console.log(`selected ${newDate.toDate()}`)
         this.setState({
-            currentMonth: newDate,
-            selectedDate: newDate
-        });
+            currentMonth: newDate
+        })
+        this.props.onSelectedDateChange(newDate);
     }
 
     handleCurrentMonth(newMonth) {
@@ -224,7 +224,7 @@ class DateSelector extends React.Component {
         view = !this.state.viewMonth;
         if (view == false) {
             this.setState({
-                 currentMonth: this.state.selectedDate
+                 currentMonth: this.props.selectedDate
             });
         }
 
@@ -261,20 +261,20 @@ class DateSelector extends React.Component {
                     {this.state.viewMonth ? (
                         weekdays.map(function(weekday){
                             return <SelectorWeek
-                                    selectedDate={scope.state.selectedDate}
+                                    selectedDate={scope.props.selectedDate}
                                     currentMonth={scope.state.currentMonth}
                                     startDate={weekday.startOf('week')}
                                     endDate={weekday.clone().startOf('week').add(6, 'd')}
-                                    onSelectedDateChange={scope.handleSelectedDate}
+                                    onSelectedDateChange={scope.handleSelectedDateChange}
                                     />
                         })
                         ) : (
                              <SelectorWeek
-                             selectedDate={scope.state.selectedDate}
+                             selectedDate={scope.props.selectedDate}
                              currentMonth={scope.state.currentMonth}
-                             startDate={this.state.selectedDate.clone().startOf('week')}
-                             endDate={this.state.selectedDate.clone().startOf('week').startOf('week').add(6, 'd')}
-                             onSelectedDateChange={this.handleSelectedDate}
+                             startDate={this.props.selectedDate.clone().startOf('week')}
+                             endDate={this.props.selectedDate.clone().startOf('week').startOf('week').add(6, 'd')}
+                             onSelectedDateChange={this.handleSelectedDateChange}
                              />
                         )}
                 </div>
@@ -431,7 +431,7 @@ class StudioCalendar extends React.Component {
 
         this.state = {
             studios: [],
-            selectedDay: 0,
+            selectedDate: moment(),
             selectedStudio: 0,
             viewAll: false,
             displayMenu: true
@@ -440,6 +440,7 @@ class StudioCalendar extends React.Component {
         this.handleSelectedStudio = this.handleSelectedStudio.bind(this);
         this.handleViewAll = this.handleViewAll.bind(this);
         this.handleDisplayMenu = this.handleDisplayMenu.bind(this);
+        this.handleSelectedDate = this.handleSelectedDate.bind(this);
     }
 
     componentDidMount() {
@@ -474,6 +475,13 @@ class StudioCalendar extends React.Component {
         })
     }
 
+    handleSelectedDate(newDate) {
+        this.setState({
+            currentMonth: newDate,
+            selectedDate: newDate
+        });
+    }
+
     render() {
         let menuStyle = {
             //display: this.state.displayMenu ? "block" : "none"
@@ -506,13 +514,20 @@ class StudioCalendar extends React.Component {
                 </div>
 
                 <div className="schedule">
-                    <DateSelector />
+                    {this.state.studios.length > 0 &&
+                        <DateSelector
+                        onSelectedDateChange={this.handleSelectedDate}
+                        onCurrentMonthChange={this.state.currentMonth}
+                        selectedDate={this.state.selectedDate}/>
+                    }
+
                     <div className="sched-body">
                         <CalTimes />
                         {this.state.studios.length > 0 &&
                             <CalendarBody data={this.state.studios}
                             selected={this.state.selectedStudio}
-                            viewAll={this.state.viewAll}/>
+                            viewAll={this.state.viewAll}
+                            selectedDate={this.state.selectedDate}/>
                         }
                     </div>
                 </div>

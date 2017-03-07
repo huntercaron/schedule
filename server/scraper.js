@@ -4,7 +4,7 @@ system = require('system'),
 output = { errors: [], results: null },
 facultyTimes = [];
 
-var day = 42795;
+var day = 42804;
 
 var faculties = [
     {
@@ -21,7 +21,7 @@ var faculties = [
     }
 ];
 
-facultyNum = 1;
+facultyNum = 2;
 facultyName = faculties[facultyNum].name,
 facultyId = faculties[facultyNum].id;
 
@@ -84,7 +84,7 @@ page.open(('https://secure.oakville.ca/iris/Facilities/FacilitiesDailyAvailabili
             ]
         };
 
-        var path = './' + facultyName.split(' ').join('_') + '.json';
+        var path = './' + facultyName.split(' ').join('_') + day + '.json';
 
         fs.touch(path);
         var dataStream = fs.open(path, 'w');
@@ -93,7 +93,7 @@ page.open(('https://secure.oakville.ca/iris/Facilities/FacilitiesDailyAvailabili
         facultyTimes.push(output.results);
 
         dataStream.write( JSON.stringify(facultyTimes, null, 4));
-        console.log("written to file: " + facultyName.split(' ').join('_') + '.json');
+        console.log("written to file: " + facultyName.split(' ').join('_') + day + '.json');
 
         dataStream.close();
 

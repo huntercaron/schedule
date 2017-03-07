@@ -1,10 +1,10 @@
 [
     {
-        "facultyId": 11099,
-        "facultyName": "Wood Working",
+        "facultyId": 11138,
+        "facultyName": "Digital Art Studio",
         "days": [
             {
-                "day": 42799,
+                "day": 42802,
                 "times": [
                     {
                         "time": "12:00AM",
@@ -138,33 +138,33 @@
                     },
                     {
                         "time": "1:00PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "1:30PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "2:00PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "2:30PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "3:00PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "3:30PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "4:00PM",
@@ -173,18 +173,18 @@
                     },
                     {
                         "time": "4:30PM",
-                        "statusString": "Booked",
-                        "status": false
+                        "statusString": "Available",
+                        "status": true
                     },
                     {
                         "time": "5:00PM",
-                        "statusString": "Booked",
-                        "status": false
+                        "statusString": "Available",
+                        "status": true
                     },
                     {
                         "time": "5:30PM",
-                        "statusString": "Booked",
-                        "status": false
+                        "statusString": "Available",
+                        "status": true
                     },
                     {
                         "time": "6:00PM",

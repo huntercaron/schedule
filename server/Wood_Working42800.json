@@ -4,7 +4,7 @@
         "facultyName": "Wood Working",
         "days": [
             {
-                "day": 42799,
+                "day": 42800,
                 "times": [
                     {
                         "time": "12:00AM",
@@ -173,18 +173,18 @@
                     },
                     {
                         "time": "4:30PM",
-                        "statusString": "Booked",
-                        "status": false
+                        "statusString": "Available",
+                        "status": true
                     },
                     {
                         "time": "5:00PM",
-                        "statusString": "Booked",
-                        "status": false
+                        "statusString": "Available",
+                        "status": true
                     },
                     {
                         "time": "5:30PM",
-                        "statusString": "Booked",
-                        "status": false
+                        "statusString": "Available",
+                        "status": true
                     },
                     {
                         "time": "6:00PM",

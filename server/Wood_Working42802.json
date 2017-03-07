@@ -4,7 +4,7 @@
         "facultyName": "Wood Working",
         "days": [
             {
-                "day": 42799,
+                "day": 42802,
                 "times": [
                     {
                         "time": "12:00AM",
@@ -98,43 +98,43 @@
                     },
                     {
                         "time": "9:00AM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "9:30AM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "10:00AM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "10:30AM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "11:00AM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "11:30AM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "12:00PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "12:30PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "1:00PM",
@@ -148,28 +148,28 @@
                     },
                     {
                         "time": "2:00PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "2:30PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "3:00PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "3:30PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "4:00PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Booked",
+                        "status": false
                     },
                     {
                         "time": "4:30PM",

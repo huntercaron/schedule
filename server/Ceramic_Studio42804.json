@@ -1,10 +1,10 @@
 [
     {
-        "facultyId": 11099,
-        "facultyName": "Wood Working",
+        "facultyId": 11101,
+        "facultyName": "Ceramic Studio",
         "days": [
             {
-                "day": 42799,
+                "day": 42804,
                 "times": [
                     {
                         "time": "12:00AM",
@@ -173,18 +173,18 @@
                     },
                     {
                         "time": "4:30PM",
-                        "statusString": "Booked",
-                        "status": false
+                        "statusString": "Available",
+                        "status": true
                     },
                     {
                         "time": "5:00PM",
-                        "statusString": "Booked",
-                        "status": false
+                        "statusString": "Available",
+                        "status": true
                     },
                     {
                         "time": "5:30PM",
-                        "statusString": "Booked",
-                        "status": false
+                        "statusString": "Available",
+                        "status": true
                     },
                     {
                         "time": "6:00PM",
@@ -198,33 +198,33 @@
                     },
                     {
                         "time": "7:00PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Closed",
+                        "status": false
                     },
                     {
                         "time": "7:30PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Closed",
+                        "status": false
                     },
                     {
                         "time": "8:00PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Closed",
+                        "status": false
                     },
                     {
                         "time": "8:30PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Closed",
+                        "status": false
                     },
                     {
                         "time": "9:00PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Closed",
+                        "status": false
                     },
                     {
                         "time": "9:30PM",
-                        "statusString": "Available",
-                        "status": true
+                        "statusString": "Closed",
+                        "status": false
                     },
                     {
                         "time": "10:00PM",
