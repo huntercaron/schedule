@@ -591,10 +591,14 @@ a:hover {
 
     }
 
+    .schedule {
+        width: 50% !important;
+    }
+
 }
 
 .schedule {
-    width: 50%;
+    width: 100%;
 }
 /* become a member */
 

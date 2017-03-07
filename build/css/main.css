@@ -685,10 +685,12 @@ a:hover {
   .top-area {
     width: 50%; }
   .schedule.view-all {
-    width: 85%; } }
+    width: 85%; }
+  .schedule {
+    width: 50% !important; } }
 
 .schedule {
-  width: 50%; }
+  width: 100%; }
 
 /* become a member */
 .event-status {
