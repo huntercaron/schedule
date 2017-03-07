@@ -1,5 +1,6 @@
 var times = [];
 var eventHeight = 24;
+let imgUrl = "./images/";
 
 class CalEvent extends React.Component {
     render () {
@@ -221,6 +222,11 @@ class DateSelector extends React.Component {
 
     handleViewMonth(view) {
         view = !this.state.viewMonth;
+        if (view == false) {
+            this.setState({
+                 currentMonth: this.state.selectedDate
+            });
+        }
 
         this.setState({
              viewMonth: view
@@ -297,8 +303,9 @@ class StudioInfo extends React.Component {
     }
 
     render () {
+
         let infoStyle = {
-            display: this.state.displayInfo ? "block" : "none"
+            display: (this.state.displayInfo) ? "block" : "none"
         };
 
         let arrowStyle = {
@@ -308,11 +315,17 @@ class StudioInfo extends React.Component {
         return (
             <div>
                 <div className="studio-name-box">
-                    <h3>{this.props.data[this.props.selected].facultyName}</h3>
+                    {this.props.viewAll ? (
+                        <h3 className="studio-info-name">All Studios</h3>
+                    ) : (
+                        <h3 className="studio-info-name">{this.props.data[this.props.selected].facultyName}</h3>
+                    )}
                 </div>
-                <button className="show-info-control" onClick={this.handleInfoDisplay} >
-                    <i className="material-icons icon-left-align" style={arrowStyle} aria-hidden="true">arrow_drop_down</i> <p className="more-about-text">More about the studio</p>
-                </button>
+                { (!(this.props.viewAll)) ? (
+                    <button className="show-info-control" onClick={this.handleInfoDisplay} >
+                        <i className="material-icons icon-left-align" style={arrowStyle} aria-hidden="true">arrow_drop_down</i> <p className="more-about-text">More about the studio</p>
+                    </button>
+                ) : (" ")}
                 <div style={infoStyle}>
                     {this.props.data[this.props.selected].facultyInfo.split('\n').map(function(text){
                         return <p>{text}<br/></p>
@@ -335,11 +348,15 @@ class StudioMenuItem extends React.Component {
     }
 
     render() {
+        let imageStyle = {
+            backgroundImage: 'url(' + imgUrl + this.props.studioClass + '-small.svg' + ')',
+        }
+
         return(
             <div className="studio-menu-item" onClick={() => this.handleSelectedStudioChange(this.props.studioNum)}>
-                <div className="studio-menu-item-img">
+                <div className="studio-menu-item-img" style={imageStyle}>
                 </div>
-                <h4 className="studio-menu-item-name" >{this.props.studioName}</h4>
+                <h5 className="studio-menu-item-name" >{this.props.studioName}</h5>
                 <p className="studio-menu-item-times">{`Open Until 9pm`}</p>
             </div>
         );
@@ -391,6 +408,7 @@ class StudioMenu extends React.Component {
                     {this.props.data.map((studio, i) => {
                         return <StudioMenuItem
                                 studioName={studio.facultyName}
+                                studioClass={studio.facultyClass}
                                 studioTimes={studio.days[0]}
                                 studioNum={i}
                                 onSelectedStudioChange={this.props.onSelectedStudioChange}/>
@@ -481,6 +499,7 @@ class StudioCalendar extends React.Component {
                     {this.state.studios.length > 0 &&
                         <StudioInfo
                         data={this.state.studios}
+                        isMenuOpen={this.state.displayMenu}
                         selected={this.state.selectedStudio}
                         viewAll={this.state.viewAll}/>
                     }

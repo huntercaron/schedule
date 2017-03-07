@@ -2,6 +2,7 @@ var _jsx = function () { var REACT_ELEMENT_TYPE = typeof Symbol === "function" &
 
 var times = [];
 var eventHeight = 24;
+let imgUrl = "./images/";
 
 class CalEvent extends React.Component {
     render() {
@@ -149,6 +150,14 @@ class SelectorWeek extends React.Component {
     }
 }
 
+var _ref = _jsx("i", {
+    className: "material-icons"
+}, void 0, "navigate_before");
+
+var _ref2 = _jsx("i", {
+    className: "material-icons"
+}, void 0, "navigate_next");
+
 class MonthControls extends React.Component {
     constructor(props) {
         super(props);
@@ -181,9 +190,7 @@ class MonthControls extends React.Component {
             className: "month-controls",
             style: monthNavStyle,
             onClick: () => this.handleCurrentMonthChange(this.props.currentMonth.clone().subtract(1, "months"))
-        }, void 0, _jsx("i", {
-            className: "material-icons"
-        }, void 0, "navigate_before")), _jsx("h4", {
+        }, void 0, _ref), _jsx("h4", {
             className: "current-month",
             onClick: this.handleViewMonthChange
         }, void 0, this.props.currentMonth.format("MMMM Y"), " ", _jsx("i", {
@@ -194,9 +201,7 @@ class MonthControls extends React.Component {
             className: "month-controls",
             style: monthNavStyle,
             onClick: () => this.handleCurrentMonthChange(this.props.currentMonth.clone().add(1, "months"))
-        }, void 0, _jsx("i", {
-            className: "material-icons"
-        }, void 0, "navigate_next")));
+        }, void 0, _ref2));
     }
 }
 
@@ -231,6 +236,11 @@ class DateSelector extends React.Component {
 
     handleViewMonth(view) {
         view = !this.state.viewMonth;
+        if (view == false) {
+            this.setState({
+                currentMonth: this.state.selectedDate
+            });
+        }
 
         this.setState({
             viewMonth: view
@@ -278,6 +288,16 @@ class DateSelector extends React.Component {
     }
 }
 
+var _ref3 = _jsx("h3", {
+    className: "studio-info-name"
+}, void 0, "All Studios");
+
+var _ref4 = _jsx("p", {
+    className: "more-about-text"
+}, void 0, "More about the studio");
+
+var _ref5 = _jsx("br", {});
+
 class StudioInfo extends React.Component {
     constructor(props) {
         super(props);
@@ -298,6 +318,7 @@ class StudioInfo extends React.Component {
     }
 
     render() {
+
         let infoStyle = {
             display: this.state.displayInfo ? "block" : "none"
         };
@@ -308,19 +329,19 @@ class StudioInfo extends React.Component {
 
         return _jsx("div", {}, void 0, _jsx("div", {
             className: "studio-name-box"
-        }, void 0, _jsx("h3", {}, void 0, this.props.data[this.props.selected].facultyName)), _jsx("button", {
+        }, void 0, this.props.viewAll ? _ref3 : _jsx("h3", {
+            className: "studio-info-name"
+        }, void 0, this.props.data[this.props.selected].facultyName)), !this.props.viewAll ? _jsx("button", {
             className: "show-info-control",
             onClick: this.handleInfoDisplay
         }, void 0, _jsx("i", {
             className: "material-icons icon-left-align",
             style: arrowStyle,
             "aria-hidden": "true"
-        }, void 0, "arrow_drop_down"), " ", _jsx("p", {
-            className: "more-about-text"
-        }, void 0, "More about the studio")), _jsx("div", {
+        }, void 0, "arrow_drop_down"), " ", _ref4) : " ", _jsx("div", {
             style: infoStyle
         }, void 0, this.props.data[this.props.selected].facultyInfo.split('\n').map(function (text) {
-            return _jsx("p", {}, void 0, text, _jsx("br", {}));
+            return _jsx("p", {}, void 0, text, _ref5);
         })));
     }
 }
@@ -337,18 +358,31 @@ class StudioMenuItem extends React.Component {
     }
 
     render() {
+        let imageStyle = {
+            backgroundImage: 'url(' + imgUrl + this.props.studioClass + '-small.svg' + ')'
+        };
+
         return _jsx("div", {
             className: "studio-menu-item",
             onClick: () => this.handleSelectedStudioChange(this.props.studioNum)
         }, void 0, _jsx("div", {
-            className: "studio-menu-item-img"
-        }, void 0), _jsx("h4", {
+            className: "studio-menu-item-img",
+            style: imageStyle
+        }, void 0), _jsx("h5", {
             className: "studio-menu-item-name"
         }, void 0, this.props.studioName), _jsx("p", {
             className: "studio-menu-item-times"
         }, void 0, `Open Until 9pm`));
     }
 }
+
+var _ref6 = _jsx("i", {
+    className: "material-icons icon-left-align"
+}, void 0, "arrow_back");
+
+var _ref7 = _jsx("h6", {
+    className: "back-button-text"
+}, void 0, "back");
 
 class BackToMenuButton extends React.Component {
     constructor(props) {
@@ -365,13 +399,25 @@ class BackToMenuButton extends React.Component {
         return _jsx("button", {
             className: "back-button",
             onClick: () => this.handleDisplayMenuChange(true)
-        }, void 0, _jsx("i", {
-            className: "material-icons icon-left-align"
-        }, void 0, "arrow_back"), " ", _jsx("h6", {
-            className: "back-button-text"
-        }, void 0, "back"));
+        }, void 0, _ref6, " ", _ref7);
     }
 }
+
+var _ref8 = _jsx("div", {
+    className: "studio-menu-welcome"
+}, void 0, _jsx("h2", {
+    className: "welcome-message"
+}, void 0, "Good Afternoon"), _jsx("p", {
+    className: "welcome-help"
+}, void 0, "Select a studio to see it's availibility."));
+
+var _ref9 = _jsx("div", {
+    className: "studio-menu-item-img"
+}, void 0);
+
+var _ref10 = _jsx("h4", {
+    className: "studio-menu-item-name"
+}, void 0, "Compare All Studios");
 
 class StudioMenu extends React.Component {
     constructor(props) {
@@ -391,17 +437,12 @@ class StudioMenu extends React.Component {
         return _jsx("div", {
             className: "studio-menu-box",
             style: this.props.style
-        }, void 0, _jsx("div", {
-            className: "studio-menu-welcome"
-        }, void 0, _jsx("h2", {
-            className: "welcome-message"
-        }, void 0, "Good Afternoon"), _jsx("p", {
-            className: "welcome-help"
-        }, void 0, "Select a studio to see it's availibility.")), _jsx("div", {
+        }, void 0, _ref8, _jsx("div", {
             className: "studio-buttons-box"
         }, void 0, this.props.data.map((studio, i) => {
             return _jsx(StudioMenuItem, {
                 studioName: studio.facultyName,
+                studioClass: studio.facultyClass,
                 studioTimes: studio.days[0],
                 studioNum: i,
                 onSelectedStudioChange: this.props.onSelectedStudioChange
@@ -409,13 +450,13 @@ class StudioMenu extends React.Component {
         }), _jsx("div", {
             className: "studio-menu-item compare-all",
             onClick: () => this.handleViewAllChange(true)
-        }, void 0, _jsx("div", {
-            className: "studio-menu-item-img"
-        }, void 0), _jsx("h4", {
-            className: "studio-menu-item-name"
-        }, void 0, "Compare All Studios"))));
+        }, void 0, _ref9, _ref10)));
     }
 }
+
+var _ref11 = _jsx(DateSelector, {});
+
+var _ref12 = _jsx(CalTimes, {});
 
 class StudioCalendar extends React.Component {
     constructor(props) {
@@ -486,13 +527,14 @@ class StudioCalendar extends React.Component {
             onDisplayMenuChange: this.handleDisplayMenu
         }), this.state.studios.length > 0 && _jsx(StudioInfo, {
             data: this.state.studios,
+            isMenuOpen: this.state.displayMenu,
             selected: this.state.selectedStudio,
             viewAll: this.state.viewAll
         })), _jsx("div", {
             className: "schedule"
-        }, void 0, _jsx(DateSelector, {}), _jsx("div", {
+        }, void 0, _ref11, _jsx("div", {
             className: "sched-body"
-        }, void 0, _jsx(CalTimes, {}), this.state.studios.length > 0 && _jsx(CalendarBody, {
+        }, void 0, _ref12, this.state.studios.length > 0 && _jsx(CalendarBody, {
             data: this.state.studios,
             selected: this.state.selectedStudio,
             viewAll: this.state.viewAll
