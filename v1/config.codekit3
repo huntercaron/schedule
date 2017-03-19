@@ -15,844 +15,256 @@
 		"oAP": "\/build\/build",
 		"oF": 0
 		},
-	"\/extras\/holder": {
+	"\/CNAME": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/extras\/holder",
+		"oAP": "\/build\/CNAME",
 		"oF": 0
 		},
-	"\/extras\/python\/scrape.py": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/extras\/python\/scrape.py",
-		"oF": 0
-		},
-	"\/extras\/queries.txt": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/extras\/queries.txt",
-		"oF": 0
-		},
-	"\/extras\/server\/app.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 0,
-		"oAP": "\/build\/extras\/server\/min\/app-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/extras\/server\/Ceramic_Studio.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Ceramic_Studio-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Ceramic_Studio42798.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Ceramic_Studio42798-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Ceramic_Studio42799.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Ceramic_Studio42799-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Ceramic_Studio42800.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Ceramic_Studio42800-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Ceramic_Studio42801.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Ceramic_Studio42801-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Ceramic_Studio42802.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Ceramic_Studio42802-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Ceramic_Studio42803.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Ceramic_Studio42803-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Ceramic_Studio42804.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Ceramic_Studio42804-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Digital_Art_Studio.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Digital_Art_Studio-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Digital_Art_Studio42798.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Digital_Art_Studio42798-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Digital_Art_Studio42799.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Digital_Art_Studio42799-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Digital_Art_Studio42800.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Digital_Art_Studio42800-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Digital_Art_Studio42801.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Digital_Art_Studio42801-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Digital_Art_Studio42802.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Digital_Art_Studio42802-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Digital_Art_Studio42803.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Digital_Art_Studio42803-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Digital_Art_Studio42804.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Digital_Art_Studio42804-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/faculties.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/faculties-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/node_modules": {
-		"ft": 65536,
-		"oA": 2,
-		"oAP": "\/build\/extras\/server\/node_modules",
-		"oF": 0
-		},
-	"\/extras\/server\/output.html": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/extras\/server\/output.html",
-		"oF": 0
-		},
-	"\/extras\/server\/output.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/output-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/package.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/package-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/scraper.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 0,
-		"oAP": "\/build\/extras\/server\/min\/scraper-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/extras\/server\/server\/getdata.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 0,
-		"oAP": "\/build\/extras\/server\/server\/min\/getdata-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/extras\/server\/times.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/times-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Wood_Working.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Wood_Working-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Wood_Working42798.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Wood_Working42798-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Wood_Working42799.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Wood_Working42799-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Wood_Working42800.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Wood_Working42800-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Wood_Working42801.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Wood_Working42801-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Wood_Working42802.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Wood_Working42802-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Wood_Working42803.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Wood_Working42803-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/extras\/server\/Wood_Working42804.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/extras\/server\/Wood_Working42804-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/v1\/build\/.gitignore": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/build\/.gitignore",
-		"oF": 0
-		},
-	"\/v1\/build\/CNAME": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/build\/CNAME",
-		"oF": 0
-		},
-	"\/v1\/build\/css\/main.css": {
-		"aP": 0,
+	"\/css\/main.css": {
+		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
-		"oA": 2,
-		"oAP": "\/build\/v1\/build\/css\/main-ck.css",
-		"oF": 0,
+		"oA": 0,
+		"oAP": "\/build\/css\/main.css",
+		"oF": 3,
 		"oS": 0
 		},
-	"\/v1\/build\/data\/times.json": {
+	"\/data\/times.json": {
 		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/v1\/build\/data\/times-min.json",
-		"oF": 0,
+		"oA": 0,
+		"oAP": "\/build\/data\/times.json",
+		"oF": 3,
 		"oO": 0,
 		"oS": 1
 		},
-	"\/v1\/build\/fonts\/font-awesome.min-ck.css": {
-		"aP": 0,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/font-awesome.min-ck-ck.css",
-		"oF": 0,
-		"oS": 0
-		},
-	"\/v1\/build\/fonts\/MalloryMP-Black.eot": {
+	"\/fonts\/MalloryMP-Black.eot": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/MalloryMP-Black.eot",
+		"oAP": "\/build\/fonts\/MalloryMP-Black.eot",
 		"oF": 0
 		},
-	"\/v1\/build\/fonts\/MalloryMP-Black.woff": {
+	"\/fonts\/MalloryMP-Black.woff": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/MalloryMP-Black.woff",
+		"oAP": "\/build\/fonts\/MalloryMP-Black.woff",
 		"oF": 0
 		},
-	"\/v1\/build\/fonts\/MalloryMP-Bold.eot": {
+	"\/fonts\/MalloryMP-Bold.eot": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/MalloryMP-Bold.eot",
+		"oAP": "\/build\/fonts\/MalloryMP-Bold.eot",
 		"oF": 0
 		},
-	"\/v1\/build\/fonts\/MalloryMP-Bold.woff": {
+	"\/fonts\/MalloryMP-Bold.woff": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/MalloryMP-Bold.woff",
+		"oAP": "\/build\/fonts\/MalloryMP-Bold.woff",
 		"oF": 0
 		},
-	"\/v1\/build\/fonts\/MalloryMP-BoldItalic.eot": {
+	"\/fonts\/MalloryMP-BoldItalic.eot": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/MalloryMP-BoldItalic.eot",
+		"oAP": "\/build\/fonts\/MalloryMP-BoldItalic.eot",
 		"oF": 0
 		},
-	"\/v1\/build\/fonts\/MalloryMP-BoldItalic.woff": {
+	"\/fonts\/MalloryMP-BoldItalic.woff": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/MalloryMP-BoldItalic.woff",
+		"oAP": "\/build\/fonts\/MalloryMP-BoldItalic.woff",
 		"oF": 0
 		},
-	"\/v1\/build\/fonts\/MalloryMP-Book.eot": {
+	"\/fonts\/MalloryMP-Book.eot": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/MalloryMP-Book.eot",
+		"oAP": "\/build\/fonts\/MalloryMP-Book.eot",
 		"oF": 0
 		},
-	"\/v1\/build\/fonts\/MalloryMP-Book.woff": {
+	"\/fonts\/MalloryMP-Book.woff": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/MalloryMP-Book.woff",
+		"oAP": "\/build\/fonts\/MalloryMP-Book.woff",
 		"oF": 0
 		},
-	"\/v1\/build\/fonts\/MalloryMP-BookItalic.eot": {
+	"\/fonts\/MalloryMP-BookItalic.eot": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/MalloryMP-BookItalic.eot",
+		"oAP": "\/build\/fonts\/MalloryMP-BookItalic.eot",
 		"oF": 0
 		},
-	"\/v1\/build\/fonts\/MalloryMP-BookItalic.woff": {
+	"\/fonts\/MalloryMP-BookItalic.woff": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/MalloryMP-BookItalic.woff",
+		"oAP": "\/build\/fonts\/MalloryMP-BookItalic.woff",
 		"oF": 0
 		},
-	"\/v1\/build\/fonts\/MalloryMP-Light.eot": {
+	"\/fonts\/MalloryMP-Light.eot": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/MalloryMP-Light.eot",
+		"oAP": "\/build\/fonts\/MalloryMP-Light.eot",
 		"oF": 0
 		},
-	"\/v1\/build\/fonts\/MalloryMP-Light.woff": {
+	"\/fonts\/MalloryMP-Light.woff": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/MalloryMP-Light.woff",
+		"oAP": "\/build\/fonts\/MalloryMP-Light.woff",
 		"oF": 0
 		},
-	"\/v1\/build\/fonts\/MalloryMP-LightItalic.eot": {
+	"\/fonts\/MalloryMP-LightItalic.eot": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/MalloryMP-LightItalic.eot",
+		"oAP": "\/build\/fonts\/MalloryMP-LightItalic.eot",
 		"oF": 0
 		},
-	"\/v1\/build\/fonts\/MalloryMP-LightItalic.woff": {
+	"\/fonts\/MalloryMP-LightItalic.woff": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/MalloryMP-LightItalic.woff",
+		"oAP": "\/build\/fonts\/MalloryMP-LightItalic.woff",
 		"oF": 0
 		},
-	"\/v1\/build\/fonts\/MalloryMP-Medium.eot": {
+	"\/fonts\/MalloryMP-Medium.eot": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/MalloryMP-Medium.eot",
+		"oAP": "\/build\/fonts\/MalloryMP-Medium.eot",
 		"oF": 0
 		},
-	"\/v1\/build\/fonts\/MalloryMP-Medium.woff": {
+	"\/fonts\/MalloryMP-Medium.woff": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/MalloryMP-Medium.woff",
+		"oAP": "\/build\/fonts\/MalloryMP-Medium.woff",
 		"oF": 0
 		},
-	"\/v1\/build\/fonts\/MalloryMP-MediumItalic.eot": {
+	"\/fonts\/MalloryMP-MediumItalic.eot": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/MalloryMP-MediumItalic.eot",
+		"oAP": "\/build\/fonts\/MalloryMP-MediumItalic.eot",
 		"oF": 0
 		},
-	"\/v1\/build\/fonts\/MalloryMP-MediumItalic.woff": {
+	"\/fonts\/MalloryMP-MediumItalic.woff": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/fonts\/MalloryMP-MediumItalic.woff",
+		"oAP": "\/build\/fonts\/MalloryMP-MediumItalic.woff",
 		"oF": 0
 		},
-	"\/v1\/build\/holder": {
+	"\/holder": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/holder",
+		"oAP": "\/build\/holder",
 		"oF": 0
 		},
-	"\/v1\/build\/images\/art-small.svg": {
+	"\/images\/art-small.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/images\/art-small.svg",
+		"oAP": "\/build\/images\/art-small.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/v1\/build\/images\/ceramic-small.svg": {
+	"\/images\/ceramic-small.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/images\/ceramic-small.svg",
+		"oAP": "\/build\/images\/ceramic-small.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/v1\/build\/images\/digital-small.svg": {
+	"\/images\/digital-small.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/build\/v1\/build\/images\/digital-small.svg",
+		"oAP": "\/build\/images\/digital-small.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/v1\/build\/images\/favicon.png": {
-		"ft": 32768,
-		"iS": 16664,
-		"l": 1,
-		"oA": 0,
-		"oAP": "\/build\/v1\/build\/images\/favicon.png",
-		"oF": 0,
-		"opt": 1,
-		"q": 100
-		},
-	"\/v1\/build\/images\/textile-small.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/build\/v1\/build\/images\/textile-small.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
-		},
-	"\/v1\/build\/images\/woodworking-small.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/build\/v1\/build\/images\/woodworking-small.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
-		},
-	"\/v1\/build\/index.html": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/build\/index.html",
-		"oF": 0
-		},
-	"\/v1\/build\/js\/min\/main-min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/v1\/build\/js\/min\/min\/main-min-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/v1\/build\/js\/min\/main-min.js.map": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/build\/js\/min\/main-min.js.map",
-		"oF": 0
-		},
-	"\/v1\/build\/js\/min\/prefixfree.min-min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/v1\/build\/js\/min\/min\/prefixfree.min-min-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/v1\/build\/js\/moment.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/v1\/build\/js\/min\/moment-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/v1\/build\/js\/prefixfree.min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/v1\/build\/js\/min\/prefixfree.min-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/v1\/build\/old.html": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/build\/old.html",
-		"oF": 0
-		},
-	"\/v1\/build\/python\/scrape.py": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/build\/python\/scrape.py",
-		"oF": 0
-		},
-	"\/v1\/build\/queries.txt": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/build\/queries.txt",
-		"oF": 0
-		},
-	"\/v1\/build\/README.html": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/build\/README.html",
-		"oF": 0
-		},
-	"\/v1\/build\/server\/min\/app-min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/v1\/build\/server\/min\/min\/app-min-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/v1\/build\/server\/min\/scraper-min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/v1\/build\/server\/min\/min\/scraper-min-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/v1\/build\/server\/npm-debug.log": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/build\/server\/npm-debug.log",
-		"oF": 0
-		},
-	"\/v1\/build\/server\/output.html": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/build\/server\/output.html",
-		"oF": 0
-		},
-	"\/v1\/build\/server\/server\/min\/getdata-min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/v1\/build\/server\/server\/min\/min\/getdata-min-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/v1\/CNAME": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/CNAME",
-		"oF": 0
-		},
-	"\/v1\/css\/main.css": {
-		"aP": 0,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 2,
-		"oAP": "\/build\/v1\/css\/main-ck.css",
-		"oF": 0,
-		"oS": 0
-		},
-	"\/v1\/data\/times.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/build\/v1\/data\/times-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/v1\/fonts\/MalloryMP-Black.eot": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/fonts\/MalloryMP-Black.eot",
-		"oF": 0
-		},
-	"\/v1\/fonts\/MalloryMP-Black.woff": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/fonts\/MalloryMP-Black.woff",
-		"oF": 0
-		},
-	"\/v1\/fonts\/MalloryMP-Bold.eot": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/fonts\/MalloryMP-Bold.eot",
-		"oF": 0
-		},
-	"\/v1\/fonts\/MalloryMP-Bold.woff": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/fonts\/MalloryMP-Bold.woff",
-		"oF": 0
-		},
-	"\/v1\/fonts\/MalloryMP-BoldItalic.eot": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/fonts\/MalloryMP-BoldItalic.eot",
-		"oF": 0
-		},
-	"\/v1\/fonts\/MalloryMP-BoldItalic.woff": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/fonts\/MalloryMP-BoldItalic.woff",
-		"oF": 0
-		},
-	"\/v1\/fonts\/MalloryMP-Book.eot": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/fonts\/MalloryMP-Book.eot",
-		"oF": 0
-		},
-	"\/v1\/fonts\/MalloryMP-Book.woff": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/fonts\/MalloryMP-Book.woff",
-		"oF": 0
-		},
-	"\/v1\/fonts\/MalloryMP-BookItalic.eot": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/fonts\/MalloryMP-BookItalic.eot",
-		"oF": 0
-		},
-	"\/v1\/fonts\/MalloryMP-BookItalic.woff": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/fonts\/MalloryMP-BookItalic.woff",
-		"oF": 0
-		},
-	"\/v1\/fonts\/MalloryMP-Light.eot": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/fonts\/MalloryMP-Light.eot",
-		"oF": 0
-		},
-	"\/v1\/fonts\/MalloryMP-Light.woff": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/fonts\/MalloryMP-Light.woff",
-		"oF": 0
-		},
-	"\/v1\/fonts\/MalloryMP-LightItalic.eot": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/fonts\/MalloryMP-LightItalic.eot",
-		"oF": 0
-		},
-	"\/v1\/fonts\/MalloryMP-LightItalic.woff": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/fonts\/MalloryMP-LightItalic.woff",
-		"oF": 0
-		},
-	"\/v1\/fonts\/MalloryMP-Medium.eot": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/fonts\/MalloryMP-Medium.eot",
-		"oF": 0
-		},
-	"\/v1\/fonts\/MalloryMP-Medium.woff": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/fonts\/MalloryMP-Medium.woff",
-		"oF": 0
-		},
-	"\/v1\/fonts\/MalloryMP-MediumItalic.eot": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/fonts\/MalloryMP-MediumItalic.eot",
-		"oF": 0
-		},
-	"\/v1\/fonts\/MalloryMP-MediumItalic.woff": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v1\/fonts\/MalloryMP-MediumItalic.woff",
-		"oF": 0
-		},
-	"\/v1\/images\/art-small.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/build\/v1\/images\/art-small.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
-		},
-	"\/v1\/images\/ceramic-small.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/build\/v1\/images\/ceramic-small.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
-		},
-	"\/v1\/images\/digital-small.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/build\/v1\/images\/digital-small.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
-		},
-	"\/v1\/images\/favicon.png": {
+	"\/images\/favicon.png": {
 		"ft": 32768,
 		"iS": 16683,
 		"l": 1,
 		"oA": 0,
-		"oAP": "\/build\/v1\/images\/favicon.png",
+		"oAP": "\/build\/images\/favicon.png",
 		"oF": 0,
 		"opt": 1,
 		"q": 100
 		},
-	"\/v1\/images\/textile-small.svg": {
+	"\/images\/textile-small.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/build\/v1\/images\/textile-small.svg",
+		"oAP": "\/build\/images\/textile-small.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/v1\/images\/woodworking-small.svg": {
+	"\/images\/woodworking-small.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/build\/v1\/images\/woodworking-small.svg",
+		"oAP": "\/build\/images\/woodworking-small.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/v1\/index.html": {
+	"\/index.html": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/index.html",
-		"oF": 0
+		"oAP": "\/build\/index.html",
+		"oF": 1
 		},
-	"\/v1\/js\/main.js": {
+	"\/js\/main.js": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/build\/js\/min\/main-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 1
+		},
+	"\/js\/moment.js": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 2,
+		"oAP": "\/build\/js\/moment.js",
+		"oF": 3,
+		"sC": 0,
+		"tS": 1
+		},
+	"\/js\/prefixfree.min.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/build\/v1\/js\/min\/main-min.js",
+		"oAP": "\/build\/js\/min\/prefixfree.min-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 1
 		},
-	"\/v1\/js\/moment.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/v1\/js\/min\/moment-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/v1\/js\/prefixfree.min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/v1\/js\/min\/prefixfree.min-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"\/v1\/old.html": {
+	"\/old.html": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/v1\/old.html",
+		"oAP": "\/build\/old.html",
 		"oF": 0
 		},
-	"\/v1\/README.md": {
+	"\/python\/scrape.py": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/python\/scrape.py",
+		"oF": 0
+		},
+	"\/queries.txt": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/queries.txt",
+		"oF": 0
+		},
+	"\/README.md": {
 		"cS": 0,
 		"eF": 1,
 		"eL": 1,
@@ -861,7 +273,7 @@
 		"eSQ": 1,
 		"ft": 4096,
 		"oA": 0,
-		"oAP": "\/build\/v1\/README.html",
+		"oAP": "\/build\/README.html",
 		"oF": 0,
 		"oFM": 0,
 		"oS": 0,
@@ -870,173 +282,268 @@
 		"rFN": 0,
 		"uCM": 0
 		},
-	"\/v2\/.gitignore": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v2\/.gitignore",
-		"oF": 0
+	"\/server\/app.js": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/build\/server\/min\/app-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
 		},
-	"\/v2\/build\/asset-manifest.json": {
+	"\/server\/Ceramic_Studio.json": {
 		"ft": 524288,
 		"oA": 1,
-		"oAP": "\/build\/v2\/build\/asset-manifest-min.json",
+		"oAP": "\/build\/server\/Ceramic_Studio-min.json",
 		"oF": 0,
 		"oO": 0,
 		"oS": 1
 		},
-	"\/v2\/build\/favicon.ico": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v2\/build\/favicon.ico",
-		"oF": 0
-		},
-	"\/v2\/build\/index.html": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v2\/build\/index.html",
-		"oF": 0
-		},
-	"\/v2\/build\/static\/css\/main.9a0fe4f1.css": {
-		"aP": 0,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 2,
-		"oAP": "\/build\/v2\/build\/static\/css\/main.9a0fe4f1-ck.css",
+	"\/server\/Ceramic_Studio42798.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Ceramic_Studio42798-min.json",
 		"oF": 0,
-		"oS": 0
+		"oO": 0,
+		"oS": 1
 		},
-	"\/v2\/build\/static\/css\/main.9a0fe4f1.css.map": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v2\/build\/static\/css\/main.9a0fe4f1.css.map",
-		"oF": 0
-		},
-	"\/v2\/build\/static\/js\/main.9df72ebb.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/build\/v2\/build\/static\/js\/min\/main.9df72ebb-min.js",
+	"\/server\/Ceramic_Studio42799.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Ceramic_Studio42799-min.json",
 		"oF": 0,
-		"sC": 3,
-		"tS": 1
+		"oO": 0,
+		"oS": 1
 		},
-	"\/v2\/build\/static\/js\/main.9df72ebb.js.map": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v2\/build\/static\/js\/main.9df72ebb.js.map",
-		"oF": 0
-		},
-	"\/v2\/build\/static\/media\/logo.5d5d9eef.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/build\/v2\/build\/static\/media\/logo.5d5d9eef.svg",
+	"\/server\/Ceramic_Studio42800.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Ceramic_Studio42800-min.json",
 		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
+		"oO": 0,
+		"oS": 1
 		},
-	"\/v2\/node_modules": {
+	"\/server\/Ceramic_Studio42801.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Ceramic_Studio42801-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Ceramic_Studio42802.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Ceramic_Studio42802-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Ceramic_Studio42803.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Ceramic_Studio42803-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Ceramic_Studio42804.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Ceramic_Studio42804-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Digital_Art_Studio.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Digital_Art_Studio-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Digital_Art_Studio42798.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Digital_Art_Studio42798-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Digital_Art_Studio42799.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Digital_Art_Studio42799-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Digital_Art_Studio42800.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Digital_Art_Studio42800-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Digital_Art_Studio42801.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Digital_Art_Studio42801-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Digital_Art_Studio42802.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Digital_Art_Studio42802-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Digital_Art_Studio42803.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Digital_Art_Studio42803-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Digital_Art_Studio42804.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Digital_Art_Studio42804-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/faculties.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/faculties-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/node_modules": {
 		"ft": 65536,
 		"oA": 2,
-		"oAP": "\/build\/v2\/node_modules",
+		"oAP": "\/build\/server\/node_modules",
 		"oF": 0
 		},
-	"\/v2\/package.json": {
+	"\/server\/output.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/server\/output.html",
+		"oF": 0
+		},
+	"\/server\/output.json": {
 		"ft": 524288,
 		"oA": 1,
-		"oAP": "\/build\/v2\/package-min.json",
+		"oAP": "\/build\/server\/output-min.json",
 		"oF": 0,
 		"oO": 0,
 		"oS": 1
 		},
-	"\/v2\/public\/favicon.ico": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v2\/public\/favicon.ico",
-		"oF": 0
-		},
-	"\/v2\/public\/index.html": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/v2\/public\/index.html",
-		"oF": 0
-		},
-	"\/v2\/README.md": {
-		"cS": 0,
-		"eF": 1,
-		"eL": 1,
-		"eLB": 0,
-		"ema": 1,
-		"eSQ": 1,
-		"ft": 4096,
-		"oA": 0,
-		"oAP": "\/build\/v2\/README.html",
-		"oF": 0,
-		"oFM": 0,
-		"oS": 0,
-		"pHT": 0,
-		"pME": 1,
-		"rFN": 0,
-		"uCM": 0
-		},
-	"\/v2\/src\/App.css": {
-		"aP": 0,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 2,
-		"oAP": "\/build\/v2\/src\/App-ck.css",
-		"oF": 0,
-		"oS": 0
-		},
-	"\/v2\/src\/App.js": {
-		"ft": 64,
-		"mi": 1,
+	"\/server\/package.json": {
+		"ft": 524288,
 		"oA": 1,
-		"oAP": "\/build\/v2\/src\/min\/App-min.js",
+		"oAP": "\/build\/server\/package-min.json",
 		"oF": 0,
-		"sC": 3,
-		"tS": 1
+		"oO": 0,
+		"oS": 1
 		},
-	"\/v2\/src\/App.test.js": {
+	"\/server\/scraper.js": {
 		"ft": 64,
-		"mi": 1,
+		"mi": 0,
 		"oA": 0,
-		"oAP": "\/build\/v2\/src\/min\/App.test-min.js",
+		"oAP": "\/build\/server\/min\/scraper-min.js",
 		"oF": 0,
-		"sC": 3,
-		"tS": 1
+		"sC": 0,
+		"tS": 0
 		},
-	"\/v2\/src\/index.css": {
-		"aP": 0,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 2,
-		"oAP": "\/build\/v2\/src\/index-ck.css",
-		"oF": 0,
-		"oS": 0
-		},
-	"\/v2\/src\/index.js": {
+	"\/server\/server\/getdata.js": {
 		"ft": 64,
-		"mi": 1,
+		"mi": 0,
 		"oA": 0,
-		"oAP": "\/build\/v2\/src\/min\/index-min.js",
+		"oAP": "\/build\/server\/server\/min\/getdata-min.js",
 		"oF": 0,
-		"sC": 3,
-		"tS": 1
+		"sC": 0,
+		"tS": 0
 		},
-	"\/v2\/src\/logo.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/build\/v2\/src\/logo.svg",
+	"\/server\/times.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/times-min.json",
 		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Wood_Working.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Wood_Working-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Wood_Working42798.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Wood_Working42798-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Wood_Working42799.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Wood_Working42799-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Wood_Working42800.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Wood_Working42800-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Wood_Working42801.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Wood_Working42801-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Wood_Working42802.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Wood_Working42802-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Wood_Working42803.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Wood_Working42803-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/server\/Wood_Working42804.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/server\/Wood_Working42804-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
 		}
 	},
 "hooks": [
