@@ -1,0 +1,17 @@
+base
+https://secure.oakville.ca/iris/Facilities/FacilitiesSearchResult.asp?
+
+
+queries
+SearchFor=A&DayFrom=15&MonthFrom=2&YearFrom=2017&DateFrom=15-02-2017&DayTo=15&MonthTo=3&YearTo=2017&DateTo=15-03-2017&TimeFrom=6&AMPMFrom=0&TimeTo=10&AMPMTo=1&FacilityLengthHours=1&FacilityLengthMinutes=00&chkWeekDay8=7&FacilityFunctions=2283&FacilityTypes=661&FacilityComplexs=&ajax=true
+
+other pages
+iDisplayStart=11$iDisplayLength=10&iCurrentPageNumber=2&SearchFor=A&ajax=1
+
+ideas
+https://secure.oakville.ca/iris/Facilities/FacilitiesDailyAvailability.asp?FacilityId=11097&FMADate=0&NavigatePage=N&FADate=41005&FromPage=
+
+can sort through stuff, alt="1:30AM: Closed"
+
+
+https://secure.oakville.ca/iris/Facilities/FacilitiesDailyAvailability.asp?FacilityId=11097&FMADate=0&NavigatePage=N&FADate=41005&FromPage=
