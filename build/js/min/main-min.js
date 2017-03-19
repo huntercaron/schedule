@@ -591,7 +591,7 @@ class StudioCalendar extends React.Component {
     }
 
     componentDidMount() {
-        axios.get("../data/times.json").then(res => {
+        axios.get("../build/data/times.json").then(res => {
             const studios = res.data;
             console.log(studios);
             this.setState({
