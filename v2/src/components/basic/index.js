@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React                from 'react';
 
 const B = (props) => {
     return (
-        <div>
-            {props.children}
+        <div {...props}>
+
         </div>
     )
 }

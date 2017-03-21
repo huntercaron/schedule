@@ -1,4 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component}                       from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import styled                                   from 'styled-components';
+
+const Button = styled.button`
+
+`;
 
 class BackButton extends Component {
     constructor(props) {
@@ -12,9 +18,11 @@ class BackButton extends Component {
 
     render() {
         return (
-            <button className="back-button" onClick={() => this.handleDisplayMenuChange(true)} >
-                <i className="material-icons icon-left-align">arrow_back</i> <h6 className="back-button-text">back</h6>
-            </button>
+            <Link to="/">
+                <Button className="back-button">
+                    <i className="material-icons icon-left-align">arrow_back</i> <h6 className="back-button-text">back</h6>
+                </Button>
+            </Link>
         )
     }
 }

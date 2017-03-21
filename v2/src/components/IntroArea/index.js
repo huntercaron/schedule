@@ -3,18 +3,20 @@ import styled               from 'styled-components';
 import BackButton           from '../../components/BackButton'
 import Wrapper              from './Wrapper'
 import Title                from './Title'
+import SubTitle             from './SubTitle'
 
-const HeaderArea = ({text, ...props}) => {
+const IntroArea = ({text, title, ...props}) => {
     return (
         <Wrapper {...props}>
-            {/* <BackButton onDisplayMenuChange={this.handleDisplayMenu}/> */}
-            <BackButton />
-
             <Title>
-                {text}
+                {title}
             </Title>
+
+            <SubTitle>
+                {text}
+            </SubTitle>
         </Wrapper>
     )
 }
 
-export default HeaderArea;
+export default IntroArea;
