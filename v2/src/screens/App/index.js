@@ -1,5 +1,6 @@
 import React, { Component }                     from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import moment                                   from 'moment'
 import StudioMenu                               from '../StudioMenu'
 import StudioPage                               from '../StudioPage'
 import MemberInfo                               from '../MemberInfo'
@@ -7,20 +8,72 @@ import MemberInfo                               from '../MemberInfo'
 class App extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
-            displayMenu: true
-        }
+            studios: [],
+            selectedDate: moment(),
+            selectedStudio: 0,
+            viewAll: false,
+            displayMenu: true,
+            displayMemberInfo: false
+        };
 
-        this.handleViewAllChange = this.handleViewAllChange.bind(this);
-        this.handleDisplayMemberInfoChange = this.handleDisplayMemberInfoChange.bind(this);
+        this.handleSelectedStudio = this.handleSelectedStudio.bind(this);
+        this.handleViewAll = this.handleViewAll.bind(this);
+        this.handleDisplayMenu = this.handleDisplayMenu.bind(this);
+        this.handleSelectedDate = this.handleSelectedDate.bind(this);
+        this.handleDisplayMemberInfo = this.handleDisplayMemberInfo.bind(this);
     }
 
-    handleViewAllChange(view) {
-        this.props.onViewAllChange(view);
+    componentDidMount() {
+        fetch("../../../data/times.json", {
+          method: 'get'
+        }).then(res => {
+            const studios = res.data;
+            console.log(studios);
+            this.setState({
+                studios: studios
+            });
+        }).catch(err => {
+        	console.log(err);
+        });
     }
 
-    handleDisplayMemberInfoChange(view) {
-        this.props.onDisplayMemberInfoChange(view);
+    handleSelectedStudio(studio) {
+        this.setState({
+            selectedStudio: studio,
+            viewAll: false,
+            displayMenu: false,
+            displayMemberInfo: false
+        })
+    }
+
+    handleDisplayMenu(view) {
+        this.setState({
+            displayMenu: view
+        })
+    }
+
+    handleViewAll(view) {
+        this.setState({
+            viewAll: view,
+            displayMenu: false,
+            displayMemberInfo: false
+        })
+    }
+
+    handleSelectedDate(newDate) {
+        this.setState({
+            currentMonth: newDate,
+            selectedDate: newDate
+        });
+    }
+
+    handleDisplayMemberInfo(view) {
+        this.setState({
+            displayMemberInfo: view,
+            displayMenu: false
+        });
     }
 
     render() {
