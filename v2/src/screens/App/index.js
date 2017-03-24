@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import moment                                   from 'moment'
 import StudioMenu                               from '../StudioMenu'
 import StudioPage                               from '../StudioPage'
+import ViewAllPage                              from '../ViewAllPage'
 import MemberInfo                               from '../MemberInfo'
 
 class App extends Component {
@@ -10,7 +11,6 @@ class App extends Component {
         super(props);
 
         this.state = {
-            studios: [],
             selectedDate: moment(),
             selectedStudio: 0,
             viewAll: false,
@@ -26,16 +26,16 @@ class App extends Component {
     }
 
     componentDidMount() {
-        fetch("../../../data/times.json", {
-          method: 'get'
-        }).then(res => {
-            const studios = res.data;
-            console.log(studios);
+        fetch("http://qep.today/data/times.json")
+        .then((response) => response.json())
+        .then((responseJson) => {
+            console.log( responseJson);
             this.setState({
-                studios: studios
+                studios: responseJson
             });
-        }).catch(err => {
-        	console.log(err);
+        })
+        .catch((error) => {
+            console.error(error);
         });
     }
 
@@ -77,15 +77,20 @@ class App extends Component {
     }
 
     render() {
-        const { studios } = this.props.data || [];
 
         return(
             <Router>
-                <div>
-                    <Route exact path="/" component={StudioMenu} />
-                    <Route path="/studio" component={StudioPage} />
-                    <Route path="/member-info" component={MemberInfo} />
-                </div>
+                {this.state.studios && (
+                    <div>
+                        <Route exact path="/" render={() => <StudioMenu studios={this.state.studios} /> }/>
+                        <Route path="/view-all" component={ViewAllPage} />
+                        <Route path="/member-info" component={MemberInfo} />
+
+                        <Route path="/studio/:facultyClass" render={({ match }) => (
+                            <StudioPage studio={this.state.studios.find(s => s.facultyClass === match.params.facultyClass )}/>
+                        )} />
+                    </div>
+                )}
             </Router>
         );
     }

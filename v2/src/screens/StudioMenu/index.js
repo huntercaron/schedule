@@ -7,27 +7,10 @@ import Wrapper                                  from './Wrapper'
 import MenuBox                                  from './MenuBox'
 import MemberInfoLink                           from './MemberInfoLink'
 
+
 class StudioMenu extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            displayMenu: true
-        }
-
-        this.handleViewAllChange = this.handleViewAllChange.bind(this);
-        this.handleDisplayMemberInfoChange = this.handleDisplayMemberInfoChange.bind(this);
-    }
-
-    handleViewAllChange(view) {
-        this.props.onViewAllChange(view);
-    }
-
-    handleDisplayMemberInfoChange(view) {
-        this.props.onDisplayMemberInfoChange(view);
-    }
-
     render() {
-        const { studios } = this.props.data || [];
+        const { studios } = this.props.studios;
 
         return(
             <Wrapper>
@@ -36,20 +19,19 @@ class StudioMenu extends Component {
                     text="Select a studio to see it's availibility." />
 
                 <MenuBox>
-                    {studios ? (
-                        studios.map((studio, i) => {
+                    {this.props.studios ? (
+                        this.props.studios.map((studio, i) => {
                             return <StudioMenuItem
-                                    studioName={studio.facultyName}
-                                    studioClass={studio.facultyClass}
-                                    studioTimes={studio.days[0]}
-                                    studioNum={i}
-                                    onSelectedStudioChange={this.props.onSelectedStudioChange}/>
+                                        studioName={studio.facultyName}
+                                        studioClass={studio.facultyClass}
+                                        studioTimes={studio.days[0]}
+                                        key={i}/>
                         })
                     ) : (
                         <div>Loading...</div>
                     )}
 
-                    <StudioMenuItem />
+                    
 
                     <MemberInfoLink />
 

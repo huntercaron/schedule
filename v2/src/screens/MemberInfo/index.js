@@ -15,7 +15,7 @@ class MemberInfo extends Component {
 
             <BodyText>
                 {membersInfo.split('\n').map(function(text, i){
-                    return <p>{text}<br/></p>
+                    return <p key={i}>{text}<br/></p>
                 })}
             </BodyText>
         </Wrapper>

@@ -7,12 +7,13 @@ import Title                from './Title'
 const HeaderArea = ({text, ...props}) => {
     return (
         <Wrapper {...props}>
-            {/* <BackButton onDisplayMenuChange={this.handleDisplayMenu}/> */}
             <BackButton />
 
             <Title>
                 {text}
             </Title>
+
+            {props.children}
         </Wrapper>
     )
 }
