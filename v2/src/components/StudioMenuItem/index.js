@@ -6,10 +6,8 @@ import WrapperLink                              from './WrapperLink'
 import StudioTitle                              from './StudioTitle'
 
 const StudioMenuItem = (props) => {
-    let day = moment();
-
     return (
-        <WrapperLink to={`/studio/${props.studioClass}/date/${day.format('YYYY[/]MM[/]DD')}`}>
+        <WrapperLink to={`/studio/${props.studioClass}/date/${moment().format('YYYY[-]MM[-]DD')}`}>
             <StudioIcon name={props.studioClass} size="small"/>
             <StudioTitle>{props.studioName}</StudioTitle>
         </WrapperLink>

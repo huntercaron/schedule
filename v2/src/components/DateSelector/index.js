@@ -20,7 +20,7 @@ class DateSelector extends React.Component {
     }
 
     handleSelectedDateChange(newDate) {
-        console.log(`selected ${newDate.toDate()}`)
+        this.props.onSelectedDateChange();
         this.setState({
             currentMonth: newDate
         })

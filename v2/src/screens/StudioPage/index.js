@@ -1,5 +1,5 @@
 import React, { Component }                     from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import moment                                   from 'moment'
 import BackButton                               from '../../components/BackButton'
 import HeaderArea                               from '../../components/HeaderArea'
@@ -10,25 +10,65 @@ import CalTimes                                 from '../../components/CalTimes'
 import Wrapper                                  from './Wrapper'
 import CalendarBox                              from './CalendarBox'
 
-const StudioPage = (props) => {
-    return(
-        <Wrapper>
-            <HeaderArea text={props.studio.facultyClass}>
-                <StudioInfo studio={props.studio}/>
-            </HeaderArea>
+class StudioPage extends Component {
+    constructor(props) {
+        super(props)
 
-            <DateSelector selectedDate={moment()}/>
+        let selectedDate = moment();
+        selectedDate.set('year', props.match.year);
+        selectedDate.set('month', props.match.month);
+        selectedDate.set('date', props.match.day);
 
-            <CalendarBox>
-                <CalTimes />
+        console.log(props.match.year);
 
-                <CalendarBody
-                    studio={props.studio}
-                    selectedDate={moment()}/>
-            </CalendarBox>
+        this.state = {
+            selectedDate: this.grabNewDate()
+        }
+        console.log(this.state.selectedDate.format('YYYY[-]MM[-]DD'));
 
-        </Wrapper>
-    )
+        this.grabNewDate = this.grabNewDate.bind(this);
+    }
+
+    grabNewDate() {
+        let selectedDate = moment();
+        selectedDate.set('year', this.props.match.year);
+        selectedDate.set('month', this.props.match.month);
+        selectedDate.set('date', this.props.match.day);
+        console.log(selectedDate.format('YYYY[-]MM[-]DD'));
+
+        return selectedDate;
+    }
+
+    handleSelectedDate(newDate) {
+        this.setState({
+            selectedDate: this.grabNewDate()
+        });
+    }
+
+    render() {
+        console.log(this.state.selectedDate.format('YYYY[-]MM[-]DD'));
+
+        return(
+            <Wrapper>
+                <HeaderArea text={this.props.studio.facultyClass}>
+                    <StudioInfo studio={this.props.studio}/>
+                </HeaderArea>
+
+                <DateSelector
+                    selectedDate={this.state.selectedDate}
+                    onSelectedDateChange={this.handleSelectedDate}/>
+
+                <CalendarBox>
+                    <CalTimes />
+
+                    <CalendarBody
+                        studio={this.props.studio}
+                        selectedDate={this.state.selectedDate}/>
+                </CalendarBox>
+
+            </Wrapper>
+        )
+    }
 }
 
 export default StudioPage;

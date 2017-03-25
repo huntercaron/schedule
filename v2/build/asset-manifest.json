@@ -1,8 +1,8 @@
 {
-  "main.css": "static/css/main.b579b8c1.css",
-  "main.css.map": "static/css/main.b579b8c1.css.map",
-  "main.js": "static/js/main.1da86551.js",
-  "main.js.map": "static/js/main.1da86551.js.map",
+  "main.css": "static/css/main.d7936cd1.css",
+  "main.css.map": "static/css/main.d7936cd1.css.map",
+  "main.js": "static/js/main.94f67361.js",
+  "main.js.map": "static/js/main.94f67361.js.map",
   "static/media/MalloryMP-Black.eot": "static/media/MalloryMP-Black.b3fa8d28.eot",
   "static/media/MalloryMP-Black.woff": "static/media/MalloryMP-Black.2fd05451.woff",
   "static/media/MalloryMP-Bold.eot": "static/media/MalloryMP-Bold.0b94e32d.eot",
@@ -20,5 +20,10 @@
   "static/media/MalloryMP-Medium.eot": "static/media/MalloryMP-Medium.6384ed61.eot",
   "static/media/MalloryMP-Medium.woff": "static/media/MalloryMP-Medium.58ca02a9.woff",
   "static/media/MalloryMP-MediumItalic.eot": "static/media/MalloryMP-MediumItalic.9217620a.eot",
-  "static/media/MalloryMP-MediumItalic.woff": "static/media/MalloryMP-MediumItalic.61a013b7.woff"
+  "static/media/MalloryMP-MediumItalic.woff": "static/media/MalloryMP-MediumItalic.61a013b7.woff",
+  "static/media/art-small.svg": "static/media/art-small.0341b2c2.svg",
+  "static/media/ceramic-small.svg": "static/media/ceramic-small.86158047.svg",
+  "static/media/digital-small.svg": "static/media/digital-small.5524117a.svg",
+  "static/media/textile-small.svg": "static/media/textile-small.9b8770f7.svg",
+  "static/media/woodworking-small.svg": "static/media/woodworking-small.d3bb9271.svg"
 }

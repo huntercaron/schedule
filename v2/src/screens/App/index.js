@@ -1,31 +1,36 @@
 import React, { Component }                     from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import ReactCSSTransitionGroup                  from 'react-addons-css-transition-group'
 import moment                                   from 'moment'
 import StudioMenu                               from '../StudioMenu'
 import StudioPage                               from '../StudioPage'
 import ViewAllPage                              from '../ViewAllPage'
 import MemberInfo                               from '../MemberInfo'
+import studiosData                              from '../../../data/times.json'
+import Wrapper                                  from './Wrapper'
 
 class App extends Component {
     constructor(props) {
         super(props);
+
 
         this.state = {
             selectedDate: moment(),
             selectedStudio: 0,
             viewAll: false,
             displayMenu: true,
-            displayMemberInfo: false
+            displayMemberInfo: false,
+            studios: studiosData
         };
 
         this.handleSelectedStudio = this.handleSelectedStudio.bind(this);
         this.handleViewAll = this.handleViewAll.bind(this);
         this.handleDisplayMenu = this.handleDisplayMenu.bind(this);
-        this.handleSelectedDate = this.handleSelectedDate.bind(this);
         this.handleDisplayMemberInfo = this.handleDisplayMemberInfo.bind(this);
     }
 
     componentDidMount() {
+        /*
         fetch("http://qep.today/data/times.json")
         .then((response) => response.json())
         .then((responseJson) => {
@@ -37,6 +42,7 @@ class App extends Component {
         .catch((error) => {
             console.error(error);
         });
+        */
     }
 
     handleSelectedStudio(studio) {
@@ -62,12 +68,6 @@ class App extends Component {
         })
     }
 
-    handleSelectedDate(newDate) {
-        this.setState({
-            currentMonth: newDate,
-            selectedDate: newDate
-        });
-    }
 
     handleDisplayMemberInfo(view) {
         this.setState({
@@ -77,19 +77,20 @@ class App extends Component {
     }
 
     render() {
-
         return(
             <Router>
                 {this.state.studios && (
-                    <div>
+
+                    <Wrapper>
                         <Route exact path="/" render={() => <StudioMenu studios={this.state.studios} /> }/>
-                        <Route path="/view-all" component={ViewAllPage} />
+                        <Route path="/view-all" render={() => <ViewAllPage studios={this.state.studios} /> } />
                         <Route path="/member-info" component={MemberInfo} />
 
-                        <Route path="/studio/:facultyClass" render={({ match }) => (
-                            <StudioPage studio={this.state.studios.find(s => s.facultyClass === match.params.facultyClass )}/>
+                        <Route path="/studio/:facultyClass/date/:year-:month-:day" render={({ match }) => (
+                            <StudioPage match={match} studio={this.state.studios.find(s => s.facultyClass === match.params.facultyClass )}/>
                         )} />
-                    </div>
+                    </Wrapper>
+
                 )}
             </Router>
         );

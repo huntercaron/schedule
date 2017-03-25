@@ -31,7 +31,7 @@ class StudioMenu extends Component {
                         <div>Loading...</div>
                     )}
 
-                    
+
 
                     <MemberInfoLink />
 

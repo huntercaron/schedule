@@ -1,23 +1,35 @@
 import React, { Component }                     from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import moment                                   from 'moment'
 import BackButton                               from '../../components/BackButton'
+import HeaderArea                               from '../../components/HeaderArea'
+import StudioInfo                               from '../../components/StudioInfo'
+import DateSelector                             from '../../components/DateSelector'
+import CalendarBody                             from '../../components/CalendarBody'
+import CalTimes                                 from '../../components/CalTimes'
 import Wrapper                                  from './Wrapper'
+import CalendarBox                              from './CalendarBox'
 
-class ViewAllPage extends Component {
-    constructor(props) {
-        super(props);
+const StudioPage = (props) => {
+    return(
+        <Wrapper>
+            <HeaderArea text="All Studios">
 
-    }
-    render() {
+            </HeaderArea>
 
-        return(
-            <Wrapper>
-                <BackButton />
+            <DateSelector selectedDate={moment()}/>
 
+            <CalendarBox>
+                <CalTimes />
 
-            </Wrapper>
-        );
-    }
+                <CalendarBody
+                    viewAll
+                    studios={props.studios}
+                    selectedDate={moment()}/>
+            </CalendarBox>
+
+        </Wrapper>
+    )
 }
 
-export default ViewAllPage;
+export default StudioPage;
