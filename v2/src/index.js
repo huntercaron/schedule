@@ -1,7 +1,8 @@
 import React            from 'react';
 import ReactDOM         from 'react-dom';
 import App              from './screens/App';
-import                  './index.css';
+// eslint-disable-next-line
+import Global           from './global-styles';
 
 ReactDOM.render(
   <App />,

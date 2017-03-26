@@ -10,72 +10,72 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 
 @font-face {
     font-family: 'Mallory';
-    src: url('fonts/MalloryMP-Book.eot');
-    src: url('fonts/MalloryMP-Book.woff') format('woff');
+    src: url('./fonts/MalloryMP-Book.eot');
+    src: url('./fonts/MalloryMP-Book.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Mallory';
-    src: url('fonts/MalloryMP-BookItalic.eot');
-    src: url('fonts/MalloryMP-BookItalic.woff') format('woff');
+    src: url('./fonts/MalloryMP-BookItalic.eot');
+    src: url('./fonts/MalloryMP-BookItalic.woff') format('woff');
     font-weight: normal;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Mallory';
-    src: url('fonts/MalloryMP-Bold.eot');
-    src: url('fonts/MalloryMP-Bold.woff') format('woff');
+    src: url('./fonts/MalloryMP-Bold.eot');
+    src: url('./fonts/MalloryMP-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Mallory';
-    src: url('fonts/MalloryMP-BoldItalic.eot');
-    src: url('fonts/MalloryMP-BoldItalic.woff') format('woff');
+    src: url('./fonts/MalloryMP-BoldItalic.eot');
+    src: url('./fonts/MalloryMP-BoldItalic.woff') format('woff');
     font-weight: bold;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Mallory';
-    src: url('fonts/MalloryMP-Black.eot');
-    src: url('fonts/MalloryMP-Black.woff') format('woff');
+    src: url('./fonts/MalloryMP-Black.eot');
+    src: url('./fonts/MalloryMP-Black.woff') format('woff');
     font-weight: 800;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Mallory';
-    src: url('fonts/MalloryMP-MediumItalic.eot');
-    src: url('fonts/MalloryMP-MediumItalic.woff') format('woff');
+    src: url('./fonts/MalloryMP-MediumItalic.eot');
+    src: url('./fonts/MalloryMP-MediumItalic.woff') format('woff');
     font-weight: 600;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Mallory';
-    src: url('fonts/MalloryMP-Medium.eot');
-    src: url('fonts/MalloryMP-Medium.woff') format('woff');
+    src: url('./fonts/MalloryMP-Medium.eot');
+    src: url('./fonts/MalloryMP-Medium.woff') format('woff');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Mallory';
-    src: url('fonts/MalloryMP-LightItalic.eot');
-    src: url('fonts/MalloryMP-LightItalic.woff') format('woff');
+    src: url('./fonts/MalloryMP-LightItalic.eot');
+    src: url('./fonts/MalloryMP-LightItalic.woff') format('woff');
     font-weight: 200;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Mallory';
-    src: url('fonts/MalloryMP-Light.eot');
-    src: url('fonts/MalloryMP-Light.woff') format('woff');
+    src: url('./fonts/MalloryMP-Light.eot');
+    src: url('./fonts/MalloryMP-Light.woff') format('woff');
     font-weight: 200;
     font-style: normal;
 }
