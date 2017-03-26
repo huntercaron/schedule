@@ -16,7 +16,7 @@ class SelectorWeek extends React.Component {
         let selectedWeek = (this.props.selectedDate.clone().startOf("week").format("W") === this.props.startDate.format("W")) ? "selected-week" : "";
 
         return (
-            <div className={`selector-week ${selectedWeek}`}>
+            <Wrapper className={`${selectedWeek}`}>
                 {days.map(function(day, i){
                     return <SelectorDay
                             selectedDate={scope.props.selectedDate}
@@ -26,7 +26,7 @@ class SelectorWeek extends React.Component {
                             onSelectedDateChange={scope.props.onSelectedDateChange}
                             />
                 })}
-            </div>
+            </Wrapper>
         )
     }
 }

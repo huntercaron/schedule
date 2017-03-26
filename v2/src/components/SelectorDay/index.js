@@ -1,7 +1,6 @@
 import React, { Component }                     from 'react';
 import moment                                   from 'moment'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import Wrapper                                  from './Wrapper'
+import InnerWrapper                             from './InnerWrapper'
 import WrapperLink                              from './WrapperLink'
 
 class SelectorDay extends Component {
@@ -25,10 +24,10 @@ class SelectorDay extends Component {
                 onClick={this.handleSelectedDateChange}
                 className={`selector-day ${selectedDay} ${notThisMonth} ${today}`}>
 
-                <div className="selector-day-inner">
+                <InnerWrapper>
                     {/*<p className="day-of-week day-info">{this.props.day.format("ddd")}</p>*/}
                     <h4 className="day-num day-info">{this.props.day.format("D")}</h4>
-                </div>
+                </InnerWrapper>
 
             </WrapperLink>
         )

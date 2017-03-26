@@ -17,8 +17,6 @@ class MonthControls extends React.Component {
     }
 
     render() {
-        let scope = this;
-
         let monthNavStyle = {
             display: this.props.viewMonth ? "block" : "none"
         };
@@ -28,7 +26,7 @@ class MonthControls extends React.Component {
         };
 
         return (
-            <div className="month-controls-box">
+            <Wrapper>
                 <button className="month-controls" style={monthNavStyle} onClick={() => this.handleCurrentMonthChange(this.props.currentMonth.clone().subtract(1, "months"))} >
                     <i className="material-icons">navigate_before</i>
                 </button>
@@ -36,7 +34,7 @@ class MonthControls extends React.Component {
                 <button className="month-controls" style={monthNavStyle} onClick={() => this.handleCurrentMonthChange(this.props.currentMonth.clone().add(1, "months"))}>
                     <i className="material-icons">navigate_next</i>
                 </button>
-            </div>
+            </Wrapper>
         );
     }
 }

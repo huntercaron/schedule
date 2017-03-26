@@ -25,7 +25,6 @@ class StudioPage extends Component {
         selectedDate.set('year', this.props.match.params.year);
         selectedDate.set('month', this.props.match.params.month-1);
         selectedDate.set('date', this.props.match.params.day);
-        console.log(selectedDate.format('YYYY[-]MM[-]DD'));
 
         return selectedDate;
     }
