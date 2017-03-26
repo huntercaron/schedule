@@ -9,17 +9,17 @@ const CalTimes = (props) => {
 
     while (calTimeNum <= 24) {
         calTimes.push({ "formatted": calTimeFormat.format("h:mma"), "number": calTimeNum})
-        calTimeNum = calTimeNum+0.5;
+        calTimeNum += 0.5;
         calTimeFormat.add(30, 'm');
     }
 
     return (
-        <div className="sched-col">
+        <Wrapper>
             {calTimes.map(function(time, i){
                 let hourType = !Number.isInteger(time.number) ? "half-hour" : "full-hour";
                 return <div className={`time sched-row ${hourType}`} id={`${time.number}-time`} key={i}>{time.formatted}</div>
             })}
-        </div>
+        </Wrapper>
     )
 
 }

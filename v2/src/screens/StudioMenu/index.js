@@ -1,6 +1,4 @@
 import React, { Component }                     from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import MemberInfo                               from '../MemberInfo'
 import StudioMenuItem                           from '../../components/StudioMenuItem'
 import ViewAllButton                            from '../../components/ViewAllButton'
 import IntroArea                                from '../../components/IntroArea'
@@ -11,8 +9,6 @@ import MemberInfoLink                           from './MemberInfoLink'
 
 class StudioMenu extends Component {
     render() {
-        const { studios } = this.props.studios;
-
         return(
             <Wrapper>
                 <IntroArea

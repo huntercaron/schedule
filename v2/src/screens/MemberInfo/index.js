@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import BackButton           from '../../components/BackButton'
 import HeaderArea           from '../../components/HeaderArea'
 import Wrapper              from './Wrapper';
 import BodyText             from './BodyText'

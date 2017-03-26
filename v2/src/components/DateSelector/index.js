@@ -30,7 +30,7 @@ class DateSelector extends React.Component {
 
     handleViewMonth(view) {
         view = !this.state.viewMonth;
-        if (view == false) {
+        if (view === false) {
             this.setState({
                  currentMonth: this.props.selectedDate
             });
@@ -42,13 +42,12 @@ class DateSelector extends React.Component {
     }
 
     render () {
-        let weekCount = 0;
-        let day = moment().month(parseInt(this.state.currentMonth.format("M")-1)).date(0).startOf("week");
+        let day = moment().month(parseInt(this.state.currentMonth.format("M")-1, 10)).date(0).startOf("week");
         let currentMonth = this.state.currentMonth.clone();
         let weekdays = [];
         let scope = this;
 
-        while (day.month() <= currentMonth.month() || (day.format("M") == 12 && currentMonth.format("M") == 1)) {
+        while (day.month() <= currentMonth.month() || (day.format("M") === 12 && currentMonth.format("M") === 1)) {
             weekdays.push(day);
             day = day.clone().add(1, 'w');
             if (weekdays.length > 32)

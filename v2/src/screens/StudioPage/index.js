@@ -1,7 +1,5 @@
 import React, { Component }                     from 'react';
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import moment                                   from 'moment'
-import BackButton                               from '../../components/BackButton'
 import HeaderArea                               from '../../components/HeaderArea'
 import StudioInfo                               from '../../components/StudioInfo'
 import DateSelector                             from '../../components/DateSelector'

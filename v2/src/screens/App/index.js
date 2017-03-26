@@ -1,7 +1,5 @@
 import React, { Component }                     from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import ReactCSSTransitionGroup                  from 'react-addons-css-transition-group'
-import moment                                   from 'moment'
+import { BrowserRouter as Router, Route} from 'react-router-dom'
 import StudioMenu                               from '../StudioMenu'
 import StudioPage                               from '../StudioPage'
 import ViewAllPage                              from '../ViewAllPage'
@@ -13,20 +11,9 @@ class App extends Component {
     constructor(props) {
         super(props);
 
-
         this.state = {
-            selectedDate: moment(),
-            selectedStudio: 0,
-            viewAll: false,
-            displayMenu: true,
-            displayMemberInfo: false,
             studios: studiosData
         };
-
-        this.handleSelectedStudio = this.handleSelectedStudio.bind(this);
-        this.handleViewAll = this.handleViewAll.bind(this);
-        this.handleDisplayMenu = this.handleDisplayMenu.bind(this);
-        this.handleDisplayMemberInfo = this.handleDisplayMemberInfo.bind(this);
     }
 
     componentDidMount() {
@@ -43,37 +30,6 @@ class App extends Component {
             console.error(error);
         });
         */
-    }
-
-    handleSelectedStudio(studio) {
-        this.setState({
-            selectedStudio: studio,
-            viewAll: false,
-            displayMenu: false,
-            displayMemberInfo: false
-        })
-    }
-
-    handleDisplayMenu(view) {
-        this.setState({
-            displayMenu: view
-        })
-    }
-
-    handleViewAll(view) {
-        this.setState({
-            viewAll: view,
-            displayMenu: false,
-            displayMemberInfo: false
-        })
-    }
-
-
-    handleDisplayMemberInfo(view) {
-        this.setState({
-            displayMemberInfo: view,
-            displayMenu: false
-        });
     }
 
     render() {

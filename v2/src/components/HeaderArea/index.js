@@ -1,5 +1,4 @@
 import React                from 'react';
-import styled               from 'styled-components';
 import BackButton           from '../../components/BackButton'
 import Wrapper              from './Wrapper'
 import Title                from './Title'

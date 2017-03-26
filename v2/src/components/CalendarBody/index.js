@@ -10,10 +10,10 @@ const CalendarBody = (props) => {
         {props.viewAll ? (
             props.studios.map(function(studio, i){
                 return (
-                    <div className="view-all-studio-box" key={i}>
+                    <Wrapper key={i}>
                         <StudioIcon name={studio.facultyClass} size="small"/>
                         <Studio className="sched-row" data={studio} selectedDate={props.selectedDate}/>
-                    </div>
+                    </Wrapper>
                 );
             })
         ) : (
