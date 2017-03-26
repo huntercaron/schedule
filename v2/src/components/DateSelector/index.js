@@ -7,11 +7,10 @@ import SelectorWeek         from '../SelectorWeek'
 class DateSelector extends React.Component {
     constructor(props) {
         super(props);
-        let currentMonth = moment();
 
         this.state = {
             viewMonth: false,
-            currentMonth: moment()
+            currentMonth: this.props.selectedDate
         };
 
         this.handleSelectedDateChange = this.handleSelectedDateChange.bind(this);
@@ -21,9 +20,6 @@ class DateSelector extends React.Component {
 
     handleSelectedDateChange(newDate) {
         this.props.onSelectedDateChange();
-        this.setState({
-            currentMonth: newDate
-        })
     }
 
     handleCurrentMonth(newMonth) {

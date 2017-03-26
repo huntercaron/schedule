@@ -11,7 +11,7 @@ class SelectorDay extends Component {
     }
 
     handleSelectedDateChange(e) {
-        this.props.onSelectedDateChange(moment(e.target.closest(".selector-day").getAttribute("data-day")));
+        this.props.onSelectedDateChange();
     }
 
     render () {

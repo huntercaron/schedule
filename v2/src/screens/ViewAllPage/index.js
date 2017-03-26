@@ -1,5 +1,5 @@
 import React, { Component }                     from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import moment                                   from 'moment'
 import BackButton                               from '../../components/BackButton'
 import HeaderArea                               from '../../components/HeaderArea'
@@ -10,26 +10,55 @@ import CalTimes                                 from '../../components/CalTimes'
 import Wrapper                                  from './Wrapper'
 import CalendarBox                              from './CalendarBox'
 
-const StudioPage = (props) => {
-    return(
-        <Wrapper>
-            <HeaderArea text="All Studios">
+class ViewAllPage extends Component {
+    constructor(props) {
+        super(props)
 
-            </HeaderArea>
+        this.state = {
+            selectedDate: this.grabNewDate()
+        }
 
-            <DateSelector selectedDate={moment()}/>
+        this.grabNewDate = this.grabNewDate.bind(this);
+        this.handleSelectedDate = this.handleSelectedDate.bind(this);
+    }
 
-            <CalendarBox>
-                <CalTimes />
+    grabNewDate() {
+        let selectedDate = moment();
+        selectedDate.set('year', this.props.match.params.year);
+        selectedDate.set('month', this.props.match.params.month-1);
+        selectedDate.set('date', this.props.match.params.day);
+        console.log(selectedDate.format('YYYY[-]MM[-]DD'));
 
-                <CalendarBody
-                    viewAll
-                    studios={props.studios}
-                    selectedDate={moment()}/>
-            </CalendarBox>
+        return selectedDate;
+    }
 
-        </Wrapper>
-    )
+    handleSelectedDate() {
+        this.setState({
+            selectedDate: this.grabNewDate()
+        });
+    }
+
+    render() {
+        return(
+            <Wrapper>
+                <HeaderArea text="All Studios"/>
+
+                <DateSelector
+                    selectedDate={this.grabNewDate()}
+                    onSelectedDateChange={this.handleSelectedDate}/>
+
+                <CalendarBox>
+                    <CalTimes />
+
+                    <CalendarBody
+                        viewAll
+                        studios={this.props.studios}
+                        selectedDate={this.grabNewDate()}/>
+                </CalendarBox>
+
+            </Wrapper>
+        )
+    }
 }
 
-export default StudioPage;
+export default ViewAllPage;

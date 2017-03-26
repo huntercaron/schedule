@@ -2,6 +2,7 @@ import React, { Component }                     from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import MemberInfo                               from '../MemberInfo'
 import StudioMenuItem                           from '../../components/StudioMenuItem'
+import ViewAllButton                            from '../../components/ViewAllButton'
 import IntroArea                                from '../../components/IntroArea'
 import Wrapper                                  from './Wrapper'
 import MenuBox                                  from './MenuBox'
@@ -31,7 +32,7 @@ class StudioMenu extends Component {
                         <div>Loading...</div>
                     )}
 
-
+                    <ViewAllButton />
 
                     <MemberInfoLink />
 

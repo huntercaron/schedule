@@ -14,40 +14,31 @@ class StudioPage extends Component {
     constructor(props) {
         super(props)
 
-        let selectedDate = moment();
-        selectedDate.set('year', props.match.year);
-        selectedDate.set('month', props.match.month);
-        selectedDate.set('date', props.match.day);
-
-        console.log(props.match.year);
-
         this.state = {
             selectedDate: this.grabNewDate()
         }
-        console.log(this.state.selectedDate.format('YYYY[-]MM[-]DD'));
 
         this.grabNewDate = this.grabNewDate.bind(this);
+        this.handleSelectedDate = this.handleSelectedDate.bind(this);
     }
 
     grabNewDate() {
         let selectedDate = moment();
-        selectedDate.set('year', this.props.match.year);
-        selectedDate.set('month', this.props.match.month);
-        selectedDate.set('date', this.props.match.day);
+        selectedDate.set('year', this.props.match.params.year);
+        selectedDate.set('month', this.props.match.params.month-1);
+        selectedDate.set('date', this.props.match.params.day);
         console.log(selectedDate.format('YYYY[-]MM[-]DD'));
 
         return selectedDate;
     }
 
-    handleSelectedDate(newDate) {
+    handleSelectedDate() {
         this.setState({
             selectedDate: this.grabNewDate()
         });
     }
 
     render() {
-        console.log(this.state.selectedDate.format('YYYY[-]MM[-]DD'));
-
         return(
             <Wrapper>
                 <HeaderArea text={this.props.studio.facultyClass}>
@@ -55,7 +46,7 @@ class StudioPage extends Component {
                 </HeaderArea>
 
                 <DateSelector
-                    selectedDate={this.state.selectedDate}
+                    selectedDate={this.grabNewDate()}
                     onSelectedDateChange={this.handleSelectedDate}/>
 
                 <CalendarBox>
@@ -63,7 +54,7 @@ class StudioPage extends Component {
 
                     <CalendarBody
                         studio={this.props.studio}
-                        selectedDate={this.state.selectedDate}/>
+                        selectedDate={this.grabNewDate()}/>
                 </CalendarBox>
 
             </Wrapper>

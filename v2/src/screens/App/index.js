@@ -83,8 +83,12 @@ class App extends Component {
 
                     <Wrapper>
                         <Route exact path="/" render={() => <StudioMenu studios={this.state.studios} /> }/>
-                        <Route path="/view-all" render={() => <ViewAllPage studios={this.state.studios} /> } />
+
                         <Route path="/member-info" component={MemberInfo} />
+
+                        <Route path="/view-all/date/:year-:month-:day" render={({ match }) => (
+                            <ViewAllPage match={match} studios={this.state.studios} />
+                        )} />
 
                         <Route path="/studio/:facultyClass/date/:year-:month-:day" render={({ match }) => (
                             <StudioPage match={match} studio={this.state.studios.find(s => s.facultyClass === match.params.facultyClass )}/>
