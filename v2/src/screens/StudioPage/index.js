@@ -22,9 +22,13 @@ class StudioPage extends Component {
 
     grabNewDate() {
         let selectedDate = moment();
-        selectedDate.set('year', this.props.match.params.year);
-        selectedDate.set('month', this.props.match.params.month-1);
-        selectedDate.set('date', this.props.match.params.day);
+
+        if (this.props.match.params.year !== null) {
+            selectedDate.set('year', this.props.match.params.year);
+            selectedDate.set('month', this.props.match.params.month-1);
+            selectedDate.set('date', this.props.match.params.day);
+        }
+
 
         return selectedDate;
     }
