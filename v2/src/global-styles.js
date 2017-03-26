@@ -14,72 +14,72 @@ injectGlobal`
 
     @font-face {
         font-family: 'Mallory';
-        src: url('./fonts/MalloryMP-Book.eot'),
-             url('./fonts/MalloryMP-Book.woff') format('woff');
+        src: url('fonts/MalloryMP-Book.eot');
+        src: url('fonts/MalloryMP-Book.woff') format('woff');
         font-weight: normal;
         font-style: normal;
     }
 
     @font-face {
         font-family: 'Mallory';
-        src: url('./fonts/MalloryMP-BookItalic.eot'),
-             url('./fonts/MalloryMP-BookItalic.woff') format('woff');
+        src: url('fonts/MalloryMP-BookItalic.eot');
+        src: url('fonts/MalloryMP-BookItalic.woff') format('woff');
         font-weight: normal;
         font-style: italic;
     }
 
     @font-face {
         font-family: 'Mallory';
-        src: url('./fonts/MalloryMP-Bold.eot'),
-             url('./fonts/MalloryMP-Bold.woff') format('woff');
+        src: url('fonts/MalloryMP-Bold.eot');
+        src: url('fonts/MalloryMP-Bold.woff') format('woff');
         font-weight: bold;
         font-style: normal;
     }
 
     @font-face {
         font-family: 'Mallory';
-        src: url('./fonts/MalloryMP-BoldItalic.eot'),
-             url('./fonts/MalloryMP-BoldItalic.woff') format('woff');
+        src: url('fonts/MalloryMP-BoldItalic.eot');
+        src: url('fonts/MalloryMP-BoldItalic.woff') format('woff');
         font-weight: bold;
         font-style: italic;
     }
 
     @font-face {
         font-family: 'Mallory';
-        src: url('./fonts/MalloryMP-Black.eot'),
-             url('./fonts/MalloryMP-Black.woff') format('woff');
+        src: url('fonts/MalloryMP-Black.eot');
+        src: url('fonts/MalloryMP-Black.woff') format('woff');
         font-weight: 800;
         font-style: normal;
     }
 
     @font-face {
         font-family: 'Mallory';
-        src: url('./fonts/MalloryMP-MediumItalic.eot'),
-             url('./fonts/MalloryMP-MediumItalic.woff') format('woff');
+        src: url('fonts/MalloryMP-MediumItalic.eot');
+        src: url('fonts/MalloryMP-MediumItalic.woff') format('woff');
         font-weight: 600;
         font-style: italic;
     }
 
     @font-face {
         font-family: 'Mallory';
-        src: url('./fonts/MalloryMP-Medium.eot'),
-             url('./fonts/MalloryMP-Medium.woff') format('woff');
+        src: url('fonts/MalloryMP-Medium.eot');
+        src: url('fonts/MalloryMP-Medium.woff') format('woff');
         font-weight: 600;
         font-style: normal;
     }
 
     @font-face {
         font-family: 'Mallory';
-        src: url('./fonts/MalloryMP-LightItalic.eot'),
-             url('./fonts/MalloryMP-LightItalic.woff') format('woff');
+        src: url('fonts/MalloryMP-LightItalic.eot');
+        src: url('fonts/MalloryMP-LightItalic.woff') format('woff');
         font-weight: 200;
         font-style: italic;
     }
 
     @font-face {
         font-family: 'Mallory';
-        src: url('./fonts/MalloryMP-Light.eot'),
-             url('./fonts/MalloryMP-Light.woff') format('woff');
+        src: url('fonts/MalloryMP-Light.eot');
+        src: url('fonts/MalloryMP-Light.woff') format('woff');
         font-weight: 200;
         font-style: normal;
     }
@@ -122,4 +122,5 @@ injectGlobal`
     h4 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.08rem; }
     h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
     h6 { font-size: 1.6rem; line-height: 1.6;  letter-spacing: 0; }
+
 `;
