@@ -20,4 +20,8 @@ const animations = {
   `,
 };
 
+const breakpoints = {
+	mobile: 600
+}
+
 export { colors, animations };

@@ -19,6 +19,9 @@ class App extends Component {
 
     componentDidMount() {
         /*
+        To improve performance for the proof of concept, the fetching has been removed
+        uncomment this to use the live data
+
         fetch("http://qep.today/data/times.json")
         .then((response) => response.json())
         .then((responseJson) => {
