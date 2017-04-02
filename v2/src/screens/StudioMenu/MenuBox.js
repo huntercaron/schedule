@@ -5,6 +5,7 @@ export default styled.section`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 4px;
 
     p {
         max-width: 590px;

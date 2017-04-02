@@ -6,4 +6,8 @@ export default styled.div`
     align-items: center;
     justify-content: center;
     padding: 16px;
+
+    img {
+        width: 128px;
+    }
 `;

@@ -1,17 +1,24 @@
 // eslint-disable-next-line
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import styled                                   from 'styled-components';
-import { colors, shadows }                      from '../../constants';
+import { colors, shadows, breakpoints }         from '../../constants';
 
 export default styled(Link)`
     box-shadow: ${shadows.diffuse};
-    margin: 8px;
-    height: 85px;
-    width: 40%;
+    margin: 4px;
+    width: calc(50% - 8px);
     display: flex;
     text-decoration: none;
     background-color: white;
     border-radius: 2px;
+
+    flex-direction: column;
+    height: 128px;
+
+    @media screen and (min-width: ${breakpoints.notSmall}) {
+        flex-direction: row;
+    }
+
 
     &:hover {
         background-color: ${colors.ultraLightGrey};

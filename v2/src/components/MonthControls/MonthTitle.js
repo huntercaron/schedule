@@ -7,6 +7,10 @@ export default styled.h4`
     flex: 1;
     font-weight: 600;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     font-variant-numeric: tabular-nums;
     -moz-font-feature-settings: "tnum";
     -webkit-font-feature-settings: "tnum";

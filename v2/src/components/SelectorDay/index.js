@@ -22,10 +22,9 @@ class SelectorDay extends Component {
         return (
             <WrapperLink to={`${this.props.day.format('YYYY[-]MM[-]DD')}`} replace
                 data-day={this.props.day.format()}
-                onClick={this.handleSelectedDateChange}
-                className={`selector-day ${selectedDay} ${notThisMonth} ${today}`}>
+                onClick={this.handleSelectedDateChange}>
 
-                <InnerWrapper>
+                <InnerWrapper className={`selector-day ${selectedDay} ${notThisMonth} ${today}`}>
                     {/*<p className="day-of-week day-info">{this.props.day.format("ddd")}</p>*/}
                     <DayNumber>{this.props.day.format("D")}</DayNumber>
                 </InnerWrapper>

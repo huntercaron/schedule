@@ -6,4 +6,9 @@ export default styled.h4`
     font-weight: 600;
     text-decoration: none;
     color: ${colors.darkGrey};
+
+    font-size: 1.6rem;
+    text-align: center;
+
+
 `;

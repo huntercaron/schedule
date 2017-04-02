@@ -5,10 +5,10 @@ import { colors }           from '../../constants'
 
 const ColorDot = styled.div`
     border-radius: 50%;
-    padding-top: 8px;
+    vertical-align: baseline;
     margin-right: 4px;
-    height: 12px;
-    width: 12px;
+    height: 11px;
+    width: 11px;
     background-color: ${colors.statusGreen};
 `;
 

@@ -10,6 +10,12 @@ export default styled.h4`
     letter-spacing: 0.1px;
     font-size: 1.2rem;
     font-family: 'MaisonMono', monospace;
-    color: ${colors.midGrey};
+    color: ${colors.textLight};
     font-weight: lighter;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    text-align: center;
 `;

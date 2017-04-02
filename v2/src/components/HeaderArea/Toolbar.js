@@ -7,4 +7,5 @@ export default styled.div`
     position: relative;
     justify-content: center;
     height: 56px;
+    margin-bottom: 24px;
 `;

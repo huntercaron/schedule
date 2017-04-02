@@ -18,7 +18,8 @@ const colors = {
 	statusRed: "#F84B1C",
 	textLight: "#CACBCB",
 	textColor: '#222',
-	brandColor: '#087B98',
+	accentColor: '#9CEADA',
+	accentPastel: `rgba(${hexToRGB("#9CEADA")}, 0.3)`,
 	lightBrandColor: '#3C93A9',
 };
 
@@ -38,7 +39,8 @@ const animations = {
 };
 
 const breakpoints = {
-	mobile: 600
+	notSmall: "600px",
+	tablet: "968px"
 }
 
 export { colors, animations, shadows, breakpoints };
