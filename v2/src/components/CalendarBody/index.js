@@ -1,4 +1,5 @@
 import React                                    from 'react'
+import moment                                   from 'moment'
 import StudioIcon                               from '../StudioIcon'
 import Studio                                   from '../Studio'
 import Wrapper                                  from './Wrapper'
@@ -13,7 +14,7 @@ const CalendarBody = (props) => {
             props.studios.map(function(studio, i){
                 return (
                     <StudioWrapper key={i}>
-                        <IconBox>
+                        <IconBox to={`/studio/${studio.facultyClass}/date/${moment().format('YYYY[-]MM[-]DD')}`}>
                             <StudioIcon name={studio.facultyClass} size="small"/>
                         </IconBox>
 

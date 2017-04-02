@@ -1,5 +1,5 @@
 import styled               from 'styled-components';
-import { colors }           from '../../constants';
+import { colors, shadows, animations }           from '../../constants';
 
 export default styled.div`
     border-radius: 50%;
@@ -9,7 +9,9 @@ export default styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 3px;
+    padding-top: 1px;
+    transition: box-shadow ${animations.general},
+    background-color ${animations.general};
 
     color: ${colors.darkGrey};
 
@@ -22,7 +24,7 @@ export default styled.div`
     }
 
     &.selector-day-today  {
-        color: rgb(82, 160, 255);
+        color: ${colors.midGrey};
     }
 
     &.selector-day-today h4 {
@@ -32,7 +34,13 @@ export default styled.div`
 
     &.selected-day {
         background-color: ${colors.accentColor};
+        box-shadow: ${shadows.diffuseColor(colors.accentColor)};
         color: white;
+    }
+
+    &.not-current-month {
+        color: ${colors.textLight};]
+        opacity: 0.6;
     }
 
     .selector-day-inner {

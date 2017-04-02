@@ -1,6 +1,7 @@
 import React                from 'react'
 import moment               from 'moment'
 import Wrapper              from './Wrapper'
+import InnerWrapper         from './InnerWrapper'
 import DayOfWeek            from './DayOfWeek'
 import WeekWrapper          from './WeekWrapper'
 import MonthControls        from '../MonthControls'
@@ -66,46 +67,47 @@ class DateSelector extends React.Component {
         return (
             <Wrapper>
 
-                <MonthControls
-                    currentMonth={this.state.currentMonth}
-                    onCurrentMonthChange={this.handleCurrentMonth}
-                    viewMonth={this.state.viewMonth}
-                    onViewMonthChange={this.handleViewMonth}/>
+                <InnerWrapper>
+                    <MonthControls
+                        currentMonth={this.state.currentMonth}
+                        onCurrentMonthChange={this.handleCurrentMonth}
+                        viewMonth={this.state.viewMonth}
+                        onViewMonthChange={this.handleViewMonth}/>
 
-                <div>
-                    <WeekWrapper>
-                        <DayOfWeek>{moment().day(0).format("ddd")}</DayOfWeek>
-                        <DayOfWeek>{moment().day(1).format("ddd")}</DayOfWeek>
-                        <DayOfWeek>{moment().day(2).format("ddd")}</DayOfWeek>
-                        <DayOfWeek>{moment().day(3).format("ddd")}</DayOfWeek>
-                        <DayOfWeek>{moment().day(4).format("ddd")}</DayOfWeek>
-                        <DayOfWeek>{moment().day(5).format("ddd")}</DayOfWeek>
-                        <DayOfWeek>{moment().day(6).format("ddd")}</DayOfWeek>
-                    </WeekWrapper>
+                    <div>
+                        <WeekWrapper>
+                            <DayOfWeek>S</DayOfWeek>
+                            <DayOfWeek>M</DayOfWeek>
+                            <DayOfWeek>T</DayOfWeek>
+                            <DayOfWeek>W</DayOfWeek>
+                            <DayOfWeek>T</DayOfWeek>
+                            <DayOfWeek>F</DayOfWeek>
+                            <DayOfWeek>S</DayOfWeek>
+                        </WeekWrapper>
 
 
-                    {this.state.viewMonth ? (
-                        weekdays.map(function(weekday, i){
-                            return <SelectorWeek
-                                    selectedDate={scope.props.selectedDate}
-                                    currentMonth={scope.state.currentMonth}
-                                    startDate={weekday.startOf('week')}
-                                    endDate={weekday.clone().startOf('week').add(6, 'd')}
-                                    onSelectedDateChange={scope.handleSelectedDateChange}
-                                    key={i}
-                                    />
-                        })
-                        ) : (
-                             <SelectorWeek
-                             selectedDate={scope.props.selectedDate}
-                             currentMonth={scope.state.currentMonth}
-                             startDate={this.props.selectedDate.clone().startOf('week')}
-                             endDate={this.props.selectedDate.clone().startOf('week').startOf('week').add(6, 'd')}
-                             onSelectedDateChange={this.handleSelectedDateChange}
-                             />
-                        )}
-                </div>
-
+                        {this.state.viewMonth ? (
+                            weekdays.map(function(weekday, i){
+                                return <SelectorWeek
+                                        selectedDate={scope.props.selectedDate}
+                                        currentMonth={scope.state.currentMonth}
+                                        startDate={weekday.startOf('week')}
+                                        endDate={weekday.clone().startOf('week').add(6, 'd')}
+                                        onSelectedDateChange={scope.handleSelectedDateChange}
+                                        key={i}
+                                        />
+                            })
+                            ) : (
+                                 <SelectorWeek
+                                 selectedDate={scope.props.selectedDate}
+                                 currentMonth={scope.state.currentMonth}
+                                 startDate={this.props.selectedDate.clone().startOf('week')}
+                                 endDate={this.props.selectedDate.clone().startOf('week').startOf('week').add(6, 'd')}
+                                 onSelectedDateChange={this.handleSelectedDateChange}
+                                 />
+                            )}
+                    </div>
+                </InnerWrapper>
 
             </Wrapper>
         )

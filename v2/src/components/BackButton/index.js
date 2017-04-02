@@ -3,18 +3,28 @@ import React, {Component}                       from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import styled                                   from 'styled-components'
 import Icon                                     from '../Icon'
+import { colors }                               from '../../constants';
+
 
 const Button = styled.button`
     outline: none;
     border: none;
     background-color: transparent;
     text-decoration: none;
+    color: ${colors.darkGrey};
+    margin-top: 9px;
+    margin-left: 8px;
 
     a, i {
         text-decoration: none;
         display: inline-block;
     }
 `;
+
+const AccessText = styled.p`
+    position: absolute;
+    visibility: hidden;
+`
 
 const StyledLink = styled(Link)`
     position: absolute;
@@ -36,7 +46,7 @@ class BackButton extends Component {
         return (
             <StyledLink to="/">
                 <Button>
-                    <Icon icon="arrow_back"/> <h6 className="back-button-text">back</h6>
+                    <Icon icon="arrow_back"/> <AccessText>back</AccessText>
                 </Button>
             </StyledLink>
         )

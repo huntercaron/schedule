@@ -1,14 +1,20 @@
 import styled               from 'styled-components';
-import { colors }           from '../../constants';
+import { breakpoints }           from '../../constants';
 
 export default styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 16px;
+    padding: 8px;
+    padding-top: 16px;
 
-    i {
-        color: ${colors.darkGrey};
-        font-size: 48px;
+    @media screen and (min-width: ${breakpoints.notSmall}) {
+        padding: 16px;
+
+        img {
+            width: 72px;
+        }
     }
+
+
 `;

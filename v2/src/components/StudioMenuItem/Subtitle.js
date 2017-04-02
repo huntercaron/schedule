@@ -1,5 +1,5 @@
 import styled               from 'styled-components';
-import { colors }           from '../../constants';
+import { colors, breakpoints }           from '../../constants';
 
 export default styled.h4`
     display: inline-block;
@@ -15,7 +15,10 @@ export default styled.h4`
     display: flex;
     justify-content: center;
     align-items: center;
-
-
     text-align: center;
+
+    @media screen and (min-width: ${breakpoints.notSmall}) {
+        text-align: left;
+        justify-content: flex-start;
+    }
 `;

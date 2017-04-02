@@ -7,6 +7,9 @@ export default styled.section`
     flex-wrap: wrap;
     padding: 4px;
 
+    max-width: 800px;
+    margin: auto;
+
     p {
         max-width: 590px;
         margin: auto;

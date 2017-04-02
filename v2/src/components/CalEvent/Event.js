@@ -3,11 +3,14 @@ import { colors, shadows }           from '../../constants';
 
 export default styled.div`
     width: 99%;
-    height: 100%;
+    height: calc(100% - 4px);
     position: relative;
     box-shadow: ${shadows.diffuse};
     margin-left: 1%;
-
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 
     &.available {
@@ -16,7 +19,8 @@ export default styled.div`
     }
 
     &.booked {
-        background-color: ${colors.statusRed};
+        background-color: ${colors.accentColor};
+        box-shadow: ${shadows.diffuseColor(colors.accentColor)};
     }
 
     &.closed {

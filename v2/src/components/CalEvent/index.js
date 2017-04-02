@@ -21,23 +21,23 @@ class CalEvent extends React.Component {
     }
 
     render () {
-        let eventInfo;
+        let eventStatus;
 
         switch(this.props.time.statusString.toLowerCase()) {
             case "available":
-                eventInfo = <EventStatus>Members Only</EventStatus>;
+                eventStatus = <EventStatus>Members Only</EventStatus>;
                 break;
 
             case "booked":
-                eventInfo = <EventStatus>Drop-In Time</EventStatus>;
+                eventStatus = <EventStatus>Drop-In Time</EventStatus>;
                 break;
 
             case "event":
-                eventInfo = <EventStatus>{this.props.time.eventInfo.eventName}</EventStatus>;
+                eventStatus = <EventStatus>{this.props.time.eventInfo.eventName}</EventStatus>;
                 break;
 
             default:
-                eventInfo = <p></p>;
+                eventStatus = <p></p>;
 
         }
 
@@ -56,7 +56,7 @@ class CalEvent extends React.Component {
                 }
 
                 <Event className={this.props.time.statusString.toLowerCase()}>
-                    {eventInfo}
+                    {eventStatus}
                 </Event>
             </Wrapper>
         );

@@ -1,5 +1,5 @@
 import styled               from 'styled-components';
-import { colors }           from '../../constants';
+import { colors, breakpoints }           from '../../constants';
 
 export default styled.h4`
     width: 100%;
@@ -10,5 +10,10 @@ export default styled.h4`
     font-size: 1.6rem;
     text-align: center;
 
+    @media screen and (min-width: ${breakpoints.notSmall}) {
+        font-size: 2.4rem;
+        text-align: left;
+
+    }
 
 `;

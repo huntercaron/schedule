@@ -7,6 +7,7 @@ import CalendarBody                             from '../../components/CalendarB
 import CalTimes                                 from '../../components/CalTimes'
 import Wrapper                                  from './Wrapper'
 import CalendarBox                              from './CalendarBox'
+import CalendarCol                              from './CalendarCol'
 
 class StudioPage extends Component {
     constructor(props) {
@@ -46,17 +47,19 @@ class StudioPage extends Component {
                     <StudioInfo studio={this.props.studio}/>
                 </HeaderArea>
 
-                <DateSelector
-                    selectedDate={this.grabNewDate()}
-                    onSelectedDateChange={this.handleSelectedDate}/>
+                <CalendarCol>
+                    <DateSelector
+                        selectedDate={this.grabNewDate()}
+                        onSelectedDateChange={this.handleSelectedDate}/>
 
-                <CalendarBox>
-                    <CalTimes />
+                    <CalendarBox>
+                        <CalTimes />
 
-                    <CalendarBody
-                        studio={this.props.studio}
-                        selectedDate={this.grabNewDate()}/>
-                </CalendarBox>
+                        <CalendarBody
+                            studio={this.props.studio}
+                            selectedDate={this.grabNewDate()}/>
+                    </CalendarBox>
+                </CalendarCol>
 
             </Wrapper>
         )

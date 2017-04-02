@@ -10,6 +10,10 @@ export default styled.div`
 
     @media screen and (min-width: ${breakpoints.notSmall}) {
         padding: 16px;
+
+        img {
+            width: 72px;
+        }
     }
 
 

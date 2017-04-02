@@ -15,13 +15,14 @@ export default styled(Link)`
     flex-direction: column;
     height: 128px;
 
-    @media screen and (min-width: ${breakpoints.notSmall}) {
-        flex-direction: row;
-    }
-
-
     &:hover {
         background-color: ${colors.ultraLightGrey};
         box-shadow: ${shadows.diffuseHover};
+    }
+
+    @media screen and (min-width: ${breakpoints.notSmall}) {
+        flex-direction: row;
+
+        padding: 0 2%;
     }
 `;

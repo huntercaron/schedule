@@ -27,15 +27,16 @@ const shadows = {
 	diffuse: '0 2px 16px 0 rgba(0,0,0,0.07)',
 	diffuseHover: '0 4px 26px 0 rgba(0,0,0,0.05)',
 	diffuseColor: (color) => {
-		return `0 2px 16px 0 rgba(${hexToRGB(color)}, 0.8)`
+		return `0 2px 16px 0 rgba(${hexToRGB(color)}, 0.6)`
 	}
 };
 
 const animations = {
-  spinnerCircle: keyframes`
-    0%, 39%, 100% { opacity: 0; }
-    40% { opacity: 1; }
-  `,
+	spinnerCircle: keyframes`
+		0%, 39%, 100% { opacity: 0; }
+		40% { opacity: 1; }
+	`,
+	general: '200ms cubic-bezier(0.4, 0.0, 0.2, 1);'
 };
 
 const breakpoints = {
