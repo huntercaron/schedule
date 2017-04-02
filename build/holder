@@ -1,0 +1,37 @@
+{props.name.days.times.map(studio =>
+    <Studio className="sched-row" data={studio}/>
+)}
+
+
+{props.days[0].times.map(function(time, i){
+    return <CalEvent className={time} status={studio}/>
+})}
+
+render() {
+    if (this.props.selected < 99) {
+        return (
+          <div className="sched-main">
+                return <Studio className="sched-row" data={this.props.data[this.props.selected]}/>
+          </div>
+        );
+    } else {
+        return (
+          <div className="sched-main">
+            { this.props.data.map(function(studio, i){
+                console.log("shit")
+                return <Studio className="sched-row" data={studio}/>
+            })}
+          </div>
+        );
+    }
+}
+
+
+let day = moment().month(this.state.currentMonth);
+let thisMonth = day.clone();
+let days = [];
+
+while (day.month() <= moment().month(this.state.currentMonth)) {
+    days.push(day.toDate());
+    day = day.clone().add(1, 'w');
+}
