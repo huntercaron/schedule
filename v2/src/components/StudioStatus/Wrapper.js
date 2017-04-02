@@ -1,6 +1,7 @@
 import styled               from 'styled-components';
-//import { colors }           from '../../constants';
+import { colors }           from '../../constants';
 
 export default styled.section`
-    width: 100%;
+    display: inline-block;
+
 `;

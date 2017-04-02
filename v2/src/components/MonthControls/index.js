@@ -1,5 +1,7 @@
 import React               from 'react'
 import Wrapper             from './Wrapper'
+import MonthTitle          from './MonthTitle'
+import MonthArrow          from './MonthArrow'
 
 class MonthControls extends React.Component {
     constructor(props) {
@@ -27,13 +29,9 @@ class MonthControls extends React.Component {
 
         return (
             <Wrapper>
-                <button className="month-controls" style={monthNavStyle} onClick={() => this.handleCurrentMonthChange(this.props.currentMonth.clone().subtract(1, "months"))} >
-                    <i className="material-icons">navigate_before</i>
-                </button>
-                <h4 className="current-month" onClick={this.handleViewMonthChange}>{this.props.currentMonth.format("MMMM Y")} <i className="material-icons" style={openMonthArrowStyle} aria-hidden="true">arrow_drop_down</i> </h4>
-                <button className="month-controls" style={monthNavStyle} onClick={() => this.handleCurrentMonthChange(this.props.currentMonth.clone().add(1, "months"))}>
-                    <i className="material-icons">navigate_next</i>
-                </button>
+                <MonthArrow style={monthNavStyle} onClick={() => this.handleCurrentMonthChange(this.props.currentMonth.clone().subtract(1, "months"))} side="before"/>
+                <MonthTitle onClick={this.handleViewMonthChange}>{this.props.currentMonth.format("MMMM Y")} <i className="material-icons" style={openMonthArrowStyle} aria-hidden="true">arrow_drop_down</i> </MonthTitle>
+                <MonthArrow style={monthNavStyle} onClick={() => this.handleCurrentMonthChange(this.props.currentMonth.clone().add(1, "months"))} side="next"/>
             </Wrapper>
         );
     }

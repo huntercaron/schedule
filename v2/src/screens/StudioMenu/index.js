@@ -4,8 +4,6 @@ import ViewAllButton                            from '../../components/ViewAllBu
 import IntroArea                                from '../../components/IntroArea'
 import Wrapper                                  from './Wrapper'
 import MenuBox                                  from './MenuBox'
-import MemberInfoLink                           from './MemberInfoLink'
-
 
 class StudioMenu extends Component {
     render() {
@@ -29,8 +27,6 @@ class StudioMenu extends Component {
                     )}
 
                     <ViewAllButton />
-
-                    <MemberInfoLink />
 
                 </MenuBox>
 

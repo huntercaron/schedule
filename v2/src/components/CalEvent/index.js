@@ -1,5 +1,9 @@
 import React               from 'react'
 import Wrapper             from './Wrapper'
+import EventBox            from './EventBox'
+import EventStatus            from './EventStatus'
+
+import Event    from './Event'
 
 class CalEvent extends React.Component {
     constructor(props) {
@@ -21,15 +25,15 @@ class CalEvent extends React.Component {
 
         switch(this.props.time.statusString.toLowerCase()) {
             case "available":
-                eventInfo = <p className="event-status">Members Only</p>;
+                eventInfo = <EventStatus>Members Only</EventStatus>;
                 break;
 
             case "booked":
-                eventInfo = <p className="event-status">Drop-In Time</p>;
+                eventInfo = <EventStatus>Drop-In Time</EventStatus>;
                 break;
 
             case "event":
-                eventInfo = <p className="event-status">{this.props.time.eventInfo.eventName}</p>;
+                eventInfo = <EventStatus>{this.props.time.eventInfo.eventName}</EventStatus>;
                 break;
 
             default:
@@ -38,7 +42,7 @@ class CalEvent extends React.Component {
         }
 
         return (
-            <Wrapper>
+            <Wrapper style={this.props.style} onClick={() => this.handleViewEventInfo(true)}>
                 {this.props.time.statusString === "Event" && this.state.viewEventInfo &&
                     <div className="day-event-info-box">
                         <div className="day-event-info">
@@ -51,11 +55,9 @@ class CalEvent extends React.Component {
                     </div>
                 }
 
-                <div style={this.props.style} className={`sched-row cal-event-box`} onClick={() => this.handleViewEventInfo(true)}>
-                    <div className={`cal-event ${this.props.time.statusString}`}>
-                        {eventInfo}
-                    </div>
-                </div>
+                <Event className={this.props.time.statusString.toLowerCase()}>
+                    {eventInfo}
+                </Event>
             </Wrapper>
         );
     }

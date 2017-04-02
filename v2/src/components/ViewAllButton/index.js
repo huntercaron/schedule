@@ -1,14 +1,22 @@
 import React                                    from 'react';
 import moment                                   from 'moment'
-import Icon                                     from '../Icon'
+import StudioIcon                                     from '../StudioIcon'
 import WrapperLink                              from './WrapperLink'
-import StudioTitle                              from './StudioTitle'
+import Title                                    from './Title'
+import StudioInfo                               from './StudioInfo'
+import IconBox                                  from './IconBox'
 
 const ViewAllButton = (props) => {
     return (
         <WrapperLink to={`/view-all/date/${moment().format('YYYY[-]MM[-]DD')}`}>
-            <Icon icon="compare_arrows" />
-            <StudioTitle>Compare All Studios</StudioTitle>
+            <IconBox>
+                <StudioIcon name="compare" size="small"/>
+            </IconBox>
+
+            <StudioInfo>
+                <Title>Compare All Studios</Title>
+            </StudioInfo>
+
         </WrapperLink>
     )
 }

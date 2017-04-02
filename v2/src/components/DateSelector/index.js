@@ -1,6 +1,8 @@
 import React                from 'react'
 import moment               from 'moment'
 import Wrapper              from './Wrapper'
+import DayOfWeek            from './DayOfWeek'
+import WeekWrapper          from './WeekWrapper'
 import MonthControls        from '../MonthControls'
 import SelectorWeek         from '../SelectorWeek'
 
@@ -70,16 +72,16 @@ class DateSelector extends React.Component {
                     viewMonth={this.state.viewMonth}
                     onViewMonthChange={this.handleViewMonth}/>
 
-                <div className="selector-cal">
-                    <div className="day-of-week-box">
-                        <p className="day-of-week day-info">{moment().day(0).format("ddd")}</p>
-                        <p className="day-of-week day-info">{moment().day(1).format("ddd")}</p>
-                        <p className="day-of-week day-info">{moment().day(2).format("ddd")}</p>
-                        <p className="day-of-week day-info wed">{moment().day(3).format("ddd")}</p>
-                        <p className="day-of-week day-info">{moment().day(4).format("ddd")}</p>
-                        <p className="day-of-week day-info">{moment().day(5).format("ddd")}</p>
-                        <p className="day-of-week day-info">{moment().day(6).format("ddd")}</p>
-                    </div>
+                <div>
+                    <WeekWrapper>
+                        <DayOfWeek>{moment().day(0).format("ddd")}</DayOfWeek>
+                        <DayOfWeek>{moment().day(1).format("ddd")}</DayOfWeek>
+                        <DayOfWeek>{moment().day(2).format("ddd")}</DayOfWeek>
+                        <DayOfWeek>{moment().day(3).format("ddd")}</DayOfWeek>
+                        <DayOfWeek>{moment().day(4).format("ddd")}</DayOfWeek>
+                        <DayOfWeek>{moment().day(5).format("ddd")}</DayOfWeek>
+                        <DayOfWeek>{moment().day(6).format("ddd")}</DayOfWeek>
+                    </WeekWrapper>
 
 
                     {this.state.viewMonth ? (

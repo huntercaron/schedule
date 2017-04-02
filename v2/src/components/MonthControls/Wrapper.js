@@ -1,7 +1,9 @@
 import styled               from 'styled-components';
-import { colors }           from '../../constants';
+//import { shadows }           from '../../constants';
 
 export default styled.section`
-    background-color: ${colors.lightGrey};
+    padding-bottom: 8px;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
 `;

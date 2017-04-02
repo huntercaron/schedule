@@ -2,6 +2,7 @@ import React, { Component }                     from 'react';
 import moment                                   from 'moment'
 import InnerWrapper                             from './InnerWrapper'
 import WrapperLink                              from './WrapperLink'
+import DayNumber                                from './DayNumber'
 
 class SelectorDay extends Component {
     constructor(props) {
@@ -26,7 +27,7 @@ class SelectorDay extends Component {
 
                 <InnerWrapper>
                     {/*<p className="day-of-week day-info">{this.props.day.format("ddd")}</p>*/}
-                    <h4 className="day-num day-info">{this.props.day.format("D")}</h4>
+                    <DayNumber>{this.props.day.format("D")}</DayNumber>
                 </InnerWrapper>
 
             </WrapperLink>

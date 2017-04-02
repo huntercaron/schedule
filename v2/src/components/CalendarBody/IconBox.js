@@ -1,0 +1,10 @@
+import styled               from 'styled-components';
+//import { colors }           from '../../constants';
+
+export default styled.div`
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+`;

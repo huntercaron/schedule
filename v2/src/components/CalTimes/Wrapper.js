@@ -4,5 +4,5 @@ import styled               from 'styled-components';
 //sched-col
 
 export default styled.section`
-    flex: 1;
+    
 `;

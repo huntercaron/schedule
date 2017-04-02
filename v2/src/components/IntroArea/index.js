@@ -2,6 +2,8 @@ import React                from 'react';
 import Wrapper              from './Wrapper'
 import Title                from './Title'
 import SubTitle             from './SubTitle'
+import MemberInfoLink       from './MemberInfoLink'
+
 
 const IntroArea = ({text, title, ...props}) => {
     return (
@@ -13,6 +15,8 @@ const IntroArea = ({text, title, ...props}) => {
             <SubTitle>
                 {text}
             </SubTitle>
+
+            <MemberInfoLink />
         </Wrapper>
     )
 }

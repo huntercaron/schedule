@@ -80,6 +80,14 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
     font-style: normal;
 }
 
+
+@font-face {
+    font-family: 'MaisonMono';
+    src: url('fonts/MaisonNeueWEB-Mono.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Global Stuff
 -------------------------------------------------- */
 
@@ -99,6 +107,7 @@ body {
     font-weight: 400;
     font-family: 'Mallory', serif;
     color: #222;
+    background-color: #F5F5F5;
 
     webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

@@ -1,6 +1,7 @@
-import React               from 'react'
+import React                from 'react'
 import moment               from 'moment'
-import Wrapper             from './Wrapper'
+import Wrapper              from './Wrapper'
+import Time                 from './Time'
 
 const CalTimes = (props) => {
     let calTimeFormat = moment().hour(7).minute(0);
@@ -17,7 +18,7 @@ const CalTimes = (props) => {
         <Wrapper>
             {calTimes.map(function(time, i){
                 let hourType = !Number.isInteger(time.number) ? "half-hour" : "full-hour";
-                return <div className={`time sched-row ${hourType}`} id={`${time.number}-time`} key={i}>{time.formatted}</div>
+                return <Time className={`time sched-row ${hourType}`} id={`${time.number}-time`} key={i}>{time.formatted}</Time>
             })}
         </Wrapper>
     )

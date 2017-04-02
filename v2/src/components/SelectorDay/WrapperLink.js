@@ -4,6 +4,10 @@ import styled                                   from 'styled-components';
 //import { colors }                               from '../../constants';
 
 export default styled(Link)`
-    border: 1px solid black;
     width: 50%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 `;

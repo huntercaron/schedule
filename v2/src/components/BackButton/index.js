@@ -1,11 +1,26 @@
 import React, {Component}                       from 'react';
 // eslint-disable-next-line
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import styled                                   from 'styled-components';
+import styled                                   from 'styled-components'
+import Icon                                     from '../Icon'
 
 const Button = styled.button`
+    outline: none;
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
 
+    a, i {
+        text-decoration: none;
+        display: inline-block;
+    }
 `;
+
+const StyledLink = styled(Link)`
+    position: absolute;
+    left: 0;
+    top: 0;
+`
 
 class BackButton extends Component {
     constructor(props) {
@@ -19,11 +34,11 @@ class BackButton extends Component {
 
     render() {
         return (
-            <Link to="/">
-                <Button className="back-button">
-                    <i className="material-icons icon-left-align">arrow_back</i> <h6 className="back-button-text">back</h6>
+            <StyledLink to="/">
+                <Button>
+                    <Icon icon="arrow_back"/> <h6 className="back-button-text">back</h6>
                 </Button>
-            </Link>
+            </StyledLink>
         )
     }
 }

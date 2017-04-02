@@ -7,6 +7,7 @@ import ceramicSmallIcon         from './ceramic-small.svg'
 import digitalSmallIcon         from './digital-small.svg'
 import woodworkingSmallIcon     from './woodworking-small.svg'
 import textileSmallIcon         from './textile-small.svg'
+import CompareSmallIcon         from './compare-small.svg'
 
 const Icon = styled.img`
     color: white;
@@ -20,7 +21,8 @@ const StudioIcon = (props) => {
         ceramic: { small: ceramicSmallIcon },
         digital: { small: digitalSmallIcon },
         woodworking: { small: woodworkingSmallIcon },
-        textile: { small: textileSmallIcon }
+        textile: { small: textileSmallIcon },
+        compare: { small: CompareSmallIcon}
     }
 
     return (

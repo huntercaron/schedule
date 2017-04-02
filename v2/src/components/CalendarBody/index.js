@@ -1,26 +1,33 @@
-import React               from 'react'
-import Wrapper             from './Wrapper'
+import React                                    from 'react'
 import StudioIcon                               from '../StudioIcon'
-import Studio                              from '../Studio'
+import Studio                                   from '../Studio'
+import Wrapper                                  from './Wrapper'
+import StudioWrapper                            from './StudioWrapper'
+import IconBox                                  from './IconBox'
 
 const CalendarBody = (props) => {
     return (
 
-      <div className="sched-main sched-col">
+      <Wrapper>
         {props.viewAll ? (
             props.studios.map(function(studio, i){
                 return (
-                    <Wrapper key={i}>
-                        <StudioIcon name={studio.facultyClass} size="small"/>
-                        <Studio className="sched-row" data={studio} selectedDate={props.selectedDate}/>
-                    </Wrapper>
+                    <StudioWrapper key={i}>
+                        <IconBox>
+                            <StudioIcon name={studio.facultyClass} size="small"/>
+                        </IconBox>
+
+                        <Studio data={studio} selectedDate={props.selectedDate}/>
+                    </StudioWrapper>
                 );
             })
         ) : (
-            <Studio className="sched-row" data={props.studio} selectedDate={props.selectedDate}/>
+            <StudioWrapper>
+                <Studio data={props.studio} selectedDate={props.selectedDate}/>
+            </StudioWrapper>
         )}
 
-      </div>
+    </Wrapper>
     );
 }
 
