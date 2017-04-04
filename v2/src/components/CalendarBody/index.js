@@ -14,7 +14,7 @@ const CalendarBody = (props) => {
             props.studios.map(function(studio, i){
                 return (
                     <StudioWrapper key={i}>
-                        <IconBox to={`/studio/${studio.facultyClass}/date/${moment().format('YYYY[-]MM[-]DD')}`}>
+                        <IconBox to={`/app/studio/${studio.facultyClass}/date/${moment().format('YYYY[-]MM[-]DD')}`}>
                             <StudioIcon name={studio.facultyClass} size="small"/>
                         </IconBox>
 
