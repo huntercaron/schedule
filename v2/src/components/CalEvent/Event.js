@@ -1,5 +1,5 @@
 import styled               from 'styled-components';
-import { colors, shadows }           from '../../constants';
+import { colors, shadows, breakpoints }           from '../../constants';
 
 export default styled.div`
     width: 99%;
@@ -9,13 +9,15 @@ export default styled.div`
     margin-left: 1%;
     border-radius: 3px;
     display: flex;
+    max-width: 400px;
+    margin: auto;
     justify-content: center;
-    align-items: center;
+    padding-top: 12px;
 
 
     &.available {
-        background-color: ${colors.statusGreen};
-        box-shadow: ${shadows.diffuseColor(colors.statusGreen)};
+        background-color: ${"#A7CFF5"};
+        box-shadow: ${shadows.diffuseColor("#A7CFF5")};
     }
 
     &.booked {
@@ -23,9 +25,17 @@ export default styled.div`
         box-shadow: ${shadows.diffuseColor(colors.accentColor)};
     }
 
+    &.event {
+        background-color: ${"#AFB7D4"};
+        box-shadow: ${shadows.diffuseColor("#AFB7D4")};
+    }
+
     &.closed {
         display: none;
     }
 
+    @media screen and (min-width: ${breakpoints.notSmall}) {
+
+    }
 
 `;

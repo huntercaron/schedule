@@ -8,7 +8,7 @@ export default styled.section`
     padding: 26px 4%;
     margin-bottom: 16px;
 
-    @media screen and (min-width: ${breakpoints.notSmall}) {
-        
+    @media screen and (min-width: ${breakpoints.tablet}) {
+
     }
 `;

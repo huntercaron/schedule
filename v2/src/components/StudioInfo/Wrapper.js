@@ -1,4 +1,5 @@
 import styled               from 'styled-components';
+import { animations }       from '../../constants'
 
 export default styled.section`
     width: 100%;
@@ -8,4 +9,7 @@ export default styled.section`
     display: flex;
     justify-content: center;
     flex-direction: column;
+    opacity: 0;
+
+    animation: ${animations.fadeIn} ${animations.generalCurve} 0.45s 0.15s forwards;
 `;

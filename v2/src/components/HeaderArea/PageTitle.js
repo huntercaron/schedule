@@ -9,10 +9,14 @@ const Wrapper = styled.div`
     width: 100%;
 `;
 
+const Heading = styled.h6`
+    
+`;
+
 const PageTitle = ({text, ...props}) => {
     return (
         <Wrapper>
-            <h5>{text}</h5>
+            <h6>{text}</h6>
         </Wrapper>
     )
 }

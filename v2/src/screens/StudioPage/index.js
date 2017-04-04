@@ -43,7 +43,7 @@ class StudioPage extends Component {
     render() {
         return(
             <Wrapper>
-                <HeaderArea text="Studio Schedule">
+                <HeaderArea text={`${this.props.studio.facultyName} Schedule`}>
                     <StudioInfo studio={this.props.studio}/>
                 </HeaderArea>
 

@@ -36,7 +36,12 @@ const animations = {
 		0%, 39%, 100% { opacity: 0; }
 		40% { opacity: 1; }
 	`,
-	general: '200ms cubic-bezier(0.4, 0.0, 0.2, 1);'
+	fadeIn: keyframes`
+		from  { opacity: 0; transform: translateY(-6px); }
+		to { opacity: 1; transform: translateY(0px); }
+	`,
+	general: '200ms cubic-bezier(0.4, 0.0, 0.2, 1);',
+	generalCurve: 'cubic-bezier(0.4, 0.0, 0.2, 1)'
 };
 
 const breakpoints = {

@@ -37,12 +37,13 @@ class CalEvent extends React.Component {
                 break;
 
             default:
-                eventStatus = <p></p>;
+                eventStatus = <EventStatus></EventStatus>;
 
         }
+        /*<Wrapper style={this.props.style} onClick={() => this.handleViewEventInfo(true)}>*/
 
         return (
-            <Wrapper style={this.props.style} onClick={() => this.handleViewEventInfo(true)}>
+            <Wrapper style={this.props.style}>
                 {this.props.time.statusString === "Event" && this.state.viewEventInfo &&
                     <div className="day-event-info-box">
                         <div className="day-event-info">

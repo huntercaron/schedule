@@ -1,5 +1,6 @@
 import React                from 'react';
 import Wrapper              from './Wrapper'
+import InnerWrapper         from './InnerWrapper'
 import Title                from './Title'
 import SubTitle             from './SubTitle'
 import MemberInfoLink       from './MemberInfoLink'
@@ -8,15 +9,17 @@ import MemberInfoLink       from './MemberInfoLink'
 const IntroArea = ({text, title, ...props}) => {
     return (
         <Wrapper {...props}>
-            <Title>
-                {title}
-            </Title>
+            <InnerWrapper>
+                <Title>
+                    {title}
+                </Title>
 
-            <SubTitle>
-                {text}
-            </SubTitle>
+                <SubTitle>
+                    {text}
+                </SubTitle>
 
-            <MemberInfoLink />
+                <MemberInfoLink />
+            </InnerWrapper>
         </Wrapper>
     )
 }

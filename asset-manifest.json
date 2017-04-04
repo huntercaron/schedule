@@ -1,8 +1,8 @@
 {
-  "main.css": "static/css/main.c0feb384.css",
-  "main.css.map": "static/css/main.c0feb384.css.map",
-  "main.js": "static/js/main.2f5b4042.js",
-  "main.js.map": "static/js/main.2f5b4042.js.map",
+  "main.css": "static/css/main.f848fab9.css",
+  "main.css.map": "static/css/main.f848fab9.css.map",
+  "main.js": "static/js/main.882efc61.js",
+  "main.js.map": "static/js/main.882efc61.js.map",
   "static/media/MaisonNeueWEB-Mono.woff": "static/media/MaisonNeueWEB-Mono.b18c9635.woff",
   "static/media/MalloryMP-Black.eot": "static/media/MalloryMP-Black.b3fa8d28.eot",
   "static/media/MalloryMP-Black.woff": "static/media/MalloryMP-Black.2fd05451.woff",
@@ -22,10 +22,15 @@
   "static/media/MalloryMP-Medium.woff": "static/media/MalloryMP-Medium.58ca02a9.woff",
   "static/media/MalloryMP-MediumItalic.eot": "static/media/MalloryMP-MediumItalic.9217620a.eot",
   "static/media/MalloryMP-MediumItalic.woff": "static/media/MalloryMP-MediumItalic.61a013b7.woff",
+  "static/media/art-medium.svg": "static/media/art-medium.9dc05b97.svg",
   "static/media/art-small.svg": "static/media/art-small.f36595cd.svg",
+  "static/media/ceramic-medium.svg": "static/media/ceramic-medium.75ba0f00.svg",
   "static/media/ceramic-small.svg": "static/media/ceramic-small.bf4ed388.svg",
   "static/media/compare-small.svg": "static/media/compare-small.9ff2eace.svg",
+  "static/media/digital-medium.svg": "static/media/digital-medium.6bf91ec7.svg",
   "static/media/digital-small.svg": "static/media/digital-small.4ac5c08a.svg",
+  "static/media/textile-medium.svg": "static/media/textile-medium.fae495c0.svg",
   "static/media/textile-small.svg": "static/media/textile-small.a35351db.svg",
+  "static/media/woodworking-medium.svg": "static/media/woodworking-medium.c334b03f.svg",
   "static/media/woodworking-small.svg": "static/media/woodworking-small.175fcd26.svg"
 }

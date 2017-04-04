@@ -32,7 +32,7 @@ class StudioInfo extends React.Component {
             <Wrapper>
 
                 <IconBox>
-                    <StudioIcon name={this.props.studio.facultyClass} size={"small"}/>
+                    <StudioIcon name={this.props.studio.facultyClass} size={"medium"}/>
                 </IconBox>
 
                 <Title>

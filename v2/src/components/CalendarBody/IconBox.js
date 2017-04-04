@@ -1,7 +1,7 @@
 import styled                                   from 'styled-components';
 // eslint-disable-next-line
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import { shadows }                              from '../../constants';
+import { shadows, breakpoints }                 from '../../constants';
 
 export default styled(Link)`
     position: absolute;
@@ -13,8 +13,12 @@ export default styled(Link)`
     top: -84px;
 
     img {
-        width: 64px;
+        width: 52px;
         box-shadow: ${shadows.diffuse};
         border-radius: 50%;
+
+        @media screen and (min-width: ${breakpoints.notSmall}) {
+            width: 64px;
+        }
     }
 `;

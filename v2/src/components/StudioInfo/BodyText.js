@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { colors }           from '../../constants';
 
 export default styled.div`
     display: ${props => props.show ? "block" : "none"};
@@ -8,6 +9,7 @@ export default styled.div`
         padding-left: 10px;
         margin-left: auto;
         margin-right: auto;
+        color: ${colors.darkGrey};
     }
 
 `;

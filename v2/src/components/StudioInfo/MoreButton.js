@@ -18,7 +18,9 @@ const StyledButton = styled.button`
     background-color: transparent;
 
     p {
+        vertical-align: bottom;
         margin: 0;
+        line-height: 1;
     }
 
     i {
