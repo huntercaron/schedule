@@ -44,7 +44,7 @@ class BackButton extends Component {
 
     render() {
         return (
-            <StyledLink to="/app/">
+            <StyledLink to="/">
                 <Button>
                     <Icon icon="arrow_back"/> <AccessText>back</AccessText>
                 </Button>

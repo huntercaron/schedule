@@ -8,7 +8,7 @@ import IconBox                                  from './IconBox'
 
 const ViewAllButton = (props) => {
     return (
-        <WrapperLink to={`/app/view-all/date/${moment().format('YYYY[-]MM[-]DD')}`}>
+        <WrapperLink to={`/view-all/date/${moment().format('YYYY[-]MM[-]DD')}`}>
             <IconBox>
                 <StudioIcon name="compare" size="small"/>
             </IconBox>

@@ -10,7 +10,7 @@ import IconBox                                  from './IconBox'
 
 const StudioMenuItem = (props) => {
     return (
-        <WrapperLink to={`/app/studio/${props.studioClass}/date/${moment().format('YYYY[-]MM[-]DD')}`}>
+        <WrapperLink to={`/studio/${props.studioClass}/date/${moment().format('YYYY[-]MM[-]DD')}`}>
             <IconBox>
                 <StudioIcon name={props.studioClass} size="small"/>
             </IconBox>

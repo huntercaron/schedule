@@ -25,6 +25,7 @@ const colors = {
 
 const shadows = {
 	diffuse: '0 2px 16px 0 rgba(0,0,0,0.07)',
+	diffuseDark: '0 6px 38px 0 rgba(0,0,0,0.22)',
 	diffuseHover: '0 4px 26px 0 rgba(0,0,0,0.05)',
 	diffuseColor: (color) => {
 		return `0 2px 16px 0 rgba(${hexToRGB(color)}, 0.6)`

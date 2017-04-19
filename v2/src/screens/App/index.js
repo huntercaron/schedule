@@ -5,6 +5,7 @@ import StudioMenu                                     from '../StudioMenu'
 import StudioPage                                     from '../StudioPage'
 import ViewAllPage                                    from '../ViewAllPage'
 import MemberInfo                                     from '../MemberInfo'
+import Styleguide                                     from '../Styleguide'
 import studiosData                                    from '../../../data/times.json'
 import Wrapper                                        from './Wrapper'
 
@@ -44,6 +45,7 @@ class App extends Component {
                     <Wrapper>
                         <Route exact path="/" render={() => <StudioMenu studios={this.state.studios} /> }/>
 
+                        <Route path="/styleguide" component={Styleguide} />
                         <Route path="/member-info" component={MemberInfo} />
 
                         <Route path="/view-all/date/:year-:month-:day" render={({ match }) => (
